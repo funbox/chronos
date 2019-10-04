@@ -2,10 +2,32 @@
   "name": "date-util",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint --cache -c .eslintrc.js --ext .js lib",
+    "build": "babel lib --out-dir dist",
+    "prepublishOnly": "npm run build"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "7.6.2",
+    "@babel/core": "7.6.2",
+    "@babel/preset-env": "7.6.2",
+    "@funboxteam/eslint-config": "4.14.0",
+    "eslint": "6.5.1",
+    "husky": "3.0.8",
+    "lint-staged": "9.4.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged -q"
+    }
+  },
+  "lint-staged": {
+    "lib/**/*.js": [
+      "eslint --fix --cache -c .eslintrc.js",
+      "git add"
+    ]
+  }
 }

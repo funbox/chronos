@@ -71,3 +71,6 @@ jsconfig.json
 # -- Deploy --
 /config/database.yml
 target.tar.gz
+
+# -- Dist --
+/dist
