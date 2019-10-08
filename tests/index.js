@@ -8,6 +8,8 @@ const {
   subtractDate,
   formatDate,
   getDateUnit,
+  getDuration,
+  isSameDate,
 } = require('../dist');
 
 describe('addDate', () => {
@@ -63,5 +65,45 @@ describe('getDateUnit', () => {
 
   it('should return day of unix timestamp', () => {
     expect(getDateUnit(1577826000, 'day')).to.equal(1);
+  });
+});
+
+describe('getDuration', () => {
+  it('should return duration as days, hours and minutes', () => {
+    expect(getDuration(1000000)).to.deep.equal({ days: 11, hours: 13, minutes: 46 });
+  });
+
+  it('should return duration as hours and minutes', () => {
+    expect(getDuration(10000)).to.deep.equal({ days: 0, hours: 13, minutes: 46 });
+  });
+
+  it('should return duration as minutes', () => {
+    expect(getDuration(1000)).to.deep.equal({ days: 0, hours: 0, minutes: 16 });
+  });
+});
+
+describe('isSameDate', () => {
+  it('should compare same years', () => {
+    expect(isSameDate(new Date(2020, 0, 1), new Date(2020, 0, 2), 'year')).to.equal(true);
+  });
+
+  it('should compare different years', () => {
+    expect(isSameDate(new Date(2020, 0, 1), new Date(2019, 11, 31), 'year')).to.equal(false);
+  });
+
+  it('should compare same months', () => {
+    expect(isSameDate(new Date(2020, 0, 1), new Date(2020, 0, 2), 'month')).to.equal(true);
+  });
+
+  it('should compare different months', () => {
+    expect(isSameDate(new Date(2020, 0, 1), new Date(2019, 1, 1), 'month')).to.equal(false);
+  });
+
+  it('should compare same days', () => {
+    expect(isSameDate(new Date(2020, 0, 1), new Date(2020, 0, 1, 5), 'day')).to.equal(true);
+  });
+
+  it('should compare different days', () => {
+    expect(isSameDate(new Date(2020, 0, 1), new Date(2019, 0, 2), 'day')).to.equal(false);
   });
 });
