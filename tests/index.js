@@ -10,6 +10,7 @@ const {
   getDateUnit,
   getDuration,
   isSameDate,
+  getDateDiff,
 } = require('../dist');
 
 describe('addDate', () => {
@@ -74,7 +75,7 @@ describe('getDuration', () => {
   });
 
   it('should return duration as hours and minutes', () => {
-    expect(getDuration(10000)).to.deep.equal({ days: 0, hours: 13, minutes: 46 });
+    expect(getDuration(10000)).to.deep.equal({ days: 0, hours: 2, minutes: 46 });
   });
 
   it('should return duration as minutes', () => {
@@ -105,5 +106,19 @@ describe('isSameDate', () => {
 
   it('should compare different days', () => {
     expect(isSameDate(new Date(2020, 0, 1), new Date(2019, 0, 2), 'day')).to.equal(false);
+  });
+});
+
+describe('getDateDiff', () => {
+  it('should return diff in years', () => {
+    expect(getDateDiff(new Date(2020, 0, 1), new Date(2019, 0, 1), 'years')).to.equal(1);
+  });
+
+  it('should return diff in years months', () => {
+    expect(getDateDiff(new Date(2020, 0, 1), new Date(2020, 4, 1), 'months')).to.equal(-4);
+  });
+
+  it('should return diff in years in days', () => {
+    expect(getDateDiff(new Date(2020, 0, 1), new Date(2020, 0, 5), 'days')).to.equal(-4);
   });
 });
