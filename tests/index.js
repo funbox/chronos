@@ -5,7 +5,9 @@ const expect = chai.expect;
 
 const {
   addDate,
+  subtractDate,
   formatDate,
+  getDateUnit,
 } = require('../dist');
 
 describe('addDate', () => {
@@ -22,6 +24,20 @@ describe('addDate', () => {
   });
 });
 
+describe('subtractDate', () => {
+  it('should subtract 1 year', () => {
+    expect(subtractDate(1577826000, 1, 'years')).to.equalDate(new Date(2019, 0, 1));
+  });
+
+  it('should subtract 1 month', () => {
+    expect(subtractDate(1577826000, 1, 'months')).to.equalDate(new Date(2019, 11, 1));
+  });
+
+  it('should subtract 1 day', () => {
+    expect(subtractDate(1577826000, 1, 'days')).to.equalDate(new Date(2019, 11, 31));
+  });
+});
+
 describe('formatDate', () => {
   it('should format unix timestamp to \'HH:mm:ss\'', () => {
     expect(formatDate(1577826000, 'HH:mm:ss')).to.equal('00:00:00');
@@ -33,5 +49,19 @@ describe('formatDate', () => {
 
   it('should format Date instance to \'YYYY-MM-DD\'', () => {
     expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD')).to.equal('2020-01-01');
+  });
+});
+
+describe('getDateUnit', () => {
+   it('should return year of unix timestamp', () => {
+     expect(getDateUnit(1577826000, 'year')).to.equal(2020);
+   });
+
+  it('should return month of unix timestamp', () => {
+    expect(getDateUnit(1577826000, 'month')).to.equal(0);
+  });
+
+  it('should return day of unix timestamp', () => {
+    expect(getDateUnit(1577826000, 'day')).to.equal(1);
   });
 });
