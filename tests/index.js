@@ -13,6 +13,7 @@ const {
   getDateDiff,
   getStartOf,
   getEndOf,
+  getUtcOffset,
 } = require('../dist');
 
 describe('addDate', () => {
@@ -152,5 +153,11 @@ describe('getEndOf', () => {
   it('should return date of end of the day', () => {
     const result = getEndOf(new Date(2020, 1, 1, 0, 0), 'day');
     expect(result.getTime()).to.equal(new Date(2020, 1, 1, 23, 59, 59, 999).getTime());
+  });
+});
+
+describe('getUtcOffset', () => {
+  it('should return UTC offset in hours', () => {
+    expect(getUtcOffset(new Date(2020, 0, 1))).to.equal(3);
   });
 });
