@@ -11,6 +11,8 @@ const {
   getDuration,
   isSameDate,
   getDateDiff,
+  getStartOf,
+  getEndOf,
 } = require('../dist');
 
 describe('addDate', () => {
@@ -120,5 +122,35 @@ describe('getDateDiff', () => {
 
   it('should return diff in years in days', () => {
     expect(getDateDiff(new Date(2020, 0, 1), new Date(2020, 0, 5), 'days')).to.equal(-4);
+  });
+});
+
+describe('getStartOf', () => {
+  it('should return date of start of the year', () => {
+    expect(getStartOf(new Date(2020, 1, 1, 23, 59), 'year')).to.equalDate(new Date(2020, 0, 1, 0, 0));
+  });
+
+  it('should return date of start of the month', () => {
+    expect(getStartOf(new Date(2020, 2, 2, 23, 59), 'month')).to.equalDate(new Date(2020, 2, 1, 0, 0));
+  });
+
+  it('should return date of start of the day', () => {
+    const result = getStartOf(new Date(2020, 2, 2, 23, 59), 'day');
+    expect(result.getTime()).to.equal(new Date(2020, 2, 2, 0, 0, 0, 0).getTime());
+  });
+});
+
+describe('getEndOf', () => {
+  it('should return date of end of the year', () => {
+    expect(getEndOf(new Date(2020, 1, 1), 'year')).to.equalDate(new Date(2020, 11, 31));
+  });
+
+  it('should return date of end of the month', () => {
+    expect(getEndOf(new Date(2020, 1, 1), 'month')).to.equalDate(new Date(2020, 1, 29));
+  });
+
+  it('should return date of end of the day', () => {
+    const result = getEndOf(new Date(2020, 1, 1, 0, 0), 'day');
+    expect(result.getTime()).to.equal(new Date(2020, 1, 1, 23, 59, 59, 999).getTime());
   });
 });
