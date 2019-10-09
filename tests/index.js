@@ -14,6 +14,7 @@ const {
   getStartOf,
   getEndOf,
   getUtcOffset,
+  getTime,
 } = require('../dist');
 
 describe('addDate', () => {
@@ -159,5 +160,11 @@ describe('getEndOf', () => {
 describe('getUtcOffset', () => {
   it('should return UTC offset in hours', () => {
     expect(getUtcOffset(new Date(2020, 0, 1))).to.equal(3);
+  });
+});
+
+describe('getTime', () => {
+  it('should return unix timestamp', () => {
+    expect(getTime(new Date(2020, 0, 1))).to.equal(1577826000);
   });
 });

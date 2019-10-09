@@ -217,3 +217,23 @@ getUtcOffset(date);
 ```bash
 getUtcOffset(new Date(2020, 0, 1);
 ```
+
+### [getTime](./lib/getTime.js)
+
+Возвращает значение временной метки в секундах.
+
+**Синтаксис**
+```bash
+getTime(date);
+```
+
+Параметры:
+- `date` - объект Date;
+
+Пример
+```bash
+getTime(); // unixtime от new Date();
+
+getTime(new Date(2020, 0, 1);
+```
+

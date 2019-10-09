@@ -219,3 +219,22 @@ Example
 ```bash
 getUtcOffset(new Date(2020, 0, 1);
 ```
+
+### [getTime](./lib/getTime.js)
+
+Returns Unix timestamp of the passed date.
+
+**Syntax**
+```bash
+getTime(date);
+```
+
+Params:
+- `date` - Date instance;
+
+Example
+```bash
+getTime(); // unixtime of new Date();
+
+getTime(new Date(2020, 0, 1);
+```
