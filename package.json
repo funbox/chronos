@@ -2,7 +2,7 @@
   "name": "date-util",
   "version": "0.1.0",
   "description": "",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "lint": "eslint --cache -c .eslintrc.js --ext .js lib",
     "build": "babel lib --out-dir dist",
