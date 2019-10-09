@@ -158,7 +158,7 @@ getDateDiff(firstDate, secondDate, unit);
 Параметры:
 - `firstDate` - объект Date или Number, временная метка Unix;
 - `secondDate` - объект Date или Number, временная метка Unix;
-- `unit` - String, единица времени. Доступные значения `days`, `months`, `years`.
+- `unit` - String, единица времени. Доступные значения `minutes`, `days`, `months`, `years`.
 
 Пример
 ```bash

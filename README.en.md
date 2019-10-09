@@ -160,7 +160,7 @@ getDateDiff(firstDate, secondDate, unit);
 Params:
 - `firstDate` - Date instance or Number with Unix timestamp;
 - `secondDate` - Date instance or Number with Unix timestamp;
-- `unit` - String, unit. Available values `days`, `months`, `years`.
+- `unit` - String, unit. Available values `minutes`, `days`, `months`, `years`.
 
 Example
 ```bash
