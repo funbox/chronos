@@ -129,23 +129,22 @@ Example
 getDuration(1000000); // { days: 11, hours: 13, minutes: 46 }
 ```
 
-### [isSameDate](./lib/isSameDate.js)
+### [isSameDay](./lib/isSameDay.js), [isSameMonth](./lib/isSameMonth.js), [isSameYear](./lib/isSameYear.js)
 
 Checks the dates equality.
 
 **Usage**
 ```bash
-isSameDate(firstDate, secondDate, unit);
+isSameYear(firstDate, secondDate);
 ```
 
 Params:
 - `firstDate` — Date instance or Number with Unix timestamp;
-- `secondDate` — Date instance or Number with Unix timestamp;
-- `unit` — String, unit. Available values `day`, `month`, `year`.
+- `secondDate` — Date instance or Number with Unix timestamp.
 
 Example
 ```bash
-isSameDate(1577826000, 1577912400, 'year');
+isSameYear(1577826000, 1577912400);
 ```
 
 ### [getDateDiff](./lib/getDateDiff.js)

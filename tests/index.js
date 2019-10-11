@@ -13,7 +13,9 @@ const {
   formatDate,
   getDateUnit,
   getDuration,
-  isSameDate,
+  isSameDay,
+  isSameMonth,
+  isSameYear,
   getDateDiff,
   getStartOfDay,
   getStartOfMonth,
@@ -95,29 +97,31 @@ describe('getDuration', () => {
   });
 });
 
-describe('isSameDate', () => {
+describe('Equality checking', () => {
   it('should compare same years', () => {
-    expect(isSameDate(new Date(2020, 0, 1), new Date(2020, 0, 2), 'year')).to.equal(true);
+    expect(isSameYear(new Date(2020, 0, 1), new Date(2020, 0, 2))).to.equal(true);
   });
 
   it('should compare different years', () => {
-    expect(isSameDate(new Date(2020, 0, 1), new Date(2019, 11, 31), 'year')).to.equal(false);
+    expect(isSameYear(new Date(2020, 0, 1), new Date(2019, 11, 31))).to.equal(false);
   });
 
   it('should compare same months', () => {
-    expect(isSameDate(new Date(2020, 0, 1), new Date(2020, 0, 2), 'month')).to.equal(true);
+    expect(isSameMonth(new Date(2020, 0, 1), new Date(2020, 0, 2))).to.equal(true);
   });
 
   it('should compare different months', () => {
-    expect(isSameDate(new Date(2020, 0, 1), new Date(2019, 1, 1), 'month')).to.equal(false);
+    expect(isSameMonth(new Date(2020, 0, 1), new Date(2019, 1, 1))).to.equal(false);
+    expect(isSameMonth(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(false);
   });
 
   it('should compare same days', () => {
-    expect(isSameDate(new Date(2020, 0, 1), new Date(2020, 0, 1, 5), 'day')).to.equal(true);
+    expect(isSameDay(new Date(2020, 0, 1), new Date(2020, 0, 1, 5))).to.equal(true);
   });
 
   it('should compare different days', () => {
-    expect(isSameDate(new Date(2020, 0, 1), new Date(2019, 0, 2), 'day')).to.equal(false);
+    expect(isSameDay(new Date(2020, 0, 1), new Date(2019, 0, 2))).to.equal(false);
+    expect(isSameDay(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(false);
   });
 });
 

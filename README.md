@@ -125,23 +125,22 @@ getDuration(seconds);
 getDuration(1000000); // { days: 11, hours: 13, minutes: 46 }
 ```
 
-### [isSameDate](./lib/isSameDate.js)
+### [isSameDay](./lib/isSameDay.js), [isSameMonth](./lib/isSameMonth.js), [isSameYear](./lib/isSameYear.js)
 
 Проверяет равенство единицы времени двух дат.
 
 **Использование**
 ```bash
-isSameDate(firstDate, secondDate, unit);
+isSameYear(firstDate, secondDate);
 ```
 
 Параметры:
 - `firstDate` – объект Date или Number, временная метка Unix;
-- `secondDate` – объект Date или Number, временная метка Unix;
-- `unit` – String, единица времени. Доступные значения `day`, `month`, `year`.
+- `secondDate` – объект Date или Number, временная метка Unix.
 
 Пример
 ```bash
-isSameDate(1577826000, 1577912400, 'year');
+isSameYear(1577826000, 1577912400);
 ```
 
 ### [getDateDiff](./lib/getDateDiff.js)
