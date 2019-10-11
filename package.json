@@ -2,13 +2,14 @@
   "name": "@funboxteam/chronos",
   "version": "0.1.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
   "sideEffects": false,
   "scripts": {
     "lint": "eslint --cache -c .eslintrc.js --ext .js lib",
-    "build": "babel lib --out-dir dist",
+    "build": "BABEL_ENV=esm babel lib --out-dir dist/esm && BABEL_ENV=node babel lib --out-dir dist/cjs",
     "prepublishOnly": "npm run build",
-    "test": "npm run build && mocha tests"
+    "test": "BABEL_ENV=node mocha --require @babel/register tests"
   },
   "author": "Natalia Andreychenko <natandreychenko@gmail.com> (https://github.com/natrey)",
   "private": true,
@@ -16,6 +17,7 @@
     "@babel/cli": "7.6.2",
     "@babel/core": "7.6.2",
     "@babel/preset-env": "7.6.2",
+    "@babel/register": "7.6.2",
     "@funboxteam/eslint-config": "4.14.0",
     "chai": "4.2.0",
     "chai-datetime": "1.5.0",
@@ -34,5 +36,6 @@
       "eslint --fix --cache -c .eslintrc.js",
       "git add"
     ]
-  }
+  },
+  "dependencies": {}
 }

@@ -30,7 +30,7 @@ const {
   getEndOfYear,
   getUtcOffset,
   getTime,
-} = require('../dist');
+} = require('../lib');
 
 describe('Addition', () => {
   it('should add 1 year', () => {
