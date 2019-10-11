@@ -92,24 +92,25 @@ formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
 formatDate(1577826000, 'HH:mm:ss');
 ```
 
-### [getDateUnit](./lib/getDateUnit.js)
+### [getDay](./lib/getDay.js), [getWeekday](./lib/getWeekday.js), [getMonth](./lib/getMonth.js), [getMonthLong](./lib/getMonthLong.js), [getYear](./lib/getYear.js)
 
-Returns the passed time unit from the passed date.
+Returns unit from the passed date.
 
 **Usage**
 ```bash
-getDateUnit(date, unit);
+getDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp;
-- `unit` — String, unit. Available values `day`, `month`, `year`.
+- `date` — Date instance or Unix timestamp.
+
+`getWeekday` returns name of the day, `getMonthLong` returns name of the month.
 
 Example
 ```bash
-getDateUnit(new Date(2020, 0, 1), 'day');
+getDay(new Date(2020, 0, 1));
 
-getDateUnit(1577826000, 'year');
+getYear(1577826000);
 ```
 
 ### [getDuration](./lib/getDuration.js)

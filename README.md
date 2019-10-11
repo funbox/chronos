@@ -88,24 +88,25 @@ formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
 formatDate(1577826000, 'HH:mm:ss');
 ```
 
-### [getDateUnit](./lib/getDateUnit.js)
+### [getDay](./lib/getDay.js), [getWeekday](./lib/getWeekday.js), [getMonth](./lib/getMonth.js), [getMonthLong](./lib/getMonthLong.js), [getYear](./lib/getYear.js)
 
 Возвращает указанную единицу времени.
 
 **Использование**
 ```bash
-getDateUnit(date, unit);
+getDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix;
-- `unit` – String, единица времени. Доступные значения `day`, `month`, `year`.
+- `date` – объект Date или Number, временная метка Unix.
+
+`getWeekday` возвращает название дня недели, `getMonthLong` возвращает название месяца. 
 
 Пример
 ```bash
-getDateUnit(new Date(2020, 0, 1), 'day');
+getDay(new Date(2020, 0, 1));
 
-getDateUnit(1577826000, 'year');
+getYear(1577826000);
 ```
 
 ### [getDuration](./lib/getDuration.js)

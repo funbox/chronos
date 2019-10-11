@@ -11,7 +11,9 @@ const {
   subtractMonths,
   subtractYears,
   formatDate,
-  getDateUnit,
+  getDay,
+  getMonth,
+  getYear,
   getDuration,
   isSameDay,
   isSameMonth,
@@ -72,17 +74,17 @@ describe('formatDate', () => {
   });
 });
 
-describe('getDateUnit', () => {
+describe('Getting date units', () => {
    it('should return year of unix timestamp', () => {
-     expect(getDateUnit(1577826000, 'year')).to.equal(2020);
+     expect(getYear(1577826000)).to.equal(2020);
    });
 
   it('should return month of unix timestamp', () => {
-    expect(getDateUnit(1577826000, 'month')).to.equal(0);
+    expect(getMonth(1577826000)).to.equal(0);
   });
 
   it('should return day of unix timestamp', () => {
-    expect(getDateUnit(1577826000, 'day')).to.equal(1);
+    expect(getDay(1577826000)).to.equal(1);
   });
 });
 
