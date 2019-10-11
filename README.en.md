@@ -167,22 +167,21 @@ Example
 getDateDiff(1577826000, 1577912400, 'days');
 ```
 
-### [getStartOf](./lib/getStartOf.js)
+### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
 
-Returns the start of the passed time unit of the passed date.
+Returns the start of unit of the passed date.
 
 **Usage**
 ```bash
-getStartOf(date, unit);
+getStartOfDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp;
-- `unit` — String, unit. Available values `day`, `month`, `year`.
+- `date` — Date instance or Unix timestamp.
 
 Example
 ```bash
-getStartOf(1577912400, 'year');
+getStartOfDay(1577912400);
 ```
 
 ### [getEndOf](./lib/getEndOf.js)

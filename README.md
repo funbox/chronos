@@ -163,22 +163,21 @@ getDateDiff(firstDate, secondDate, unit);
 getDateDiff(1577826000, 1577912400, 'days');
 ```
 
-### [getStartOf](./lib/getStartOf.js)
+### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
 
-Возвращает объект даты начала указанной единицы времени.
+Возвращает объект даты начала единицы времени.
 
 **Использование**
 ```bash
-getStartOf(date, unit);
+getStartOfDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix;
-- `unit` – String, единица времени. Доступные значения `day`, `month`, `year`.
+- `date` – объект Date или Number, временная метка Unix.
 
 Пример
 ```bash
-getStartOf(1577912400, 'year');
+getStartOfDay(1577912400);
 ```
 
 ### [getEndOf](./lib/getEndOf.js)

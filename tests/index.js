@@ -15,7 +15,9 @@ const {
   getDuration,
   isSameDate,
   getDateDiff,
-  getStartOf,
+  getStartOfDay,
+  getStartOfMonth,
+  getStartOfYear,
   getEndOf,
   getUtcOffset,
   getTime,
@@ -131,17 +133,17 @@ describe('getDateDiff', () => {
   });
 });
 
-describe('getStartOf', () => {
+describe('Getting start of date', () => {
   it('should return date of start of the year', () => {
-    expect(getStartOf(new Date(2020, 1, 1, 23, 59), 'year')).to.equalDate(new Date(2020, 0, 1, 0, 0));
+    expect(getStartOfYear(new Date(2020, 1, 1, 23, 59))).to.equalDate(new Date(2020, 0, 1, 0, 0));
   });
 
   it('should return date of start of the month', () => {
-    expect(getStartOf(new Date(2020, 2, 2, 23, 59), 'month')).to.equalDate(new Date(2020, 2, 1, 0, 0));
+    expect(getStartOfMonth(new Date(2020, 2, 2, 23, 59))).to.equalDate(new Date(2020, 2, 1, 0, 0));
   });
 
   it('should return date of start of the day', () => {
-    const result = getStartOf(new Date(2020, 2, 2, 23, 59), 'day');
+    const result = getStartOfDay(new Date(2020, 2, 2, 23, 59));
     expect(result.getTime()).to.equal(new Date(2020, 2, 2, 0, 0, 0, 0).getTime());
   });
 });
