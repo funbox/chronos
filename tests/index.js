@@ -18,7 +18,9 @@ const {
   getStartOfDay,
   getStartOfMonth,
   getStartOfYear,
-  getEndOf,
+  getEndOfDay,
+  getEndOfMonth,
+  getEndOfYear,
   getUtcOffset,
   getTime,
 } = require('../dist');
@@ -148,17 +150,17 @@ describe('Getting start of date', () => {
   });
 });
 
-describe('getEndOf', () => {
+describe('Getting end of date', () => {
   it('should return date of end of the year', () => {
-    expect(getEndOf(new Date(2020, 1, 1), 'year')).to.equalDate(new Date(2020, 11, 31));
+    expect(getEndOfYear(new Date(2020, 1, 1))).to.equalDate(new Date(2020, 11, 31));
   });
 
   it('should return date of end of the month', () => {
-    expect(getEndOf(new Date(2020, 1, 1), 'month')).to.equalDate(new Date(2020, 1, 29));
+    expect(getEndOfMonth(new Date(2020, 1, 1))).to.equalDate(new Date(2020, 1, 29));
   });
 
   it('should return date of end of the day', () => {
-    const result = getEndOf(new Date(2020, 1, 1, 0, 0), 'day');
+    const result = getEndOfDay(new Date(2020, 1, 1, 0, 0));
     expect(result.getTime()).to.equal(new Date(2020, 1, 1, 23, 59, 59, 999).getTime());
   });
 });

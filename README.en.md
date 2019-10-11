@@ -184,22 +184,21 @@ Example
 getStartOfDay(1577912400);
 ```
 
-### [getEndOf](./lib/getEndOf.js)
+### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js)
 
-Returns the end of the passed time unit of the passed date.
+Returns the end of unit of the passed date.
 
 **Usage**
 ```bash
-getEndOf(date, unit);
+getEndOfDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp;
-- `unit` — String, unit. Available values `day`, `month`, `year`.
+- `date` — Date instance or Unix timestamp.
 
 Example
 ```bash
-getEndOf(1577912400, 'year');
+getEndOfDay(1577912400);
 ```
 
 ### [getUtcOffset](./lib/getUtcOffset.js)

@@ -180,22 +180,21 @@ getStartOfDay(date);
 getStartOfDay(1577912400);
 ```
 
-### [getEndOf](./lib/getEndOf.js)
+### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js)
 
-Возвращает объект даты конца указанной единицы времени.
+Возвращает объект даты окончания единицы времени.
 
 **Использование**
 ```bash
-getEndOf(date, unit);
+getEndOfDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix;
-- `unit` – String, единица времени. Доступные значения `day`, `month`, `year`.
+- `date` – объект Date или Number, временная метка Unix.
 
 Пример
 ```bash
-getEndOf(1577912400, 'year');
+getEndOfDay(1577912400);
 ```
 
 ### [getUtcOffset](./lib/getUtcOffset.js)
