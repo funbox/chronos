@@ -1,16 +1,17 @@
 {
-  "name": "date-util",
+  "name": "@funboxteam/chronos",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
+  "sideEffects": false,
   "scripts": {
     "lint": "eslint --cache -c .eslintrc.js --ext .js lib",
     "build": "babel lib --out-dir dist",
     "prepublishOnly": "npm run build",
     "test": "npm run build && mocha tests"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Natalia Andreychenko <natandreychenko@gmail.com> (https://github.com/natrey)",
+  "private": true,
   "devDependencies": {
     "@babel/cli": "7.6.2",
     "@babel/core": "7.6.2",
