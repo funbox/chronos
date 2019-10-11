@@ -7,7 +7,9 @@ const {
   addDays,
   addMonths,
   addYears,
-  subtractDate,
+  subtractDays,
+  subtractMonths,
+  subtractYears,
   formatDate,
   getDateUnit,
   getDuration,
@@ -35,15 +37,15 @@ describe('Addition', () => {
 
 describe('Subtraction', () => {
   it('should subtract 1 year', () => {
-    expect(subtractDate(1577826000, 1, 'years')).to.equalDate(new Date(2019, 0, 1));
+    expect(subtractYears(1577826000, 1)).to.equalDate(new Date(2019, 0, 1));
   });
 
   it('should subtract 1 month', () => {
-    expect(subtractDate(1577826000, 1, 'months')).to.equalDate(new Date(2019, 11, 1));
+    expect(subtractMonths(1577826000, 1)).to.equalDate(new Date(2019, 11, 1));
   });
 
   it('should subtract 1 day', () => {
-    expect(subtractDate(1577826000, 1, 'days')).to.equalDate(new Date(2019, 11, 31));
+    expect(subtractDays(1577826000, 1)).to.equalDate(new Date(2019, 11, 31));
   });
 });
 

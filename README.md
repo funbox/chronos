@@ -25,8 +25,6 @@ import { addDate } from @funboxteam/chronos
 **Использование**
 ```bash
 addDays(date, quantity);
-addMonths(date, quantity);
-addYears(date, quantity);
 ```
 Параметры:
 - `date` – объект Date или временная метка Unix;
@@ -39,24 +37,23 @@ addDays(new Date(), 1);
 addYears(1577826000, 1);
 ```
 
-### [subtractDate](./lib/subtractDate.js)
+### [subtractDays](./lib/subtractDays.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
 
-Удаляет указанную единицу времени и возвращает новый объект Date.
+Удаляет количество дней, месяцев или лет и возвращает новый объект Date.
 
 **Использование**
 ```bash
-subtractDate(date, quantity, unit);
+subtractDays(date, quantity);
 ```
 Параметры:
 - `date` – объект Date или Number, временная метка Unix;
-- `quantity` – Number, количество единиц;
-- `unit` – String, единица времени. Доступные значения `days`, `months`, `years`.
+- `quantity` – Number, количество единиц.
 
 Пример
 ```bash
-subtractDate(new Date(), 1 'days');
+subtractDays(new Date(), 1);
 
-subtractDate(1577826000, 1, 'years');
+subtractYears(1577826000, 1);
 ```
 
 ### [formatDate](./lib/formatDate.js)

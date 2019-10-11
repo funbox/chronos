@@ -41,24 +41,23 @@ addDays(new Date(), 1);
 addYears(1577826000, 1);
 ```
 
-### [subtractDate](./lib/subtractDate.js)
+### [subtractDays](./lib/subtractDays.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
 
-Subtract passed unit from the passed date and returns new Date instance.
+Subtracts days, months or years from the passed date and returns new Date instance.
 
 **Usage**
 ```bash
-subtractDate(date, quantity, unit);
+subtractDays(date, quantity);
 ```
 Params:
 - `date` — Date instance or Unix timestamp;
-- `quantity` — Number, number of units;
-- `unit` — String, unit. Available values `days`, `months`, `years`.
+- `quantity` — Number, number of units.
 
 Example
 ```bash
-subtractDate(new Date(), 1 'days');
+subtractDays(new Date(), 1);
 
-subtractDate(1577826000, 1, 'years');
+subtractYears(1577826000, 1);
 ```
 
 ### [formatDate](./lib/formatDate.js)
