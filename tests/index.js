@@ -16,7 +16,10 @@ const {
   isSameDay,
   isSameMonth,
   isSameYear,
-  getDateDiff,
+  getDiffOfDays,
+  getDiffOfMinutes,
+  getDiffOfMonths,
+  getDiffOfYears,
   getStartOfDay,
   getStartOfMonth,
   getStartOfYear,
@@ -112,6 +115,9 @@ describe('Equality checking', () => {
 
   it('should compare different months', () => {
     expect(isSameMonth(new Date(2020, 0, 1), new Date(2019, 1, 1))).to.equal(false);
+  });
+
+  it('should compare different months of different years', () => {
     expect(isSameMonth(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(false);
   });
 
@@ -121,21 +127,40 @@ describe('Equality checking', () => {
 
   it('should compare different days', () => {
     expect(isSameDay(new Date(2020, 0, 1), new Date(2019, 0, 2))).to.equal(false);
+  });
+
+  it('should compare different days of different years', () => {
     expect(isSameDay(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(false);
   });
 });
 
-describe('getDateDiff', () => {
+describe('Getting dates difference', () => {
   it('should return diff in years', () => {
-    expect(getDateDiff(new Date(2020, 0, 1), new Date(2019, 0, 1), 'years')).to.equal(1);
+    expect(getDiffOfYears(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(1);
   });
 
-  it('should return diff in years months', () => {
-    expect(getDateDiff(new Date(2020, 0, 1), new Date(2020, 4, 1), 'months')).to.equal(-4);
+  it('should return diff in months', () => {
+    expect(getDiffOfMonths(new Date(2020, 0, 1), new Date(2020, 4, 1))).to.equal(-4);
+  });
+
+  it('should return diff in months of different years', () => {
+    expect(getDiffOfMonths(new Date(2019, 0, 1), new Date(2020, 4, 1))).to.equal(-16);
   });
 
   it('should return diff in years in days', () => {
-    expect(getDateDiff(new Date(2020, 0, 1), new Date(2020, 0, 5), 'days')).to.equal(-4);
+    expect(getDiffOfDays(new Date(2020, 0, 1), new Date(2020, 0, 5))).to.equal(-4);
+  });
+
+  it('should return diff in days of different years', () => {
+    expect(getDiffOfDays(new Date(2019, 0, 1), new Date(2020, 0, 5))).to.equal(-369);
+  });
+
+  it('should return diff in minutes', () => {
+    expect(getDiffOfMinutes(new Date(2020, 0, 1), new Date(2020, 0, 1, 1))).to.equal(-60);
+  });
+
+  it('should return diff in minutes of different days', () => {
+    expect(getDiffOfMinutes(new Date(2020, 0, 1), new Date(2020, 0, 2, 1))).to.equal(-(60*25));
   });
 });
 

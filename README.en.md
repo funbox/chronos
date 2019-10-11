@@ -147,23 +147,22 @@ Example
 isSameYear(1577826000, 1577912400);
 ```
 
-### [getDateDiff](./lib/getDateDiff.js)
+### [getDiffOfDays](./lib/getDiffOfDays.js), [getDiffOfMinutes](./lib/getDiffOfMinutes.js), [getDiffOfMonths](./lib/getDiffOfMonths.js), [getDiffOfYears](./lib/getDiffOfYears.js)
 
-Returns the difference between two dates in passed units.
+Returns the difference between two dates in units.
 
 **Usage**
 ```bash
-getDateDiff(firstDate, secondDate, unit);
+getDiffOfDays(firstDate, secondDate);
 ```
 
 Params:
 - `firstDate` — Date instance or Number with Unix timestamp;
-- `secondDate` — Date instance or Number with Unix timestamp;
-- `unit` — String, unit. Available values `minutes`, `days`, `months`, `years`.
+- `secondDate` — Date instance or Number with Unix timestamp.
 
 Example
 ```bash
-getDateDiff(1577826000, 1577912400, 'days');
+getDiffOfDays(1577826000, 1577912400);
 ```
 
 ### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)

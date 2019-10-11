@@ -143,23 +143,22 @@ isSameYear(firstDate, secondDate);
 isSameYear(1577826000, 1577912400);
 ```
 
-### [getDateDiff](./lib/getDateDiff.js)
+### [getDiffOfDays](./lib/getDiffOfDays.js), [getDiffOfMinutes](./lib/getDiffOfMinutes.js), [getDiffOfMonths](./lib/getDiffOfMonths.js), [getDiffOfYears](./lib/getDiffOfYears.js)  
 
-Возвращает значение разницы единицы времени двух дат.
+Возвращает значение разницы в единицах времени двух дат.
 
 **Использование**
 ```bash
-getDateDiff(firstDate, secondDate, unit);
+getDiffOfDays(firstDate, secondDate);
 ```
 
 Параметры:
 - `firstDate` – объект Date или Number, временная метка Unix;
-- `secondDate` – объект Date или Number, временная метка Unix;
-- `unit` – String, единица времени. Доступные значения `minutes`, `days`, `months`, `years`.
+- `secondDate` – объект Date или Number, временная метка Unix.
 
 Пример
 ```bash
-getDateDiff(1577826000, 1577912400, 'days');
+getDiffOfDays(1577826000, 1577912400);
 ```
 
 ### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
