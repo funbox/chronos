@@ -20,24 +20,25 @@ import { addDate } from @funboxteam/chronos
 
 ### Available functions
 
-### [addDate](./lib/addDate.js)
+### [addDays](./lib/addDays.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
 
-Adds passed unit to the passed date and returns new Date instance.
+Adds days, months or years to the passed date and returns new Date instance.
 
 **Usage**
 ```bash
-addDate(date, quantity, unit);
+addDays(date, quantity);
+addMonths(date, quantity);
+addYears(date, quantity);
 ```
 Params:
 - `date` — Date instance or Unix timestamp;
-- `quantity` — Number, number of units;
-- `unit` — String, unit. Available values `days`, `months`, `years`.
+- `quantity` — Number, number of units.
 
 Example
 ```bash
-addDate(new Date(), 1 'days');
+addDays(new Date(), 1);
 
-addDate(1577826000, 1, 'years');
+addYears(1577826000, 1);
 ```
 
 ### [subtractDate](./lib/subtractDate.js)

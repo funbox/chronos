@@ -18,24 +18,25 @@ import { addDate } from @funboxteam/chronos
 
 ### Список доступных функций
 
-### [addDate](./lib/addDate.js)
+### [addDays](./lib/addDays.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
 
-Добавляет указанную единицу времени и возвращает новый объект Date.
+Добавляет количество дней, месяцев или лет и возвращает новый объект Date.
 
 **Использование**
 ```bash
-addDate(date, quantity, unit);
+addDays(date, quantity);
+addMonths(date, quantity);
+addYears(date, quantity);
 ```
 Параметры:
 - `date` – объект Date или временная метка Unix;
-- `quantity` – Number, количество единиц;
-- `unit` – String, единица времени. Доступные значения `days`, `months`, `years`.
+- `quantity` – Number, количество единиц.
 
 Пример
 ```bash
-addDate(new Date(), 1 'days');
+addDays(new Date(), 1);
 
-addDate(1577826000, 1, 'years');
+addYears(1577826000, 1);
 ```
 
 ### [subtractDate](./lib/subtractDate.js)

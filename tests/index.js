@@ -4,7 +4,9 @@ require('chai').use(require('chai-datetime'));
 const expect = chai.expect;
 
 const {
-  addDate,
+  addDays,
+  addMonths,
+  addYears,
   subtractDate,
   formatDate,
   getDateUnit,
@@ -17,21 +19,21 @@ const {
   getTime,
 } = require('../dist');
 
-describe('addDate', () => {
+describe('Addition', () => {
   it('should add 1 year', () => {
-    expect(addDate(1577826000, 1, 'years')).to.equalDate(new Date(2021, 0, 1));
+    expect(addYears(1577826000, 1)).to.equalDate(new Date(2021, 0, 1));
   });
 
   it('should add 1 month', () => {
-    expect(addDate(1577826000, 1, 'months')).to.equalDate(new Date(2020, 1, 1));
+    expect(addMonths(1577826000, 1)).to.equalDate(new Date(2020, 1, 1));
   });
 
   it('should add 1 day', () => {
-    expect(addDate(1577826000, 1, 'days')).to.equalDate(new Date(2020, 0, 2));
+    expect(addDays(1577826000, 1)).to.equalDate(new Date(2020, 0, 2));
   });
 });
 
-describe('subtractDate', () => {
+describe('Subtraction', () => {
   it('should subtract 1 year', () => {
     expect(subtractDate(1577826000, 1, 'years')).to.equalDate(new Date(2019, 0, 1));
   });
