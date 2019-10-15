@@ -62,11 +62,11 @@ subtractYears(1577826000, 1);
 
 **Использование**
 ```bash
-formatDate(date, pattern);
+formatDate(date, format);
 ```
 Параметры:
 - `date` – объект Date или Number, временная метка Unix;
-- `pattern` – String, шаблон форматирования времени.    
+- `format` – String, шаблон форматирования времени.    
       
 | Значение  | Описание  |
 |---|---|
@@ -88,7 +88,7 @@ formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
 formatDate(1577826000, 'HH:mm:ss');
 ```
 
-### [getDay](./lib/getDay.js), [getWeekday](./lib/getWeekday.js), [getMonth](./lib/getMonth.js), [getMonthLong](./lib/getMonthLong.js), [getYear](./lib/getYear.js)
+### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Возвращает указанную единицу времени.
 
@@ -100,7 +100,7 @@ getDay(date);
 Параметры:
 - `date` – объект Date или Number, временная метка Unix.
 
-`getWeekday` возвращает название дня недели, `getMonthLong` возвращает название месяца. 
+`getWeekdayName` возвращает название дня недели, `getMonthName` возвращает название месяца. 
 
 Пример
 ```bash

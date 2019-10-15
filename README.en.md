@@ -62,15 +62,15 @@ subtractYears(1577826000, 1);
 
 ### [formatDate](./lib/formatDate.js)
 
-Formats the passed date into the string by the passed pattern.
+Formats the passed date into the string by the passed format.
 
 **Usage**
 ```bash
-formatDate(date, pattern);
+formatDate(date, format);
 ```
 Params:
 - `date` — Date instance or Unix timestamp;
-- `pattern` — String, format pattern.    
+- `format` — String, format.    
       
 | Value  | Description  |
 |---|---|
@@ -92,7 +92,7 @@ formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
 formatDate(1577826000, 'HH:mm:ss');
 ```
 
-### [getDay](./lib/getDay.js), [getWeekday](./lib/getWeekday.js), [getMonth](./lib/getMonth.js), [getMonthLong](./lib/getMonthLong.js), [getYear](./lib/getYear.js)
+### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Returns unit from the passed date.
 
@@ -104,7 +104,7 @@ getDay(date);
 Params:
 - `date` — Date instance or Unix timestamp.
 
-`getWeekday` returns name of the day, `getMonthLong` returns name of the month.
+`getWeekdayName` returns name of the day, `getMonthName` returns name of the month.
 
 Example
 ```bash
