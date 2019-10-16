@@ -5,14 +5,19 @@
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
+  "author": "Natalia Andreychenko <natandreychenko@gmail.com> (https://github.com/natrey)",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "CHANGELOG.md",
+    "README.md"
+  ],
   "scripts": {
     "lint": "eslint --cache -c .eslintrc.js --ext .js lib",
     "build": "BABEL_ENV=esm babel lib --out-dir dist/esm && BABEL_ENV=node babel lib --out-dir dist/cjs",
     "prepublishOnly": "npm run build",
     "test": "BABEL_ENV=node mocha --require @babel/register tests"
   },
-  "author": "Natalia Andreychenko <natandreychenko@gmail.com> (https://github.com/natrey)",
-  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "7.6.2",
     "@babel/core": "7.6.2",
@@ -36,6 +41,5 @@
       "eslint --fix --cache -c .eslintrc.js",
       "git add"
     ]
-  },
-  "dependencies": {}
+  }
 }
