@@ -1,7 +1,7 @@
 {
   "name": "@funboxteam/chronos",
   "version": "1.0.0",
-  "description": "",
+  "description": "The library for ruling the time",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -12,7 +12,7 @@
     "test": "BABEL_ENV=node mocha --require @babel/register tests"
   },
   "author": "Natalia Andreychenko <natandreychenko@gmail.com> (https://github.com/natrey)",
-  "private": true,
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "7.6.2",
     "@babel/core": "7.6.2",
