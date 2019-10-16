@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 (16.10.2019)
+
+Added flag `files` into package.json, to prevent useless files from putting into npm-package. 
+
+
 ## 1.0.1 (16.10.2019)
 
 Removed flag `private: true` from package.json, to make it possible to publish the package.
