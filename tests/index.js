@@ -23,9 +23,11 @@ const {
   getDiffOfMonths,
   getDiffOfYears,
   getStartOfDay,
+  getStartOfDecade,
   getStartOfMonth,
   getStartOfYear,
   getEndOfDay,
+  getEndOfDecade,
   getEndOfMonth,
   getEndOfYear,
   getUtcOffset,
@@ -167,32 +169,108 @@ describe('Getting dates difference', () => {
 });
 
 describe('Getting start of date', () => {
+  it('should return date of start of the decade', () => {
+    expect(getStartOfDecade(new Date(2025, 1, 1, 23, 59))).to.equalDate(new Date(2020, 0, 1, 0, 0));
+  });
+
+  it('should return date of start of the decade + 1', () => {
+    expect(getStartOfDecade(new Date(2025, 1, 1, 23, 59), 1)).to.equalDate(new Date(2030, 0, 1, 0, 0));
+  });
+
+  it('should return date of start of decade - 1', () => {
+    expect(getStartOfDecade(new Date(2025, 1, 1, 23, 59), -1)).to.equalDate(new Date(2010, 0, 1, 0, 0));
+  });
+
   it('should return date of start of the year', () => {
     expect(getStartOfYear(new Date(2020, 1, 1, 23, 59))).to.equalDate(new Date(2020, 0, 1, 0, 0));
+  });
+
+  it('should return date of start of the year + 1', () => {
+    expect(getStartOfYear(new Date(2020, 1, 1, 23, 59), 1)).to.equalDate(new Date(2021, 0, 1, 0, 0));
+  });
+
+  it('should return date of start of the year - 1', () => {
+    expect(getStartOfYear(new Date(2020, 1, 1, 23, 59), -1)).to.equalDate(new Date(2019, 0, 1, 0, 0));
   });
 
   it('should return date of start of the month', () => {
     expect(getStartOfMonth(new Date(2020, 2, 2, 23, 59))).to.equalDate(new Date(2020, 2, 1, 0, 0));
   });
 
+  it('should return date of start of the month + 1', () => {
+    expect(getStartOfMonth(new Date(2020, 2, 2, 23, 59), 1)).to.equalDate(new Date(2020, 3, 1, 0, 0));
+  });
+
+  it('should return date of start of the month - 1', () => {
+    expect(getStartOfMonth(new Date(2020, 2, 2, 23, 59), -1)).to.equalDate(new Date(2020, 1, 1, 0, 0));
+  });
+
   it('should return date of start of the day', () => {
     const result = getStartOfDay(new Date(2020, 2, 2, 23, 59));
     expect(result.getTime()).to.equal(new Date(2020, 2, 2, 0, 0, 0, 0).getTime());
   });
+
+  it('should return date of start of the day + 1', () => {
+    const result = getStartOfDay(new Date(2020, 2, 2, 23, 59), 1);
+    expect(result.getTime()).to.equal(new Date(2020, 2, 3, 0, 0, 0, 0).getTime());
+  });
+
+  it('should return date of start of the day - 1', () => {
+    const result = getStartOfDay(new Date(2020, 2, 2, 23, 59), -1);
+    expect(result.getTime()).to.equal(new Date(2020, 2, 1, 0, 0, 0, 0).getTime());
+  });
 });
 
 describe('Getting end of date', () => {
+  it('should return date of end of the decade', () => {
+    expect(getEndOfDecade(new Date(2025, 1, 1))).to.equalDate(new Date(2029, 11, 31));
+  });
+
+  it('should return date of end of the decade + 1', () => {
+    expect(getEndOfDecade(new Date(2025, 1, 1), 1)).to.equalDate(new Date(2039, 11, 31));
+  });
+
+  it('should return date of end of the decade - 1', () => {
+    expect(getEndOfDecade(new Date(2025, 1, 1), -1)).to.equalDate(new Date(2019, 11, 31));
+  });
+
   it('should return date of end of the year', () => {
     expect(getEndOfYear(new Date(2020, 1, 1))).to.equalDate(new Date(2020, 11, 31));
+  });
+
+  it('should return date of end of the year + 1', () => {
+    expect(getEndOfYear(new Date(2020, 1, 1), 1)).to.equalDate(new Date(2021, 11, 31));
+  });
+
+  it('should return date of end of the year - 1', () => {
+    expect(getEndOfYear(new Date(2020, 1, 1), -1)).to.equalDate(new Date(2019, 11, 31));
   });
 
   it('should return date of end of the month', () => {
     expect(getEndOfMonth(new Date(2020, 1, 1))).to.equalDate(new Date(2020, 1, 29));
   });
 
+  it('should return date of end of the month + 1', () => {
+    expect(getEndOfMonth(new Date(2020, 1, 1), 1)).to.equalDate(new Date(2020, 2, 31));
+  });
+
+  it('should return date of end of the month - 1', () => {
+    expect(getEndOfMonth(new Date(2020, 1, 1), -1)).to.equalDate(new Date(2020, 0, 31));
+  });
+
   it('should return date of end of the day', () => {
     const result = getEndOfDay(new Date(2020, 1, 1, 0, 0));
     expect(result.getTime()).to.equal(new Date(2020, 1, 1, 23, 59, 59, 999).getTime());
+  });
+
+  it('should return date of end of the day + 1', () => {
+    const result = getEndOfDay(new Date(2020, 1, 1, 0, 0), 1);
+    expect(result.getTime()).to.equal(new Date(2020, 1, 2, 23, 59, 59, 999).getTime());
+  });
+
+  it('should return date of end of the day - 1', () => {
+    const result = getEndOfDay(new Date(2020, 1, 1, 0, 0), -1);
+    expect(result.getTime()).to.equal(new Date(2020, 0, 31, 23, 59, 59, 999).getTime());
   });
 });
 
