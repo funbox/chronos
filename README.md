@@ -162,7 +162,7 @@ getDiffOfDays(firstDate, secondDate);
 getDiffOfDays(1577826000, 1577912400);
 ```
 
-### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
+### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
 
 Возвращает объект даты начала единицы времени.
 
@@ -172,14 +172,17 @@ getStartOfDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix.
+- `date` – объект Date или Number, временная метка Unix;
+- `diff` – Number, количество единиц добить / вычесть из даты.
 
 Пример
 ```bash
 getStartOfDay(1577912400);
+getStartOfDay(1577912400, 1);
+getStartOfDay(1577912400, -1);
 ```
 
-### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js)
+### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js)
 
 Возвращает объект даты окончания единицы времени.
 
@@ -189,11 +192,14 @@ getEndOfDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix.
+- `date` – объект Date или Number, временная метка Unix;
+- `diff` – Number, количество единиц добить / вычесть из даты.
 
 Пример
 ```bash
 getEndOfDay(1577912400);
+getEndOfDay(1577912400, 1);
+getEndOfDay(1577912400, -1);
 ```
 
 ### [getUtcOffset](./lib/getUtcOffset.js)

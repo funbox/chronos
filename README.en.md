@@ -166,7 +166,7 @@ Example
 getDiffOfDays(1577826000, 1577912400);
 ```
 
-### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
+### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
 
 Returns the start of unit of the passed date.
 
@@ -176,14 +176,17 @@ getStartOfDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp.
+- `date` — Date instance or Unix timestamp;
+- `diff` – Number, number of units to add / subtract from the date.
 
 Example
 ```bash
 getStartOfDay(1577912400);
+getStartOfDay(1577912400, 1);
+getStartOfDay(1577912400, -1);
 ```
 
-### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js)
+### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js)
 
 Returns the end of unit of the passed date.
 
@@ -193,11 +196,14 @@ getEndOfDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp.
+- `date` — Date instance or Unix timestamp;
+- `diff` – Number, number of units to add / subtract from the date.
 
 Example
 ```bash
 getEndOfDay(1577912400);
+getEndOfDay(1577912400, 1);
+getEndOfDay(1577912400, -1);
 ```
 
 ### [getUtcOffset](./lib/getUtcOffset.js)
