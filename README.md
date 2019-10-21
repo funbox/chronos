@@ -25,9 +25,11 @@ import { addDate } from @funboxteam/chronos
 **Использование**
 ```bash
 addDays(date, quantity);
+addMonths(date, quantity);
+addYears(date, quantity);
 ```
 Параметры:
-- `date` – объект Date или временная метка Unix;
+- `date` – объект Date или временная метка Unix (Number, String);
 - `quantity` – Number, количество единиц.
 
 Пример
@@ -46,7 +48,7 @@ addYears(1577826000, 1);
 subtractDays(date, quantity);
 ```
 Параметры:
-- `date` – объект Date или Number, временная метка Unix;
+- `date` – объект Date или временная метка Unix (Number, String);
 - `quantity` – Number, количество единиц.
 
 Пример
@@ -65,7 +67,7 @@ subtractYears(1577826000, 1);
 formatDate(date, format);
 ```
 Параметры:
-- `date` – объект Date или Number, временная метка Unix;
+- `date` – объект Date или временная метка Unix (Number, String);
 - `format` – String, шаблон форматирования времени.    
       
 | Значение  | Описание  |
@@ -98,7 +100,7 @@ getDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix.
+- `date` – объект Date или временная метка Unix (Number, String).
 
 `getWeekdayName` возвращает название дня недели, `getMonthName` возвращает название месяца. 
 
@@ -136,8 +138,8 @@ isSameYear(firstDate, secondDate);
 ```
 
 Параметры:
-- `firstDate` – объект Date или Number, временная метка Unix;
-- `secondDate` – объект Date или Number, временная метка Unix.
+- `firstDate` – объект Date или временная метка Unix (Number, String);
+- `secondDate` – объект Date или временная метка Unix (Number, String).
 
 Пример
 ```bash
@@ -154,8 +156,8 @@ getDiffOfDays(firstDate, secondDate);
 ```
 
 Параметры:
-- `firstDate` – объект Date или Number, временная метка Unix;
-- `secondDate` – объект Date или Number, временная метка Unix.
+- `firstDate` – объект Date или временная метка Unix (Number, String);
+- `secondDate` – объект Date или временная метка Unix (Number, String).
 
 Пример
 ```bash
@@ -172,8 +174,8 @@ getStartOfDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix;
-- `diff` – Number, количество единиц добить / вычесть из даты.
+- `date` – объект Date или временная метка Unix (Number, String);
+- `diff` – объект Date или временная метка Unix (Number, String).
 
 Пример
 ```bash
@@ -192,7 +194,7 @@ getEndOfDay(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix;
+- `date` – объект Date или временная метка Unix (Number, String);
 - `diff` – Number, количество единиц добить / вычесть из даты.
 
 Пример
@@ -212,7 +214,7 @@ getUtcOffset(date);
 ```
 
 Параметры:
-- `date` – объект Date или Number, временная метка Unix.
+- `date` – объект Date или временная метка Unix (Number, String).
 
 Пример
 ```bash

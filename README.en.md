@@ -31,7 +31,7 @@ addMonths(date, quantity);
 addYears(date, quantity);
 ```
 Params:
-- `date` — Date instance or Unix timestamp;
+- `date` — Date instance or Unix timestamp (Number, String);
 - `quantity` — Number, number of units.
 
 Example
@@ -50,7 +50,7 @@ Subtracts days, months or years from the passed date and returns new Date instan
 subtractDays(date, quantity);
 ```
 Params:
-- `date` — Date instance or Unix timestamp;
+- `date` — Date instance or Unix timestamp (Number, String);
 - `quantity` — Number, number of units.
 
 Example
@@ -69,7 +69,7 @@ Formats the passed date into the string by the passed format.
 formatDate(date, format);
 ```
 Params:
-- `date` — Date instance or Unix timestamp;
+- `date` — Date instance or Unix timestamp (Number, String);
 - `format` — String, format.    
       
 | Value  | Description  |
@@ -102,7 +102,7 @@ getDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp.
+- `date` — Date instance or Unix timestamp (Number, String).
 
 `getWeekdayName` returns name of the day, `getMonthName` returns name of the month.
 
@@ -140,8 +140,8 @@ isSameYear(firstDate, secondDate);
 ```
 
 Params:
-- `firstDate` — Date instance or Number with Unix timestamp;
-- `secondDate` — Date instance or Number with Unix timestamp.
+- `firstDate` — Date instance or Unix timestamp (Number, String);
+- `secondDate` — Date instance or Unix timestamp (Number, String).
 
 Example
 ```bash
@@ -158,8 +158,8 @@ getDiffOfDays(firstDate, secondDate);
 ```
 
 Params:
-- `firstDate` — Date instance or Number with Unix timestamp;
-- `secondDate` — Date instance or Number with Unix timestamp.
+- `firstDate` — Date instance or Unix timestamp (Number, String);
+- `secondDate` — Date instance or Unix timestamp (Number, String).
 
 Example
 ```bash
@@ -176,7 +176,7 @@ getStartOfDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp;
+- `date` — Date instance or Unix timestamp (Number, String);
 - `diff` – Number, number of units to add / subtract from the date.
 
 Example
@@ -196,7 +196,7 @@ getEndOfDay(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp;
+- `date` — Date instance or Unix timestamp (Number, String);
 - `diff` – Number, number of units to add / subtract from the date.
 
 Example
@@ -216,7 +216,7 @@ getUtcOffset(date);
 ```
 
 Params:
-- `date` — Date instance or Unix timestamp;
+- `date` — Date instance or Unix timestamp (Number, String).
 
 Example
 ```bash
