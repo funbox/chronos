@@ -18,10 +18,10 @@ const {
   isSameDay,
   isSameMonth,
   isSameYear,
-  getDiffOfDays,
-  getDiffOfMinutes,
-  getDiffOfMonths,
-  getDiffOfYears,
+  getDiffInDays,
+  getDiffInMinutes,
+  getDiffInMonths,
+  getDiffInYears,
   getStartOfDay,
   getStartOfDecade,
   getStartOfMonth,
@@ -140,31 +140,31 @@ describe('Equality checking', () => {
 
 describe('Getting dates difference', () => {
   it('should return diff in years', () => {
-    expect(getDiffOfYears(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(1);
+    expect(getDiffInYears(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(1);
   });
 
   it('should return diff in months', () => {
-    expect(getDiffOfMonths(new Date(2020, 0, 1), new Date(2020, 4, 1))).to.equal(-4);
+    expect(getDiffInMonths(new Date(2020, 0, 1), new Date(2020, 4, 1))).to.equal(-4);
   });
 
   it('should return diff in months of different years', () => {
-    expect(getDiffOfMonths(new Date(2019, 0, 1), new Date(2020, 4, 1))).to.equal(-16);
+    expect(getDiffInMonths(new Date(2019, 0, 1), new Date(2020, 4, 1))).to.equal(-16);
   });
 
   it('should return diff in years in days', () => {
-    expect(getDiffOfDays(new Date(2020, 0, 1), new Date(2020, 0, 5))).to.equal(-4);
+    expect(getDiffInDays(new Date(2020, 0, 1), new Date(2020, 0, 5))).to.equal(-4);
   });
 
   it('should return diff in days of different years', () => {
-    expect(getDiffOfDays(new Date(2019, 0, 1), new Date(2020, 0, 5))).to.equal(-369);
+    expect(getDiffInDays(new Date(2019, 0, 1), new Date(2020, 0, 5))).to.equal(-369);
   });
 
   it('should return diff in minutes', () => {
-    expect(getDiffOfMinutes(new Date(2020, 0, 1), new Date(2020, 0, 1, 1))).to.equal(-60);
+    expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 1, 1))).to.equal(-60);
   });
 
   it('should return diff in minutes of different days', () => {
-    expect(getDiffOfMinutes(new Date(2020, 0, 1), new Date(2020, 0, 2, 1))).to.equal(-(60*25));
+    expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 2, 1))).to.equal(-(60*25));
   });
 });
 

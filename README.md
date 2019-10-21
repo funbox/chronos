@@ -146,13 +146,13 @@ isSameYear(firstDate, secondDate);
 isSameYear(1577826000, 1577912400);
 ```
 
-### [getDiffOfDays](./lib/getDiffOfDays.js), [getDiffOfMinutes](./lib/getDiffOfMinutes.js), [getDiffOfMonths](./lib/getDiffOfMonths.js), [getDiffOfYears](./lib/getDiffOfYears.js)  
+### [getDiffInDays](./lib/getDiffInDays.js), [getDiffInMinutes](./lib/getDiffInMinutes.js), [getDiffInMonths](./lib/getDiffInMonths.js), [getDiffInYears](./lib/getDiffInYears.js)  
 
 Возвращает значение разницы в единицах времени двух дат.
 
 **Использование**
 ```bash
-getDiffOfDays(firstDate, secondDate);
+getDiffInDays(firstDate, secondDate);
 ```
 
 Параметры:
@@ -161,7 +161,7 @@ getDiffOfDays(firstDate, secondDate);
 
 Пример
 ```bash
-getDiffOfDays(1577826000, 1577912400);
+getDiffInDays(1577826000, 1577912400);
 ```
 
 ### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js)
