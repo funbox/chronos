@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 (24.10.2019)
+
+Replaced Number.isNaN with isNaN, because the first one doesn't work in IE11.
+
+
 ## 1.1.0 (21.10.2019)
 
 Added the possibility to pass Unix Timestamp as a string to every function that accepts date. 
