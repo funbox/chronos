@@ -155,12 +155,20 @@ describe('Getting dates difference', () => {
     expect(getDiffInDays(new Date(2020, 0, 1), new Date(2020, 0, 5))).to.equal(-4);
   });
 
+  it('should return diff in days of two unix timestamps', () => {
+    expect(getDiffInDays(1572348594627, 1572248594627)).to.equal(1);
+  });
+
   it('should return diff in days of different years', () => {
     expect(getDiffInDays(new Date(2019, 0, 1), new Date(2020, 0, 5))).to.equal(-369);
   });
 
   it('should return diff in minutes', () => {
     expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 1, 1))).to.equal(-60);
+  });
+
+  it('should return diff in minutes of two unix timestamps', () => {
+    expect(getDiffInMinutes(1572348594627, 1572348283627)).to.equal(5);
   });
 
   it('should return diff in minutes of different days', () => {
