@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 (29.10.2019)
+
+Fixed hours formatting in `formatDate` (sometimes `HH` returned one digit instead of two),
+and values rounding in `getDiffInDays` & `getDiffInMinutes`.
+
+
 ## 1.1.1 (24.10.2019)
 
 Replaced Number.isNaN with isNaN, because the first one doesn't work in IE11.
