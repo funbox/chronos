@@ -92,15 +92,15 @@ describe('Getting date units', () => {
 
 describe('getDuration', () => {
   it('should return duration as days, hours and minutes', () => {
-    expect(getDuration(1000000)).to.deep.equal({ days: 11, hours: 13, minutes: 46 });
+    expect(getDuration(1000000)).to.deep.equal({ days: 11, hours: 13, minutes: 46, seconds: 40 });
   });
 
   it('should return duration as hours and minutes', () => {
-    expect(getDuration(10000)).to.deep.equal({ days: 0, hours: 2, minutes: 46 });
+    expect(getDuration(10000)).to.deep.equal({ days: 0, hours: 2, minutes: 46,  seconds: 40 });
   });
 
   it('should return duration as minutes', () => {
-    expect(getDuration(1000)).to.deep.equal({ days: 0, hours: 0, minutes: 16 });
+    expect(getDuration(1000)).to.deep.equal({ days: 0, hours: 0, minutes: 16, seconds: 40 });
   });
 });
 

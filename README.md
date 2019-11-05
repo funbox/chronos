@@ -121,11 +121,11 @@ getDuration(seconds);
 ```
 
 Параметры:
-- `seconds` – Number, интревал времени в секундах.
+- `seconds` – Number, интервал времени в секундах.
 
 Пример
 ```bash
-getDuration(1000000); // { days: 11, hours: 13, minutes: 46 }
+getDuration(1000000); // { days: 11, hours: 13, minutes: 46, seconds: 40 }
 ```
 
 ### [isSameDay](./lib/isSameDay.js), [isSameMonth](./lib/isSameMonth.js), [isSameYear](./lib/isSameYear.js)
