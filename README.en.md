@@ -92,6 +92,31 @@ formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
 formatDate(1577826000, 'HH:mm:ss');
 ```
 
+### [formatTime](./lib/formatTime.js)
+
+Formats the passed time string into the string by the passed format.
+
+**Usage**
+```bash
+formatTime(date, valueFormat, format);
+
+```
+Params:
+- `date` — Date instance or Unix timestamp (Number, String);
+- `valueFormat` – String, format of the passed time string;
+- `format` – String, desired format.
+
+| Value  | Description  |
+|---|---|
+| `ss`  | Two-digit seconds value  |
+| `mm`  | Two-digit minutes value  |
+| `HH` | Two-digit hours value  |
+
+Пример
+```bash
+formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
+```
+
 ### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Returns unit from the passed date.

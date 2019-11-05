@@ -11,6 +11,7 @@ const {
   subtractMonths,
   subtractYears,
   formatDate,
+  formatTime,
   getDay,
   getMonth,
   getYear,
@@ -75,6 +76,20 @@ describe('formatDate', () => {
 
   it('should format Date instance to \'YYYY-MM-DD\'', () => {
     expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD')).to.equal('2020-01-01');
+  });
+});
+
+describe('formatTime', () => {
+  it('should return string formatted as \'HH:mm:ss\'', () => {
+    expect(formatTime('1:30', 'H:mm', 'HH:mm:ss')).to.equal('01:30:00');
+  });
+
+  it('should return string formatted as \'mm:ss\'', () => {
+    expect(formatTime('11:30', 'mm:ss', 'HH:mm:ss')).to.equal('00:11:30');
+  });
+
+  it('should throw a formatting error when get invalid time', () => {
+    expect(function() { formatTime('33:30', 'HH:mm', 'HH:mm:ss'); }).to.throw('Invalid time value: 33:30');
   });
 });
 

@@ -90,6 +90,31 @@ formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
 formatDate(1577826000, 'HH:mm:ss');
 ```
 
+### [formatTime](./lib/formatTime.js)
+
+Форматирует строку времени по указанному шаблону.
+
+**Использование**
+```bash
+formatTime(date, valueFormat, format);
+
+```
+Параметры:
+- `date` – объект Date или временная метка Unix (Number, String);
+- `valueFormat` – String, шаблон переданной строки времени;
+- `format` – String, шаблон форматирования времени.
+
+| Значение  | Описание  |
+|---|---|
+| `ss`  | Двузначное представление секунд  |
+| `mm`  | Двузначное представление минут  |
+| `HH` | Двузначное представление часа  |
+
+Пример
+```bash
+formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
+```
+
 ### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Возвращает указанную единицу времени.
