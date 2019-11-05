@@ -25,6 +25,7 @@ const {
   getStartOfDay,
   getStartOfDecade,
   getStartOfMonth,
+  getStartOfWeek,
   getStartOfYear,
   getEndOfDay,
   getEndOfDecade,
@@ -226,6 +227,21 @@ describe('Getting start of date', () => {
   it('should return date of start of the day - 1', () => {
     const result = getStartOfDay(new Date(2020, 2, 2, 23, 59), -1);
     expect(result.getTime()).to.equal(new Date(2020, 2, 1, 0, 0, 0, 0).getTime());
+  });
+
+  it('should return date of start of the week', () => {
+    const result = getStartOfWeek(new Date(2020, 0, 1));
+    expect(result.getTime()).to.equal(new Date(2019, 11, 30, 0, 0, 0, 0).getTime());
+  });
+
+  it('should return date of start of the week + 1', () => {
+    const result = getStartOfWeek(new Date(2020, 0, 1), 1);
+    expect(result.getTime()).to.equal(new Date(2020, 0, 6, 0, 0, 0, 0).getTime());
+  });
+
+  it('should return date of start of the week - 1', () => {
+    const result = getStartOfWeek(new Date(2020, 0, 1), -1);
+    expect(result.getTime()).to.equal(new Date(2019, 11, 23, 0, 0, 0, 0).getTime());
   });
 });
 
