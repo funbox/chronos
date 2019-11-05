@@ -30,6 +30,7 @@ const {
   getEndOfDay,
   getEndOfDecade,
   getEndOfMonth,
+  getEndOfWeek,
   getEndOfYear,
   getUtcOffset,
   getTime,
@@ -295,6 +296,21 @@ describe('Getting end of date', () => {
   it('should return date of end of the day - 1', () => {
     const result = getEndOfDay(new Date(2020, 1, 1, 0, 0), -1);
     expect(result.getTime()).to.equal(new Date(2020, 0, 31, 23, 59, 59, 999).getTime());
+  });
+
+  it('should return date of end of the week', () => {
+    const result = getEndOfWeek(new Date(2020, 0, 1, 0, 0));
+    expect(result.getTime()).to.equal(new Date(2020, 0, 5, 23, 59, 59, 999).getTime());
+  });
+
+  it('should return date of end of the week + 1', () => {
+    const result = getEndOfWeek(new Date(2020, 0, 1, 0, 0), 1);
+    expect(result.getTime()).to.equal(new Date(2020, 0, 12, 23, 59, 59, 999).getTime());
+  });
+
+  it('should return date of end of the week - 1', () => {
+    const result = getEndOfWeek(new Date(2020, 0, 1, 0, 0), -1);
+    expect(result.getTime()).to.equal(new Date(2019, 11, 29, 23, 59, 59, 999).getTime());
   });
 });
 

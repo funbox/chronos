@@ -184,7 +184,7 @@ getStartOfDay(1577912400, 1);
 getStartOfDay(1577912400, -1);
 ```
 
-### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js)
+### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfYear](./lib/getEndOfYear.js)
 
 Возвращает объект даты окончания единицы времени.
 
