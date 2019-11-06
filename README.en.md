@@ -98,11 +98,11 @@ Formats the passed time string into the string by the passed format.
 
 **Usage**
 ```bash
-formatTime(date, valueFormat, format);
+formatTime(value, valueFormat, format);
 
 ```
 Params:
-- `date` — Date instance or Unix timestamp (Number, String);
+- `value` — String, time string;
 - `valueFormat` – String, format of the passed time string;
 - `format` – String, desired format.
 
@@ -112,9 +112,36 @@ Params:
 | `mm`  | Two-digit minutes value  |
 | `HH` | Two-digit hours value  |
 
-Пример
+Example
 ```bash
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
+```
+
+### [formatToDate](./lib/formatToDate.js)
+
+Returns Date instance parsed from the passed string by passed format
+
+**Usage**
+```bash
+formatToDate(value, format);
+
+```
+
+Params:
+- `value` – String, date string;
+- `format` – String, format of date string.
+
+| Value  | Description  |
+|---|---|
+| `DD`  | Two-digit day value  |
+| `D` | Day value from 1 till 31 |
+| `MM` | Two-digit month value |
+| `YYYY`  | Four-digit year value |
+| `YY`  | Last to digits of the year |
+
+Example
+```bash
+formatToDate('2000-01-21', 'YYYY-MM-DD'); // new Date(2000, 0, 21)
 ```
 
 ### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
@@ -280,7 +307,7 @@ Params:
 - `value` – String, time string;
 - `format` – String, validation format.
 
-Пример
+Example
 ```bash
 isTimeValid('22:30', 'HH:mm');
 ```

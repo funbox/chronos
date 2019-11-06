@@ -96,11 +96,11 @@ formatDate(1577826000, 'HH:mm:ss');
 
 **Использование**
 ```bash
-formatTime(date, valueFormat, format);
+formatTime(value, valueFormat, format);
 
 ```
 Параметры:
-- `date` – объект Date или временная метка Unix (Number, String);
+- `value` – String, представление времени;
 - `valueFormat` – String, шаблон переданной строки времени;
 - `format` – String, шаблон форматирования времени.
 
@@ -113,6 +113,33 @@ formatTime(date, valueFormat, format);
 Пример
 ```bash
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
+```
+
+### [formatToDate](./lib/formatToDate.js)
+
+Возвращает объект даты указанной строки времени
+
+**Использование**
+```bash
+formatToDate(value, format);
+
+```
+
+Параметры:
+- `value` – String, представление даты;
+- `format` – String, шаблон указанной даты.
+
+| Значение  | Описание  |
+|---|---|
+| `DD`  | Двузначное представление дня месяца  |
+| `D` | Значение дня месяца от 1 до 31 |
+| `MM` | Двузначное представление месяца |
+| `YYYY`  | Значение года |
+| `YY`  | Две последние цифры значения года |
+
+Пример
+```bash
+formatToDate('2000-01-21', 'YYYY-MM-DD'); // new Date(2000, 0, 21)
 ```
 
 ### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)

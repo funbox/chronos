@@ -12,6 +12,7 @@ const {
   subtractYears,
   formatDate,
   formatTime,
+  formatToDate,
   getDay,
   getMonth,
   getYear,
@@ -77,6 +78,24 @@ describe('formatDate', () => {
 
   it('should format Date instance to \'YYYY-MM-DD\'', () => {
     expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD')).to.equal('2020-01-01');
+  });
+});
+
+describe('formatToDate', () => {
+  it('should return Date instance from the string formatted as \'YYYY-MM-DD\'', () => {
+    expect(formatToDate('2000-01-21', 'YYYY-MM-DD')).to.equalDate(new Date(2000, 0, 21));
+  });
+
+  it('should return Date instance from the string formatted as \'DD.MM.YYYY\'', () => {
+    expect(formatToDate('31.12.2019', 'DD.MM.YYYY')).to.equalDate(new Date(2019, 11, 31));
+  });
+
+  it('should return Date instance from the string formatted as \'D.MM.YYYY\'', () => {
+    expect(formatToDate('1.12.2019', 'D.MM.YYYY')).to.equalDate(new Date(2019, 11, 1));
+  });
+
+  it('should throw when string formatted as \'D.MM.YYYY\' does not contain valid date', () => {
+    expect(function() { formatToDate('1.120.2019', 'D.MM.YYYY'); }).to.throw('Invalid date value: 1.120.2019');
   });
 });
 
