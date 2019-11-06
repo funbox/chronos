@@ -266,3 +266,21 @@ getTime(); // unixtime of new Date();
 
 getTime(new Date(2020, 0, 1);
 ```
+
+### [isTimeValid](./lib/isTimeValid.js)
+
+Checks time string validity by passed format string.
+
+**Usage**
+```bash
+isTimeValid(value, format);
+```
+
+Params:
+- `value` – String, time string;
+- `format` – String, validation format.
+
+Пример
+```bash
+isTimeValid('22:30', 'HH:mm');
+```

@@ -35,6 +35,7 @@ const {
   getEndOfYear,
   getUtcOffset,
   getTime,
+  isTimeValid,
 } = require('../lib');
 
 describe('Addition', () => {
@@ -90,6 +91,28 @@ describe('formatTime', () => {
 
   it('should throw a formatting error when get invalid time', () => {
     expect(function() { formatTime('33:30', 'HH:mm', 'HH:mm:ss'); }).to.throw('Invalid time value: 33:30');
+  });
+});
+
+describe('isTimeValid', () => {
+  it('should validate correct time string formatted as \'H:mm\'', () => {
+    expect(isTimeValid('1:30', 'H:mm')).to.equal(true);
+  });
+
+  it('should validate incorrect time string formatted as \'H:mm\'', () => {
+    expect(isTimeValid('100:30', 'H:mm')).to.equal(false);
+  });
+
+  it('should validate correct time string formatted as \'HH:mm\'', () => {
+    expect(isTimeValid('22:30', 'HH:mm')).to.equal(true);
+  });
+
+  it('should validate incorrect time string formatted as \'HH:mm\'', () => {
+    expect(isTimeValid('25:30', 'HH:mm')).to.equal(false);
+  });
+
+  it('should validate incorrect time string formatted as \'HH:mm:ss\'', () => {
+    expect(isTimeValid('25:30:80', 'HH:mm:ss')).to.equal(false);
   });
 });
 

@@ -265,3 +265,20 @@ getTime(); // unixtime от new Date();
 getTime(new Date(2020, 0, 1);
 ```
 
+### [isTimeValid](./lib/isTimeValid.js)
+
+Проверяет валидность строки времени по шаблону
+
+**Использование**
+```bash
+isTimeValid(value, format);
+```
+
+Параметры:
+- `value` – String, строка времени;
+- `format` – String, шаблон представления времени.
+
+Пример
+```bash
+isTimeValid('22:30', 'HH:mm');
+```
