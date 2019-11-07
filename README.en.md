@@ -110,6 +110,7 @@ Params:
 |---|---|
 | `ss`  | Two-digit seconds value  |
 | `mm`  | Two-digit minutes value  |
+| `H` |  Hour value from 0 till 23  |
 | `HH` | Two-digit hours value  |
 
 Example

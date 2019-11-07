@@ -114,24 +114,28 @@ describe('formatTime', () => {
 });
 
 describe('isTimeValid', () => {
-  it('should validate correct time string formatted as \'H:mm\'', () => {
+  it('should pass correct time string formatted as \'H:mm\'', () => {
     expect(isTimeValid('1:30', 'H:mm')).to.equal(true);
   });
 
-  it('should validate incorrect time string formatted as \'H:mm\'', () => {
+  it('should not pass incorrect time string formatted as \'H:mm\'', () => {
     expect(isTimeValid('100:30', 'H:mm')).to.equal(false);
   });
 
-  it('should validate correct time string formatted as \'HH:mm\'', () => {
+  it('should pass correct time string formatted as \'HH:mm\'', () => {
     expect(isTimeValid('22:30', 'HH:mm')).to.equal(true);
   });
 
-  it('should validate incorrect time string formatted as \'HH:mm\'', () => {
+  it('should not pass incorrect time string formatted as \'HH:mm\'', () => {
     expect(isTimeValid('25:30', 'HH:mm')).to.equal(false);
   });
 
-  it('should validate incorrect time string formatted as \'HH:mm:ss\'', () => {
+  it('should not pass incorrect time string formatted as \'HH:mm:ss\'', () => {
     expect(isTimeValid('25:30:80', 'HH:mm:ss')).to.equal(false);
+  });
+
+  it('should not pass empty string as a time string', () => {
+    expect(isTimeValid('', 'HH:mm:ss')).to.equal(false);
   });
 });
 
