@@ -116,7 +116,7 @@ formatTime(value, valueFormat, format);
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
+### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
 
 Возвращает указанную единицу времени.
 
@@ -128,7 +128,7 @@ getDay(date);
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String).
 
-`getMonthName` возвращает название месяца, `getWeek` возвращает номер недели начиная с начала текущего года. 
+`getWeek` возвращает номер недели начиная с начала текущего года. 
 
 Пример
 ```bash
@@ -137,9 +137,9 @@ getDay(new Date(2020, 0, 1));
 getYear(1577826000);
 ```
 
-### [getWeekdayName](./lib/getWeekdayName.js)
+### [getWeekdayName](./lib/getWeekdayName.js), [getMonthName](./lib/getMonthName.js)
 
-Возвращает название дня недели.
+Возвращает название единицы времени.
 
 **Использование**
 ```bash
@@ -148,12 +148,14 @@ getWeekdayName(date, format);
 
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String);
-- `format` – String, формат названия дня недели. По умолчанию длинный – 'long', может быть короткий – 'short'. 
+- `format` – String, формат названия единицы времени. По умолчанию длинный – 'long', может быть короткий – 'short'. 
 
 Пример
 ```bash
 getWeekdayName(new Date(2020, 11, 30)); // понедельник
 getWeekdayName(new Date(2020, 11, 30), 'short'); // пн
+getMonthName(new Date(2020, 0, 1)); // январь
+getMonthName(new Date(2020, 0, 1), 'short'); // янв
 ```
 
 ### [getDuration](./lib/getDuration.js)

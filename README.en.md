@@ -118,7 +118,7 @@ Example
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
+### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
 
 Returns unit from the passed date.
 
@@ -130,7 +130,6 @@ getDay(date);
 Params:
 - `date` — Date instance or Unix timestamp (Number, String).
 
-`getMonthName` returns name of the month, 
 `getWeek` returns number of the week starting from the beginning of the year.
 
 Example
@@ -140,9 +139,9 @@ getDay(new Date(2020, 0, 1));
 getYear(1577826000);
 ```
 
-### [getWeekdayName](./lib/getWeekdayName.js)
+### [getWeekdayName](./lib/getWeekdayName.js), [getMonthName](./lib/getMonthName.js)
 
-Returns name of the weekday.
+Returns name of the unit.
 
 **Usage**
 ```bash
@@ -157,6 +156,8 @@ Example
 ```bash
 getWeekdayName(new Date(2020, 11, 30)); // понедельник
 getWeekdayName(new Date(2020, 11, 30), 'short'); // пн
+getMonthName(new Date(2020, 0, 1)); // январь
+getMonthName(new Date(2020, 0, 1), 'short'); // янв
 ```
 
 ### [getDuration](./lib/getDuration.js)
