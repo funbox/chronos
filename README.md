@@ -116,7 +116,7 @@ formatTime(value, valueFormat, format);
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
+### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
 
 Возвращает указанную единицу времени.
 
@@ -128,7 +128,7 @@ getDay(date);
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String).
 
-`getMonthName` возвращает название месяца. 
+`getMonthName` возвращает название месяца, `getWeek` возвращает номер недели начиная с начала текущего года. 
 
 Пример
 ```bash

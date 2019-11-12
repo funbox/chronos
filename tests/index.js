@@ -38,6 +38,7 @@ const {
   getRelativeDate,
   getTime,
   getUtcOffset,
+  getWeek,
   isTimeValid,
 } = require('../lib');
 
@@ -423,5 +424,19 @@ describe('getUtcOffset', () => {
 describe('getTime', () => {
   it('should return unix timestamp', () => {
     expect(getTime(new Date(2020, 0, 1))).to.equal(1577826000);
+  });
+});
+
+describe('getWeek', () => {
+  it('should return week for 31.12.2019', () => {
+    expect(getWeek(new Date(2019, 11, 31))).to.equal(53);
+  });
+
+  it('should return week for 01.01.2020', () => {
+    expect(getWeek(new Date(2020, 0, 1))).to.equal(1);
+  });
+
+  it('should return week for 05.02.2020', () => {
+    expect(getWeek(new Date(2020, 1, 5))).to.equal(6);
   });
 });
