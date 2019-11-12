@@ -118,7 +118,7 @@ Example
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
+### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Returns unit from the passed date.
 
@@ -130,13 +130,32 @@ getDay(date);
 Params:
 - `date` — Date instance or Unix timestamp (Number, String).
 
-`getWeekdayName` returns name of the day, `getMonthName` returns name of the month.
+`getMonthName` returns name of the month.
 
 Example
 ```bash
 getDay(new Date(2020, 0, 1));
 
 getYear(1577826000);
+```
+
+### [getWeekdayName](./lib/getWeekdayName.js)
+
+Returns name of the weekday.
+
+**Usage**
+```bash
+getWeekdayName(date, format);
+```
+
+Params:
+- `date` — Date instance or Unix timestamp (Number, String);
+- `format` – String, format of the returned string. 'long' by default, 'short' is available too. 
+
+Example
+```bash
+getWeekdayName(new Date(2020, 11, 30)); // понедельник
+getWeekdayName(new Date(2020, 11, 30), 'short'); // пн
 ```
 
 ### [getDuration](./lib/getDuration.js)
@@ -244,7 +263,7 @@ getRelativeDate(date);
 Params:
 - `date` — Date instance or Unix timestamp (Number, String).
 
-Пример
+Example
 ```bash
 getRelativeDate(1577081613); // 5 часов
 getRelativeDate(new Date()); // меньше минуты

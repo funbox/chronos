@@ -116,7 +116,7 @@ formatTime(value, valueFormat, format);
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
+### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Возвращает указанную единицу времени.
 
@@ -128,13 +128,32 @@ getDay(date);
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String).
 
-`getWeekdayName` возвращает название дня недели, `getMonthName` возвращает название месяца. 
+`getMonthName` возвращает название месяца. 
 
 Пример
 ```bash
 getDay(new Date(2020, 0, 1));
 
 getYear(1577826000);
+```
+
+### [getWeekdayName](./lib/getWeekdayName.js)
+
+Возвращает название дня недели.
+
+**Использование**
+```bash
+getWeekdayName(date, format);
+```
+
+Параметры:
+- `date` – объект Date или временная метка Unix (Number, String);
+- `format` – String, формат названия дня недели. По умолчанию длинный – 'long', может быть короткий – 'short'. 
+
+Пример
+```bash
+getWeekdayName(new Date(2020, 11, 30)); // понедельник
+getWeekdayName(new Date(2020, 11, 30), 'short'); // пн
 ```
 
 ### [getDuration](./lib/getDuration.js)
