@@ -116,7 +116,7 @@ formatTime(value, valueFormat, format);
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
+### [getDay](./lib/getDay.js), [getHour](./lib/getHour.js), [getMinute](./lib/getMinute.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
 
 Возвращает указанную единицу времени.
 

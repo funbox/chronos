@@ -14,6 +14,8 @@ const {
   formatTime,
   parseDate,
   getDay,
+  getHour,
+  getMinute,
   getMonth,
   getYear,
   getDuration,
@@ -165,6 +167,14 @@ describe('Getting date units', () => {
 
   it('should return day of unix timestamp', () => {
     expect(getDay(1577826000)).to.equal(1);
+  });
+
+  it('should return hour of unix timestamp', () => {
+    expect(getHour(1577826000)).to.equal(0);
+  });
+
+  it('should return minute of unix timestamp', () => {
+    expect(getMinute(1577826000)).to.equal(0);
   });
 });
 
