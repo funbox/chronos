@@ -28,12 +28,14 @@ const {
   getStartOfDay,
   getStartOfDecade,
   getStartOfHour,
+  getStartOfMinute,
   getStartOfMonth,
   getStartOfWeek,
   getStartOfYear,
   getEndOfDay,
   getEndOfDecade,
   getEndOfHour,
+  getEndOfMinute,
   getEndOfMonth,
   getEndOfWeek,
   getEndOfYear,
@@ -289,6 +291,18 @@ describe('Getting start of date', () => {
     expect(getStartOfHour(new Date(2020, 1, 1, 23, 59), -1)).to.equalDate(new Date(2020, 1, 1, 22, 0));
   });
 
+  it('should return date of start of the minute', () => {
+    expect(getStartOfMinute(new Date(2020, 1, 1, 23, 59, 30))).to.equalDate(new Date(2020, 1, 1, 23, 59, 0));
+  });
+
+  it('should return date of start of the minute + 1', () => {
+    expect(getStartOfMinute(new Date(2020, 1, 1, 23, 59, 30), 1)).to.equalDate(new Date(2020, 1, 2, 0, 0, 0));
+  });
+
+  it('should return date of start of the minute - 1', () => {
+    expect(getStartOfMinute(new Date(2020, 1, 1, 23, 59, 30), -1)).to.equalDate(new Date(2020, 1, 1, 23, 58, 0));
+  });
+
   it('should return date of start of the year + 1', () => {
     expect(getStartOfYear(new Date(2020, 1, 1, 23, 59), 1)).to.equalDate(new Date(2021, 0, 1, 0, 0));
   });
@@ -363,6 +377,18 @@ describe('Getting end of date', () => {
 
   it('should return date of end of the hour - 1', () => {
     expect(getEndOfHour(new Date(2025, 1, 1, 23, 30), -1)).to.equalDate(new Date(2025, 1, 1, 22, 59, 59, 999));
+  });
+
+  it('should return date of end of the minute', () => {
+    expect(getEndOfMinute(new Date(2025, 1, 1, 22, 30, 30))).to.equalDate(new Date(2025, 1, 1, 22, 30, 59, 999));
+  });
+
+  it('should return date of end of the minute + 1', () => {
+    expect(getEndOfMinute(new Date(2025, 1, 1, 23, 30), 1)).to.equalDate(new Date(2025, 1, 1, 23, 31, 59, 999));
+  });
+
+  it('should return date of end of the minute - 1', () => {
+    expect(getEndOfMinute(new Date(2025, 1, 1, 23, 30), -1)).to.equalDate(new Date(2025, 1, 1, 23, 29, 59, 999));
   });
 
   it('should return date of end of the year', () => {
