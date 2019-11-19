@@ -20,6 +20,8 @@ const {
   getYear,
   getDuration,
   isSameDay,
+  isSameHour,
+  isSameMinute,
   isSameMonth,
   isSameYear,
   getDiffInDays,
@@ -223,6 +225,30 @@ describe('Equality checking', () => {
 
   it('should compare different days of different years', () => {
     expect(isSameDay(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(false);
+  });
+
+  it('should compare same hours', () => {
+    expect(isSameHour(new Date(2020, 0, 1, 23), new Date(2020, 0, 1, 23, 50))).to.equal(true);
+  });
+
+  it('should compare different hours', () => {
+    expect(isSameHour(new Date(2020, 0, 1, 23), new Date(2019, 0, 1, 22))).to.equal(false);
+  });
+
+  it('should compare different hours of different years', () => {
+    expect(isSameHour(new Date(2020, 0, 1, 23), new Date(2019, 0, 1, 23))).to.equal(false);
+  });
+
+  it('should compare same minutes', () => {
+    expect(isSameMinute(new Date(2020, 0, 1, 23, 50), new Date(2020, 0, 1, 23, 50, 30))).to.equal(true);
+  });
+
+  it('should compare different minutes', () => {
+    expect(isSameMinute(new Date(2020, 0, 1, 23, 50), new Date(2019, 0, 1, 23, 51))).to.equal(false);
+  });
+
+  it('should compare different minutes of different years', () => {
+    expect(isSameMinute(new Date(2020, 0, 1, 23), new Date(2019, 0, 1, 23))).to.equal(false);
   });
 });
 
