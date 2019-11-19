@@ -213,7 +213,7 @@ Example
 getDiffInDays(1577826000, 1577912400);
 ```
 
-### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfYear](./lib/getStartOfYear.js)
+### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfHour](./lib/getStartOfHour.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfYear](./lib/getStartOfYear.js)
 
 Returns the start of unit of the passed date.
 
@@ -233,7 +233,7 @@ getStartOfDay(1577912400, 1);
 getStartOfDay(1577912400, -1);
 ```
 
-### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfYear](./lib/getEndOfYear.js)
+### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfHour](./lib/getEndOfHour.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfYear](./lib/getEndOfYear.js)
 
 Returns the end of unit of the passed date.
 
