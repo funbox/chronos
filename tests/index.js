@@ -95,7 +95,7 @@ describe('parseDate', () => {
   });
 
   it('should throw when string formatted as \'D.MM.YYYY\' does not contain valid date', () => {
-    expect(function() { parseDate('1.120.2019', 'D.MM.YYYY'); }).to.throw('Invalid date value: 1.120.2019');
+    expect(function() { parseDate('1.120.2019', 'D.MM.YYYY'); }).to.throw('Invalid value: 1.120.2019');
   });
 });
 
@@ -109,7 +109,7 @@ describe('formatTime', () => {
   });
 
   it('should throw a formatting error when get invalid time', () => {
-    expect(function() { formatTime('33:30', 'HH:mm', 'HH:mm:ss'); }).to.throw('Invalid time value: 33:30');
+    expect(function() { formatTime('33:30', 'HH:mm', 'HH:mm:ss'); }).to.throw('Invalid value: 33:30');
   });
 });
 
