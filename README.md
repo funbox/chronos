@@ -116,33 +116,6 @@ formatTime(value, valueFormat, format);
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [formatToDate](./lib/formatToDate.js)
-
-Возвращает объект даты указанной строки времени
-
-**Использование**
-```bash
-formatToDate(value, format);
-
-```
-
-Параметры:
-- `value` – String, представление даты;
-- `format` – String, шаблон указанной даты.
-
-| Значение  | Описание  |
-|---|---|
-| `DD`  | Двузначное представление дня месяца  |
-| `D` | Значение дня месяца от 1 до 31 |
-| `MM` | Двузначное представление месяца |
-| `YYYY`  | Значение года |
-| `YY`  | Две последние цифры значения года |
-
-Пример
-```bash
-formatToDate('2000-01-21', 'YYYY-MM-DD'); // new Date(2000, 0, 21)
-```
-
 ### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Возвращает указанную единицу времени.
@@ -309,4 +282,31 @@ isTimeValid(value, format);
 Пример
 ```bash
 isTimeValid('22:30', 'HH:mm');
+```
+
+### [parseDate](./lib/parseDate.js)
+
+Возвращает объект даты указанной строки времени
+
+**Использование**
+```bash
+parseDate(value, format);
+
+```
+
+Параметры:
+- `value` – String, представление даты;
+- `format` – String, шаблон указанной даты.
+
+| Значение  | Описание  |
+|---|---|
+| `DD`  | Двузначное представление дня месяца  |
+| `D` | Значение дня месяца от 1 до 31 |
+| `MM` | Двузначное представление месяца |
+| `YYYY`  | Значение года |
+| `YY`  | Две последние цифры значения года |
+
+Пример
+```bash
+parseDate('2000-01-21', 'YYYY-MM-DD'); // new Date(2000, 0, 21)
 ```

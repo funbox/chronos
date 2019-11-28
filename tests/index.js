@@ -12,7 +12,7 @@ const {
   subtractYears,
   formatDate,
   formatTime,
-  formatToDate,
+  parseDate,
   getDay,
   getMonth,
   getYear,
@@ -81,21 +81,21 @@ describe('formatDate', () => {
   });
 });
 
-describe('formatToDate', () => {
+describe('parseDate', () => {
   it('should return Date instance from the string formatted as \'YYYY-MM-DD\'', () => {
-    expect(formatToDate('2000-01-21', 'YYYY-MM-DD')).to.equalDate(new Date(2000, 0, 21));
+    expect(parseDate('2000-01-21', 'YYYY-MM-DD')).to.equalDate(new Date(2000, 0, 21));
   });
 
   it('should return Date instance from the string formatted as \'DD.MM.YYYY\'', () => {
-    expect(formatToDate('31.12.2019', 'DD.MM.YYYY')).to.equalDate(new Date(2019, 11, 31));
+    expect(parseDate('31.12.2019', 'DD.MM.YYYY')).to.equalDate(new Date(2019, 11, 31));
   });
 
   it('should return Date instance from the string formatted as \'D.MM.YYYY\'', () => {
-    expect(formatToDate('1.12.2019', 'D.MM.YYYY')).to.equalDate(new Date(2019, 11, 1));
+    expect(parseDate('1.12.2019', 'D.MM.YYYY')).to.equalDate(new Date(2019, 11, 1));
   });
 
   it('should throw when string formatted as \'D.MM.YYYY\' does not contain valid date', () => {
-    expect(function() { formatToDate('1.120.2019', 'D.MM.YYYY'); }).to.throw('Invalid date value: 1.120.2019');
+    expect(function() { parseDate('1.120.2019', 'D.MM.YYYY'); }).to.throw('Invalid date value: 1.120.2019');
   });
 });
 

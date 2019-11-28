@@ -118,33 +118,6 @@ Example
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [formatToDate](./lib/formatToDate.js)
-
-Returns Date instance parsed from the passed string by passed format
-
-**Usage**
-```bash
-formatToDate(value, format);
-
-```
-
-Params:
-- `value` – String, date string;
-- `format` – String, format of date string.
-
-| Value  | Description  |
-|---|---|
-| `DD`  | Two-digit day value  |
-| `D` | Day value from 1 till 31 |
-| `MM` | Two-digit month value |
-| `YYYY`  | Four-digit year value |
-| `YY`  | Last to digits of the year |
-
-Example
-```bash
-formatToDate('2000-01-21', 'YYYY-MM-DD'); // new Date(2000, 0, 21)
-```
-
 ### [getDay](./lib/getDay.js), [getWeekdayName](./lib/getWeekdayName.js), [getMonth](./lib/getMonth.js), [getMonthName](./lib/getMonthName.js), [getYear](./lib/getYear.js)
 
 Returns unit from the passed date.
@@ -312,3 +285,31 @@ Example
 ```bash
 isTimeValid('22:30', 'HH:mm');
 ```
+
+### [parseDate](./lib/parseDate.js)
+
+Returns Date instance parsed from the passed string by passed format
+
+**Usage**
+```bash
+parseDate(value, format);
+
+```
+
+Params:
+- `value` – String, date string;
+- `format` – String, format of date string.
+
+| Value  | Description  |
+|---|---|
+| `DD`  | Two-digit day value  |
+| `D` | Day value from 1 till 31 |
+| `MM` | Two-digit month value |
+| `YYYY`  | Four-digit year value |
+| `YY`  | Last to digits of the year |
+
+Example
+```bash
+parseDate('2000-01-21', 'YYYY-MM-DD'); // new Date(2000, 0, 21)
+```
+
