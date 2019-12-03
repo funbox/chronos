@@ -83,7 +83,7 @@ describe('formatDate', () => {
 
 describe('parseDate', () => {
   it('should return Date instance from the string formatted as \'YYYY-MM-DD\'', () => {
-    expect(parseDate('2000-01-21', 'YYYY-MM-DD')).to.equalDate(new Date(2000, 0, 21));
+    expect(parseDate('2000-01-01', 'YYYY-MM-DD')).to.equalDate(new Date(2000, 0, 1));
   });
 
   it('should return Date instance from the string formatted as \'DD.MM.YYYY\'', () => {
@@ -92,6 +92,10 @@ describe('parseDate', () => {
 
   it('should return Date instance from the string formatted as \'D.MM.YYYY\'', () => {
     expect(parseDate('1.12.2019', 'D.MM.YYYY')).to.equalDate(new Date(2019, 11, 1));
+  });
+
+  it('should return Date instance from the string formatted as \'DD.MM.YY\'', () => {
+    expect(parseDate('01.01.01', 'DD.MM.YY')).to.equalDate(new Date(2001, 0, 1));
   });
 
   it('should throw when string formatted as \'D.MM.YYYY\' does not contain valid date', () => {
