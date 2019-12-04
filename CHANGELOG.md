@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.2.0 (04.12.2019)
+
+Added new functions: 
+
+- getStartOfWeek; 
+- getEndOfWeek;
+- formatTime;
+- isTimeValid;
+- parseDate.
+
+Also added seconds to the object returned by getDuration.
+
+
 ## 1.1.2 (29.10.2019)
 
 Fixed hours formatting in `formatDate` (sometimes `HH` returned one digit instead of two),
