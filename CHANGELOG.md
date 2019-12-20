@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.2.1 (20.12.2019)
+
+Fixed formatDate for IE 11 and old Edges.
+
+
 ## 1.2.0 (04.12.2019)
 
 Added new functions: 
