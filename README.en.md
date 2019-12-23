@@ -174,7 +174,7 @@ Example
 isSameYear(1577826000, 1577912400);
 ```
 
-### [getDiffInDays](./lib/getDiffInDays.js), [getDiffInMinutes](./lib/getDiffInMinutes.js), [getDiffInMonths](./lib/getDiffInMonths.js), [getDiffInYears](./lib/getDiffInYears.js)
+### [getDiffInDays](./lib/getDiffInDays.js), [getDiffInHours](./lib/getDiffInHours.js), [getDiffInMinutes](./lib/getDiffInMinutes.js), [getDiffInMonths](./lib/getDiffInMonths.js), [getDiffInYears](./lib/getDiffInYears.js)
 
 Returns the difference between two dates in units.
 
@@ -231,6 +231,25 @@ getEndOfDay(1577912400);
 getEndOfDay(1577912400, 1);
 getEndOfDay(1577912400, -1);
 ```
+
+### [getRelativeDate](./lib/getRelativeDate.js)
+
+Returns string with time interval between the passed date and the current time.
+
+**Usage**
+```bash
+getRelativeDate(date);
+```
+
+Params:
+- `date` — Date instance or Unix timestamp (Number, String).
+
+Пример
+```bash
+getRelativeDate(1577081613); // 5 часов
+getRelativeDate(new Date()); // меньше минуты
+```
+
 
 ### [getUtcOffset](./lib/getUtcOffset.js)
 
