@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 (23.12.2019)
+
+Added getRelativeDate & getDiffInHours.
+
+
 ## 1.2.1 (20.12.2019)
 
 Fixed formatDate for IE 11 and old Edges.
