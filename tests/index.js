@@ -21,6 +21,7 @@ const {
   isSameMonth,
   isSameYear,
   getDiffInDays,
+  getDiffInHours,
   getDiffInMinutes,
   getDiffInMonths,
   getDiffInYears,
@@ -34,8 +35,8 @@ const {
   getEndOfMonth,
   getEndOfWeek,
   getEndOfYear,
-  getUtcOffset,
   getTime,
+  getUtcOffset,
   isTimeValid,
 } = require('../lib');
 
@@ -232,6 +233,14 @@ describe('Getting dates difference', () => {
 
   it('should return diff in days of different years', () => {
     expect(getDiffInDays(new Date(2019, 0, 1), new Date(2020, 0, 5))).to.equal(-369);
+  });
+
+  it('should return diff in hours', () => {
+    expect(getDiffInHours(new Date(2020, 0, 1, 5), new Date(2020, 0, 1))).to.equal(5);
+  });
+
+  it('should return diff in hours of different days', () => {
+    expect(getDiffInHours(new Date(2020, 0, 2, 5), new Date(2020, 0, 1))).to.equal(29);
   });
 
   it('should return diff in minutes', () => {
