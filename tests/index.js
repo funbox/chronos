@@ -35,6 +35,7 @@ const {
   getEndOfMonth,
   getEndOfWeek,
   getEndOfYear,
+  getRelativeDate,
   getTime,
   getUtcOffset,
   isTimeValid,
@@ -389,6 +390,27 @@ describe('Getting end of date', () => {
   it('should return date of end of the week - 1', () => {
     const result = getEndOfWeek(new Date(2020, 0, 1, 0, 0), -1);
     expect(result.getTime()).to.equal(new Date(2019, 11, 29, 23, 59, 59, 999).getTime());
+  });
+});
+
+describe('getRelativeDate', () => {
+  it('should return interval string for 1 day', () => {
+    expect(getRelativeDate(subtractDays(new Date(), 1))).to.equal('1 день');
+  });
+
+  it('should return interval string for 2 month', () => {
+    expect(getRelativeDate(subtractMonths(new Date(), 2))).to.equal('2 месяца');
+  });
+
+  it('should return interval string for 5 hours', () => {
+    const now = new Date();
+    now.setHours(now.getHours() - 5);
+
+    expect(getRelativeDate(now)).to.equal('5 часов');
+  });
+
+  it('should return interval string for less than a minute', () => {
+    expect(getRelativeDate(new Date())).to.equal('меньше минуты');
   });
 });
 
