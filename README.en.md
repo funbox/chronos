@@ -20,7 +20,7 @@ import { addDate } from @funboxteam/chronos
 
 ### Available functions
 
-### [addDays](./lib/addDays.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
+### [addDays](./lib/addDays.js), [addHours](./lib/addHours.js), [addMinutes](./lib/addMinutes.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
 
 Adds days, months or years to the passed date and returns new Date instance.
 

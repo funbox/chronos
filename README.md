@@ -18,7 +18,7 @@ import { addDate } from @funboxteam/chronos
 
 ### Список доступных функций
 
-### [addDays](./lib/addDays.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
+### [addDays](./lib/addDays.js), [addHours](./lib/addHours.js), [addMinutes](./lib/addMinutes.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
 
 Добавляет количество дней, месяцев или лет и возвращает новый объект Date.
 

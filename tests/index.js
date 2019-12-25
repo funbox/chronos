@@ -5,6 +5,8 @@ const expect = chai.expect;
 
 const {
   addDays,
+  addHours,
+  addMinutes,
   addMonths,
   addYears,
   subtractDays,
@@ -61,6 +63,14 @@ describe('Addition', () => {
 
   it('should add 1 day', () => {
     expect(addDays(1577826000, 1)).to.equalDate(new Date(2020, 0, 2));
+  });
+
+  it('should add 1 hour', () => {
+    expect(addHours(1577826000, 1)).to.equalDate(new Date(2020, 0, 1, 1));
+  });
+
+  it('should add 1 minute', () => {
+    expect(addMinutes(1577826000, 1)).to.equalDate(new Date(2020, 0, 1, 1, 1));
   });
 });
 
