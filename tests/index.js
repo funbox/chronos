@@ -10,6 +10,8 @@ const {
   addMonths,
   addYears,
   subtractDays,
+  subtractHours,
+  subtractMinutes,
   subtractMonths,
   subtractYears,
   formatDate,
@@ -85,6 +87,14 @@ describe('Subtraction', () => {
 
   it('should subtract 1 day', () => {
     expect(subtractDays(1577826000, 1)).to.equalDate(new Date(2019, 11, 31));
+  });
+
+  it('should subtract 1 hour', () => {
+    expect(subtractHours(1577826000, 1)).to.equalDate(new Date(2019, 11, 31, 23));
+  });
+
+  it('should subtract 1 minute', () => {
+    expect(subtractHours(1577826000, 1)).to.equalDate(new Date(2019, 11, 31, 23, 59));
   });
 });
 

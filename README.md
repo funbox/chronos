@@ -39,7 +39,7 @@ addDays(new Date(), 1);
 addYears(1577826000, 1);
 ```
 
-### [subtractDays](./lib/subtractDays.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
+### [subtractDays](./lib/subtractDays.js), [subtractHours](./lib/subtractHours.js), [subtractMinutes](./lib/subtractMinutes.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
 
 Удаляет количество дней, месяцев или лет и возвращает новый объект Date.
 
