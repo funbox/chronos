@@ -116,7 +116,7 @@ formatTime(value, valueFormat, format);
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getHour](./lib/getHour.js), [getMinute](./lib/getMinute.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
+### [getDay](./lib/getDay.js), [getHours](./lib/getHours.js), [getMinutes](./lib/getMinutes.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
 
 Возвращает указанную единицу времени.
 
@@ -211,7 +211,7 @@ getDiffInDays(firstDate, secondDate);
 getDiffInDays(1577826000, 1577912400);
 ```
 
-### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfHour](./lib/getStartOfHour.js), [getStartOfMinute](./lib/getStartOfMinute.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfYear](./lib/getStartOfYear.js)
+### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfHours](./lib/getStartOfHours.js), [getStartOfMinutes](./lib/getStartOfMinutes.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfYear](./lib/getStartOfYear.js)
 
 Возвращает объект даты начала единицы времени.
 
@@ -231,7 +231,7 @@ getStartOfDay(1577912400, 1);
 getStartOfDay(1577912400, -1);
 ```
 
-### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfHour](./lib/getEndOfHour.js), [getEndOfMinute](./lib/getEndOfMinute.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfYear](./lib/getEndOfYear.js)
+### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfHours](./lib/getEndOfHours.js), [getEndOfMinutes](./lib/getEndOfMinutes.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfYear](./lib/getEndOfYear.js)
 
 Возвращает объект даты окончания единицы времени.
 
