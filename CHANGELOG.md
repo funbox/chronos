@@ -1,26 +1,50 @@
 # Changelog
 
+## 1.4.0 (13.01.2020)
+
+Add second param (`format`) to `getMonthName` and `getWeekdayName`.
+It may has two values: `long` or `short` like those that used 
+in [`Date.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)
+in `options.month` and `options.weekday` accordingly.
+
+Add many new functions:
+
+- `addHours`;
+- `addMinutes`;
+- `getEndOfHours`;
+- `getEndOfMinutes`;
+- `getHours`;
+- `getMinutes`;
+- `getStartOfHours`;
+- `getStartOfMinutes`;
+- `getWeek`;
+- `isSameHour`;
+- `isSameMinute`;
+- `subtractHours`;
+- `subtractMinutes`.
+
+
 ## 1.3.0 (23.12.2019)
 
-Added getRelativeDate & getDiffInHours.
+Added `getRelativeDate` & `getDiffInHours`.
 
 
 ## 1.2.1 (20.12.2019)
 
-Fixed formatDate for IE 11 and old Edges.
+Fixed `formatDate` for IE 11 and old Edges.
 
 
 ## 1.2.0 (04.12.2019)
 
 Added new functions: 
 
-- getStartOfWeek; 
-- getEndOfWeek;
-- formatTime;
-- isTimeValid;
-- parseDate.
+- `getStartOfWeek`; 
+- `getEndOfWeek`;
+- `formatTime`;
+- `isTimeValid`;
+- `parseDate`.
 
-Also added seconds to the object returned by getDuration.
+Also added seconds to the object returned by `getDuration`.
 
 
 ## 1.1.2 (29.10.2019)
@@ -31,7 +55,7 @@ and values rounding in `getDiffInDays` & `getDiffInMinutes`.
 
 ## 1.1.1 (24.10.2019)
 
-Replaced Number.isNaN with isNaN, because the first one doesn't work in IE11.
+Replaced `Number.isNaN` with `isNaN`, because the first one doesn't work in IE11.
 
 
 ## 1.1.0 (21.10.2019)
