@@ -110,6 +110,10 @@ describe('formatDate', () => {
   it('should format Date instance to \'YYYY-MM-DD\'', () => {
     expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD')).to.equal('2020-01-01');
   });
+
+  it('should format Date instance to \'YYYY-MM-DDTHH:mm:ssZ\'', () => {
+    expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ')).to.equal('2020-01-01T00:00:00+03:00');
+  });
 });
 
 describe('parseDate', () => {
