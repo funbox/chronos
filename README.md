@@ -305,6 +305,20 @@ getTime(); // unixtime от new Date();
 getTime(new Date(2020, 0, 1);
 ```
 
+### [getTimezoneName](./lib/getTimezoneName)
+
+Возвращает название текущей таймзоны.
+
+**Использование**
+```bash
+getTimezoneName();
+```
+
+Пример
+```bash
+getTimezoneName(); // 'Europe/Moscow';
+```
+
 ### [isTimeValid](./lib/isTimeValid.js)
 
 Проверяет валидность строки времени по шаблону

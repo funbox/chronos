@@ -308,6 +308,20 @@ getTime(); // unixtime of new Date();
 getTime(new Date(2020, 0, 1);
 ```
 
+### [getTimezoneName](./lib/getTimezoneName)
+
+Returns the name of the current timezone.
+
+**Usage**
+```bash
+getTimezoneName();
+```
+
+Example
+```bash
+getTimezoneName(); // 'Europe/Moscow';
+```
+
 ### [isTimeValid](./lib/isTimeValid.js)
 
 Checks time string validity by passed format string.
