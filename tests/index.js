@@ -509,7 +509,7 @@ describe('Getting end of date', () => {
 
 describe('getRelativeDate', () => {
   it('should return interval string for 1 day', () => {
-    expect(getRelativeDate(subtractDays(new Date(), 1))).to.equal('1 день');
+    expect(getRelativeDate(subtractDays(new Date(), 1))).to.equal(' день');
   });
 
   it('should return interval string for 2 month', () => {
@@ -541,7 +541,7 @@ describe('getTime', () => {
 });
 
 describe('getTimezoneName', () => {
-  it('Проверка получения названия текущей таймзоны', () => {
+  it('should return name of the current timezone', () => {
     expect(getTimezoneName()).to.equal('Europe/Moscow');
   });
 });
