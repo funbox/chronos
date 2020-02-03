@@ -513,7 +513,7 @@ describe('getRelativeDate', () => {
   });
 
   it('should return interval string for 2 month', () => {
-    expect(getRelativeDate(subtractMonths(new Date(), 2))).to.equal('2 месяца');
+    expect(getRelativeDate(subtractMonths(new Date(2020, 1, 1), 2))).to.equal('2 месяца');
   });
 
   it('should return interval string for 5 hours', () => {
