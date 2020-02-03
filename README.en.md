@@ -84,10 +84,11 @@ Params:
 | `MM` | Two-digit month value |
 | `YYYY`  | Four-digit year value |
 | `YY`  | Last to digits of the year |
+| `Z`  | Timezone offset in hours and minutes |
     
 Example
 ```bash
-formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
+formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ'); // 2020-01-01T00:00:00+03:00
 
 formatDate(1577826000, 'HH:mm:ss');
 ```

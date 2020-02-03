@@ -82,10 +82,11 @@ formatDate(date, format);
 | `MM` | Двузначное представление месяца |
 | `YYYY`  | Значение года |
 | `YY`  | Две последние цифры значения года |
+| `Z`  | Представление смещения таймзоны в часах и минутах |
     
 Пример
 ```bash
-formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD');
+formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ'); // 2020-01-01T00:00:00+03:00
 
 formatDate(1577826000, 'HH:mm:ss');
 ```
