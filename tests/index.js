@@ -49,6 +49,7 @@ const {
   getEndOfYear,
   getRelativeDate,
   getTime,
+  getTimezoneName,
   getUtcOffset,
   getWeek,
   isTimeValid,
@@ -536,6 +537,12 @@ describe('getUtcOffset', () => {
 describe('getTime', () => {
   it('should return unix timestamp', () => {
     expect(getTime(new Date(2020, 0, 1))).to.equal(1577826000);
+  });
+});
+
+describe('getTimezoneName', () => {
+  it('Проверка получения названия текущей таймзоны', () => {
+    expect(getTimezoneName()).to.equal('Europe/Moscow');
   });
 });
 
