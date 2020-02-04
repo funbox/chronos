@@ -288,7 +288,7 @@ getRelativeDate(new Date()); // меньше минуты
 
 ### [getUtcOffset](./lib/getUtcOffset.js)
 
-Returns UTF offset in hours.
+Returns UTF offset in hours, floored to integer.
 
 **Usage**
 ```bash
