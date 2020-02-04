@@ -313,6 +313,9 @@ getTime(new Date(2020, 0, 1);
 
 Returns the name of the current timezone.
 
+In case of lack of Intl API support returns nearest timezone to the user 
+which has integer offset.
+
 **Usage**
 ```bash
 getTimezoneName();
