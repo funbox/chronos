@@ -64,6 +64,10 @@ describe('Addition', () => {
     expect(addMonths(1577826000, 1)).to.equalDate(new Date(2020, 1, 1));
   });
 
+  it('should add 1 month to the end of the month', () => {
+    expect(addMonths(new Date(2020, 0, 31), 1)).to.equalDate(new Date(2020, 2, 2));
+  });
+
   it('should add 1 day', () => {
     expect(addDays(1577826000, 1)).to.equalDate(new Date(2020, 0, 2));
   });
@@ -84,6 +88,10 @@ describe('Subtraction', () => {
 
   it('should subtract 1 month', () => {
     expect(subtractMonths(1577826000, 1)).to.equalDate(new Date(2019, 11, 1));
+  });
+
+  it('should subtract 1 month from the end of the month', () => {
+    expect(subtractMonths(new Date(2020, 1, 29), 1)).to.equalDate(new Date(2020, 0, 29));
   });
 
   it('should subtract 1 day', () => {

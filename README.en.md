@@ -24,6 +24,9 @@ import { addDate } from @funboxteam/chronos
 
 Adds days, months or years to the passed date and returns new Date instance.
 
+When adding months to date in JS one should remember the amount of days
+in the current and the result month. E.g. when we add 1 month to 31.01.2020 we get 02.03.2020, not 29.02.2020.
+
 **Usage**
 ```bash
 addDays(date, quantity);
@@ -39,11 +42,18 @@ Example
 addDays(new Date(), 1);
 
 addYears(1577826000, 1);
+
+addMonths(new Date(2020, 0, 1), 1)); // new Date(2020, 1, 1);
+addMonths(new Date(2020, 0, 31), 1)); // new Date(2020, 2, 2);
 ```
 
 ### [subtractDays](./lib/subtractDays.js), [subtractHours](./lib/subtractHours.js), [subtractMinutes](./lib/subtractMinutes.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
 
 Subtracts days, months or years from the passed date and returns new Date instance.
+
+When subtracting months in JS one should remember the amount of days
+in the current and the result month. E.g. when we subtract 1 month
+from 29.02.2020 we get 29.01.2020, not 31.01.2020.
 
 **Usage**
 ```bash
@@ -58,6 +68,9 @@ Example
 subtractDays(new Date(), 1);
 
 subtractYears(1577826000, 1);
+
+subtractMonths(new Date(2020, 0, 1), 1)); // new Date(2019, 11, 1);
+subtractMonths(new Date(2020, 1, 29), 1)); // new Date(2020, 0, 29);
 ```
 
 ### [formatDate](./lib/formatDate.js)

@@ -21,6 +21,7 @@ import { addDate } from @funboxteam/chronos
 ### [addDays](./lib/addDays.js), [addHours](./lib/addHours.js), [addMinutes](./lib/addMinutes.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
 
 Добавляет количество дней, месяцев или лет и возвращает новый объект Date.
+Стоит иметь в виду, что в js при добавлении месяцев к дате в последних чисел месяца (28-31) нужно учитывать количество дней в текущем и итоговом месяце.
 
 **Использование**
 ```bash
@@ -37,11 +38,15 @@ addYears(date, quantity);
 addDays(new Date(), 1);
 
 addYears(1577826000, 1);
+
+addMonths(new Date(2020, 0, 1), 1)); // new Date(2020, 1, 1);
+addMonths(new Date(2020, 0, 31), 1)); // new Date(2020, 2, 2);
 ```
 
 ### [subtractDays](./lib/subtractDays.js), [subtractHours](./lib/subtractHours.js), [subtractMinutes](./lib/subtractMinutes.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
 
 Удаляет количество дней, месяцев или лет и возвращает новый объект Date.
+Стоит иметь в виду, что в js при вычитании месяцев из даты в последних чисел месяца (28-31) нужно учитывать количество дней в текущем и итоговом месяце.
 
 **Использование**
 ```bash
@@ -56,6 +61,9 @@ subtractDays(date, quantity);
 subtractDays(new Date(), 1);
 
 subtractYears(1577826000, 1);
+
+subtractMonths(new Date(2020, 0, 1), 1)); // new Date(2019, 11, 1);
+subtractMonths(new Date(2020, 1, 29), 1)); // new Date(2020, 0, 29);
 ```
 
 ### [formatDate](./lib/formatDate.js)
