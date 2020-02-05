@@ -116,6 +116,10 @@ describe('formatDate', () => {
     expect(formatDate(1577826000, 'DD.MM.YYYY')).to.equal('01.01.2020');
   });
 
+  it('should format unix timestamp to \'D MMM YYYY\'', () => {
+    expect(formatDate(1577826000, 'D MMM YYYY')).to.equal('1 янв. 2020');
+  });
+
   it('should format Date instance to \'YYYY-MM-DD\'', () => {
     expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DD')).to.equal('2020-01-01');
   });

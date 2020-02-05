@@ -94,6 +94,7 @@ Params:
 | `DD`  | Two-digit day value  |
 | `D` | Day value from 1 till 31 |
 | `MMMM` | Month name  |
+| `MMM` | Short month name |
 | `MM` | Two-digit month value |
 | `YYYY`  | Four-digit year value |
 | `YY`  | Last to digits of the year |
