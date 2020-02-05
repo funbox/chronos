@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.5.0 (05.02.2020)
+
+Added `Z` template into `formatDate` supported templates list, which allows to add
+timezone offset into the result string (it's formatted as `±HH:mm`).
+
+Fixed `getUtcOffset`. Earlier it returned only positive values.
+
+Fixed `getRelativeDate`. Now if the returned entity is the only one, 
+there won't be a number in returned string. E.g. `минуту назад`
+instead of `1 минуту назад`.
+
+Added `getTimezoneName`. It returns timezone name (e.g. `Europe/Moscow`)
+using Intl API when it's possible. If it's not then fallback value returned.
+[The list of fallback values](./lib/constants/index.js) contains integer offsets only.
+
+So, if there's a user from Colombo (Shi Lanka) with modern browser,
+`Asia/Colombo` will be returned (+05:30). But if they use IE 11, then `Asia/Yekaterinburg`
+will be returned (+05:00). More precise values aren't used to prevent the lib bloating. 
+But may be added in future.
+
 ## 1.4.0 (13.01.2020)
 
 Add second param (`format`) to `getMonthName` and `getWeekdayName`.
