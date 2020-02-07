@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.0 (07.02.2020)
+
+Added `MMM` template into `formatDate`, which allows to add
+short month name into the result string (e.g. `янв.`).
+
+
 ## 1.5.0 (05.02.2020)
 
 Added `Z` template into `formatDate` supported templates list, which allows to add
