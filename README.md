@@ -1,196 +1,233 @@
 # @funboxteam/chronos
 
-## Описание
-
 Библиотека для работы с датой.
 
-### Установка
 
-Добавить пакет в зависимости
+## Установка
+
+Добавить пакет в зависимости проекта:
+
 ```bash
 npm install --save @funboxteam/chronos
 ```
 
-Импортировать необходимые функции
+Импортировать необходимые функции в JS:
+
 ```bash
-import { addDate } from @funboxteam/chronos
+import { addDate } from '@funboxteam/chronos';
 ```
 
-### Список доступных функций
 
-### [addDays](./lib/addDays.js), [addHours](./lib/addHours.js), [addMinutes](./lib/addMinutes.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
+## Список доступных функций
 
-Добавляет количество дней, месяцев или лет и возвращает новый объект Date.
-Стоит иметь в виду, что в JS при добавлении месяцев к дате в последних чисел месяца (28-31) нужно учитывать количество дней в текущем и итоговом месяце.
+### [addMinutes](./lib/addMinutes.js), [addHours](./lib/addHours.js), [addDays](./lib/addDays.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
+
+Добавляют единицу времени и возвращают новый объект Date.
+
+Стоит иметь в виду, что в JS при добавлении месяцев к дате в последних числах 
+месяца (28-31) нужно учитывать количество дней в текущем и итоговом месяце.
 
 **Использование**
-```bash
+
+```js
 addDays(date, quantity);
 addMonths(date, quantity);
 addYears(date, quantity);
 ```
+
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String);
 - `quantity` – Number, количество единиц.
 
-Пример
-```bash
-addDays(new Date(), 1);
+Пример:
 
-addYears(1577826000, 1);
+```js
+addDays(new Date('2020-01-01T00:00:00.000Z'), 1); // 2020-01-02T00:00:00.000Z
 
-addMonths(new Date(2020, 0, 1), 1)); // new Date(2020, 1, 1);
-addMonths(new Date(2020, 0, 31), 1)); // new Date(2020, 2, 2);
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+addYears(1577836800, 1); // 2021-01-01T00:00:00.000Z
+
+addMonths(new Date(2020, 0, 1), 1); // == new Date(2020, 1, 1);
+addMonths(new Date(2020, 0, 31), 1); // == new Date(2020, 2, 2);
 ```
 
-### [subtractDays](./lib/subtractDays.js), [subtractHours](./lib/subtractHours.js), [subtractMinutes](./lib/subtractMinutes.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
 
-Удаляет количество дней, месяцев или лет и возвращает новый объект Date.
-Стоит иметь в виду, что в JS при вычитании месяцев из даты в последних чисел месяца (28-31) нужно учитывать количество дней в текущем и итоговом месяце.
+### [subtractMinutes](./lib/subtractMinutes.js), [subtractHours](./lib/subtractHours.js), [subtractDays](./lib/subtractDays.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
+
+Вычитают единицу времени и возвращают новый объект Date.
+
+Стоит иметь в виду, что в JS при вычитании месяцев из даты в последних числах 
+месяца (28-31) нужно учитывать количество дней в текущем и итоговом месяце.
 
 **Использование**
-```bash
+
+```js
 subtractDays(date, quantity);
 ```
+
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String);
 - `quantity` – Number, количество единиц.
 
-Пример
-```bash
-subtractDays(new Date(), 1);
+Пример:
 
-subtractYears(1577826000, 1);
+```js
+subtractDays(new Date('2020-01-01T00:00:00.000Z'), 1); // 2019-12-31T00:00:00.000Z
 
-subtractMonths(new Date(2020, 0, 1), 1)); // new Date(2019, 11, 1);
-subtractMonths(new Date(2020, 1, 29), 1)); // new Date(2020, 0, 29);
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+subtractYears(1577836800, 1); // 2019-01-01T00:00:00.000Z
+
+subtractMonths(new Date(2020, 0, 1), 1); // == new Date(2019, 11, 1);
+subtractMonths(new Date(2020, 1, 29), 1); // == new Date(2020, 0, 29);
 ```
+
 
 ### [formatDate](./lib/formatDate.js)
 
 Форматирует дату в строку по указанному шаблону. 
 
 **Использование**
-```bash
+
+```js
 formatDate(date, format);
 ```
+
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String);
 - `format` – String, шаблон форматирования времени.    
-      
-| Значение  | Описание  |
-|---|---|
-| `ss`  | Двузначное представление секунд  |
-| `mm`  | Двузначное представление минут  |
-| `HH` | Двузначное представление часа  |
-| `dddd`  | Название дня недели |
-| `DD`  | Двузначное представление дня месяца  |
-| `D` | Значение дня месяца от 1 до 31 |
-| `MMMM` | Название месяца  |
-| `MMM` | Короткое представление названия месяца |
-| `MM` | Двузначное представление месяца |
-| `YYYY`  | Значение года |
-| `YY`  | Две последние цифры значения года |
-| `Z`  | Представление смещения таймзоны в часах и минутах |
-    
-Пример
-```bash
-formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ'); // 2020-01-01T00:00:00+03:00
 
-formatDate(1577826000, 'HH:mm:ss');
+| Шаблон | Описание                                          |
+|--------|---------------------------------------------------|
+| `ss`   | Двузначное представление секунд                   |
+| `mm`   | Двузначное представление минут                    |
+| `HH`   | Двузначное представление часа                     |
+| `dddd` | Название дня недели                               |
+| `DD`   | Двузначное представление дня месяца               |
+| `D`    | Значение дня месяца от 1 до 31                    |
+| `MMMM` | Название месяца                                   |
+| `MMM`  | Короткое представление названия месяца            |
+| `MM`   | Двузначное представление месяца                   |
+| `YYYY` | Значение года                                     |
+| `YY`   | Две последние цифры значения года                 |
+| `Z`    | Представление смещения таймзоны в часах и минутах |
+
+Пример:
+
+```js
+formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ'); // '2020-01-01T00:00:00+03:00' (для GMT+3)
+
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+formatDate(1577836800, 'HH:mm:ss'); // '03:00:00' (для GMT+3)
 ```
+
 
 ### [formatTime](./lib/formatTime.js)
 
 Форматирует строку времени по указанному шаблону.
 
 **Использование**
-```bash
-formatTime(value, valueFormat, format);
 
+```js
+formatTime(value, valueFormat, format);
 ```
+
 Параметры:
 - `value` – String, представление времени;
 - `valueFormat` – String, шаблон переданной строки времени;
 - `format` – String, шаблон форматирования времени.
 
-| Значение  | Описание  |
-|---|---|
-| `ss`  | Двузначное представление секунд  |
-| `mm`  | Двузначное представление минут  |
-| `H` |  Представление часа от 0 до 23  |
-| `HH` | Двузначное представление часа  |
+| Шаблон | Описание                        |
+|--------|---------------------------------|
+| `ss`   | Двузначное представление секунд |
+| `mm`   | Двузначное представление минут  |
+| `HH`   | Двузначное представление часа   |
+| `H`    | Представление часа от 0 до 23   |
 
-Пример
-```bash
+Пример:
+
+```js
 formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
-### [getDay](./lib/getDay.js), [getHours](./lib/getHours.js), [getMinutes](./lib/getMinutes.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js), [getWeek](./lib/getWeek.js)
 
-Возвращает указанную единицу времени.
+### [getMinutes](./lib/getMinutes.js), [getHours](./lib/getHours.js), [getDay](./lib/getDay.js), [getWeek](./lib/getWeek.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js)
+
+Возвращает единицу времени.
+
+_`getWeek` возвращает номер недели начиная с начала текущего года._
 
 **Использование**
-```bash
+
+```js
 getDay(date);
 ```
 
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String).
 
-`getWeek` возвращает номер недели начиная с начала текущего года. 
+Пример:
 
-Пример
-```bash
-getDay(new Date(2020, 0, 1));
+```js
+getDay(new Date(2020, 0, 1)); // 1;
 
-getYear(1577826000);
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+getYear(1577836800); // 2020
 ```
+
 
 ### [getWeekdayName](./lib/getWeekdayName.js), [getMonthName](./lib/getMonthName.js)
 
 Возвращает название единицы времени.
 
 **Использование**
-```bash
+
+```js
 getWeekdayName(date, format);
 ```
 
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String);
-- `format` – String, формат названия единицы времени. По умолчанию длинный – 'long', может быть короткий – 'short'. 
+- `format` – String, формат названия единицы времени. По умолчанию длинный 
+(`'long'`), может быть короткий (`'short'`). 
 
-Пример
-```bash
-getWeekdayName(new Date(2020, 11, 30)); // понедельник
-getWeekdayName(new Date(2020, 11, 30), 'short'); // пн
-getMonthName(new Date(2020, 0, 1)); // январь
-getMonthName(new Date(2020, 0, 1), 'short'); // янв
+Пример:
+
+```js
+getWeekdayName(new Date(2020, 11, 30)); // 'среда' (11-й месяц в JS — это декабрь)
+getWeekdayName(new Date(2020, 11, 30), 'short'); // 'ср'
+getMonthName(new Date(2020, 0, 1)); // 'январь'
+getMonthName(new Date(2020, 0, 1), 'short'); // 'янв'
 ```
+
 
 ### [getDuration](./lib/getDuration.js)
 
-Возвращает объект, который содержит значение интервала времени в днях, часах и минутах.
+Возвращает объект, который содержит значение интервала времени в днях, часах, 
+минутах и секундах.
 
 **Использование**
-```bash
+
+```js
 getDuration(seconds);
 ```
 
 Параметры:
 - `seconds` – Number, интервал времени в секундах.
 
-Пример
-```bash
+Пример:
+
+```js
 getDuration(1000000); // { days: 11, hours: 13, minutes: 46, seconds: 40 }
 ```
 
-### [isSameDay](./lib/isSameDay.js), [isSameHour](./lib/isSameHour.js), [isSameMinute](./lib/isSameMinute.js), [isSameMonth](./lib/isSameMonth.js), [isSameYear](./lib/isSameYear.js)
+
+### [isSameMinute](./lib/isSameMinute.js), [isSameHour](./lib/isSameHour.js), [isSameDay](./lib/isSameDay.js), [isSameMonth](./lib/isSameMonth.js), [isSameYear](./lib/isSameYear.js)
 
 Проверяет равенство единицы времени двух дат.
 
 **Использование**
-```bash
+
+```js
 isSameYear(firstDate, secondDate);
 ```
 
@@ -198,17 +235,22 @@ isSameYear(firstDate, secondDate);
 - `firstDate` – объект Date или временная метка Unix (Number, String);
 - `secondDate` – объект Date или временная метка Unix (Number, String).
 
-Пример
-```bash
-isSameYear(1577826000, 1577912400);
+Пример:
+
+```js
+// 1577750400 — это 2019-12-31T00:00:00.000Z
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+isSameYear(1577750400, 1577836800); // false
 ```
 
-### [getDiffInDays](./lib/getDiffInDays.js), [getDiffInHours](./lib/getDiffInHours.js), [getDiffInMinutes](./lib/getDiffInMinutes.js), [getDiffInMonths](./lib/getDiffInMonths.js), [getDiffInYears](./lib/getDiffInYears.js)  
+
+### [getDiffInMinutes](./lib/getDiffInMinutes.js), [getDiffInHours](./lib/getDiffInHours.js), [getDiffInDays](./lib/getDiffInDays.js), [getDiffInMonths](./lib/getDiffInMonths.js), [getDiffInYears](./lib/getDiffInYears.js)  
 
 Возвращает значение разницы в единицах времени двух дат.
 
 **Использование**
-```bash
+
+```js
 getDiffInDays(firstDate, secondDate);
 ```
 
@@ -216,127 +258,157 @@ getDiffInDays(firstDate, secondDate);
 - `firstDate` – объект Date или временная метка Unix (Number, String);
 - `secondDate` – объект Date или временная метка Unix (Number, String).
 
-Пример
-```bash
-getDiffInDays(1577826000, 1577912400);
+Пример:
+
+```js
+// 1577750400 — это 2019-12-31T00:00:00.000Z
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+getDiffInDays(1577750400, 1577836800); // -1
 ```
 
-### [getStartOfDay](./lib/getStartOfDay.js), [getStartOfDecade](./lib/getStartOfDecade.js), [getStartOfHours](./lib/getStartOfHours.js), [getStartOfMinutes](./lib/getStartOfMinutes.js), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfYear](./lib/getStartOfYear.js)
+
+### [getStartOfMinutes](./lib/getStartOfMinutes.js), [getStartOfHours](./lib/getStartOfHours.js), [getStartOfDay](./lib/getStartOfDay.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js), [getStartOfDecade](./lib/getStartOfDecade.js)
 
 Возвращает объект даты начала единицы времени.
 
 **Использование**
-```bash
+
+```js
 getStartOfDay(date);
 ```
 
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String);
-- `diff` – объект Date или временная метка Unix (Number, String).
+- `diff` – Number. Выражается в единицах, о которых идёт речь в функции. 
+Добавляется к итоговой дате. По умолчанию `0`.
 
-Пример
-```bash
-getStartOfDay(1577912400);
-getStartOfDay(1577912400, 1);
-getStartOfDay(1577912400, -1);
+Пример:
+
+```js
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+getStartOfDay(1577836800); // 2019-12-31T21:00:00.000Z (для GMT+3)
+getStartOfDay(1577836800, 1); // 2020-01-01T21:00:00.000Z (для GMT+3)
+getStartOfDay(1577836800, -1); // 2019-12-30T21:00:00.000Z (для GMT+3)
 ```
 
-### [getEndOfDay](./lib/getEndOfDay.js), [getEndOfDecade](./lib/getEndOfDecade.js), [getEndOfHours](./lib/getEndOfHours.js), [getEndOfMinutes](./lib/getEndOfMinutes.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfYear](./lib/getEndOfYear.js)
+
+### [getEndOfMinutes](./lib/getEndOfMinutes.js), [getEndOfHours](./lib/getEndOfHours.js), [getEndOfDay](./lib/getEndOfDay.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js), [getEndOfDecade](./lib/getEndOfDecade.js)
 
 Возвращает объект даты окончания единицы времени.
 
 **Использование**
-```bash
+
+```js
 getEndOfDay(date);
 ```
 
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String);
-- `diff` – Number, количество единиц добить / вычесть из даты.
+- `diff` – Number. Выражается в единицах, о которых идёт речь в функции. 
+Добавляется к итоговой дате. По умолчанию `0`.
 
-Пример
-```bash
-getEndOfDay(1577912400);
-getEndOfDay(1577912400, 1);
-getEndOfDay(1577912400, -1);
+Пример:
+
+```js
+// 1577836800 — это 2020-01-01T00:00:00.000Z
+getEndOfDay(1577836800); // 2020-01-01T20:59:59.999Z (для GMT+3)
+getEndOfDay(1577836800, 1); // 2020-01-02T20:59:59.999Z (для GMT+3)
+getEndOfDay(1577836800, -1); // 2019-12-31T20:59:59.999Z (для GMT+3)
 ```
+
 
 ### [getRelativeDate](./lib/getRelativeDate.js)
 
-Возвращает временной интервал между датой и текущим временем в виде строки.
+Возвращает строку — временной интервал между датой и текущим временем.
 
 **Использование**
-```bash
+
+```js
 getRelativeDate(date);
 ```
 
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String).
 
-Пример
-```bash
-getRelativeDate(1577081613); // 5 часов
-getRelativeDate(new Date()); // меньше минуты
+Пример:
+
+```js
+getRelativeDate(1577081613); // '2 месяца' (для 07.02.2020)
+getRelativeDate(new Date()); // 'меньше минуты'
 ```
+
 
 ### [getUtcOffset](./lib/getUtcOffset.js)
 
-Возвращает значение смещения временной зоны относительно UTC, выраженным целым числом часов.
+Возвращает значение смещения временной зоны относительно UTC, выраженного целым 
+числом часов.
 
 **Использование**
-```bash
+
+```js
 getUtcOffset(date);
 ```
 
 Параметры:
 - `date` – объект Date или временная метка Unix (Number, String).
 
-Пример
-```bash
-getUtcOffset(new Date(2020, 0, 1);
+Пример:
+
+```js
+getUtcOffset(new Date(2020, 0, 1)); // 3 (для GMT+3)
 ```
+
 
 ### [getTime](./lib/getTime.js)
 
 Возвращает значение временной метки в секундах.
 
 **Использование**
-```bash
+
+```js
 getTime(date);
 ```
 
 Параметры:
 - `date` – объект Date.
 
-Пример
-```bash
-getTime(); // unixtime от new Date();
+Пример:
 
-getTime(new Date(2020, 0, 1);
+```js
+// сейчас 2020-02-07T08:26:59.422Z
+getTime(); // 1581064019 (unixtime от new Date())
+
+getTime(new Date(2020, 0, 1)); // 1577826000 (для GMT+3)
 ```
+
 
 ### [getTimezoneName](./lib/getTimezoneName)
 
 Возвращает название текущей таймзоны. 
-В случае отсутсвия поддержки Intl API для получения таймзоны возвращает 
-название ближайшей к пользователю таймзоны со смещением, выраженным целым числом часов. 
+
+В случае отсутсвия поддержки получения таймзоны в Intl API возвращает название 
+ближайшей к пользователю таймзоны со смещением, выраженным целым числом часов. 
 
 **Использование**
-```bash
+
+```js
 getTimezoneName();
 ```
 
-Пример
-```bash
-getTimezoneName(); // 'Europe/Moscow';
+Пример:
+
+```js
+getTimezoneName(); // 'Europe/Moscow' (для GMT+3 в ИЕ11 и для MSK в новых браузерах)
 ```
+
 
 ### [isTimeValid](./lib/isTimeValid.js)
 
-Проверяет валидность строки времени по шаблону
+Проверяет валидность строки времени по шаблону.
 
 **Использование**
-```bash
+
+```js
 isTimeValid(value, format);
 ```
 
@@ -344,34 +416,37 @@ isTimeValid(value, format);
 - `value` – String, строка времени;
 - `format` – String, шаблон представления времени.
 
-Пример
-```bash
-isTimeValid('22:30', 'HH:mm');
+Пример:
+
+```js
+isTimeValid('22:30', 'HH:mm'); // true
 ```
+
 
 ### [parseDate](./lib/parseDate.js)
 
-Возвращает объект даты указанной строки времени
+Возвращает объект даты указанной строки времени.
 
 **Использование**
-```bash
-parseDate(value, format);
 
+```js
+parseDate(value, format);
 ```
 
 Параметры:
 - `value` – String, представление даты;
 - `format` – String, шаблон указанной даты.
 
-| Значение  | Описание  |
-|---|---|
-| `DD`  | Двузначное представление дня месяца  |
-| `D` | Значение дня месяца от 1 до 31 |
-| `MM` | Двузначное представление месяца |
-| `YYYY`  | Значение года |
-| `YY`  | Две последние цифры значения года |
+| Шаблон | Описание                             |
+|--------|--------------------------------------|
+| `DD`   | Двузначное представление дня месяца  |
+| `D`    | Значение дня месяца от 1 до 31       |
+| `MM`   | Двузначное представление месяца      |
+| `YYYY` | Значение года                        |
+| `YY`   | Две последние цифры значения года    |
 
-Пример
-```bash
-parseDate('2000-01-21', 'YYYY-MM-DD'); // new Date(2000, 0, 21)
+Пример:
+
+```js
+parseDate('2000-01-21', 'YYYY-MM-DD'); // == new Date(2000, 0, 21)
 ```
