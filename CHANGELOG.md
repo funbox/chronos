@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.1 (10.02.2020)
+
+Fixed `HH` value calculation in `formatDate`. Earlier it returned `24` 
+instead of `00` for the beginning of a day.
+
+
 ## 1.6.0 (07.02.2020)
 
 Added `MMM` template into `formatDate`, which allows to add
