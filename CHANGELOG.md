@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.2 (10.02.2020)
+
+Fixed `getRelativeDate` several years interval calculation.
+
+
 ## 1.6.1 (10.02.2020)
 
 Fixed `HH` value calculation in `formatDate`. Earlier it returned `24` 
