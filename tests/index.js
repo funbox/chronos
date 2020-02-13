@@ -130,24 +130,32 @@ describe('formatDate', () => {
 });
 
 describe('parseDate', () => {
-  it('should return Date instance from the string formatted as \'YYYY-MM-DD\'', () => {
+  it('should parse the string formatted as \'YYYY-MM-DD\'', () => {
     expect(parseDate('2000-01-01', 'YYYY-MM-DD')).to.equalDate(new Date(2000, 0, 1));
   });
 
-  it('should return Date instance from the string formatted as \'DD.MM.YYYY\'', () => {
+  it('should parse the string formatted as \'DD.MM.YYYY\'', () => {
     expect(parseDate('31.12.2019', 'DD.MM.YYYY')).to.equalDate(new Date(2019, 11, 31));
   });
 
-  it('should return Date instance from the string formatted as \'D.MM.YYYY\'', () => {
+  it('should parse the string formatted as \'D.MM.YYYY\'', () => {
     expect(parseDate('1.12.2019', 'D.MM.YYYY')).to.equalDate(new Date(2019, 11, 1));
   });
 
-  it('should return Date instance from the string formatted as \'DD.MM.YY\'', () => {
+  it('should parse the string formatted as \'DD.MM.YY\'', () => {
     expect(parseDate('01.01.01', 'DD.MM.YY')).to.equalDate(new Date(2001, 0, 1));
   });
 
   it('should throw when string formatted as \'D.MM.YYYY\' does not contain valid date', () => {
     expect(function() { parseDate('1.120.2019', 'D.MM.YYYY'); }).to.throw('Invalid value: 1.120.2019');
+  });
+
+  it('should return parse the string formatted as ISO 8601 but w/o explicit format set', () => {
+    expect(parseDate('2020-01-01T00:00:00+03:00')).to.equalDate(new Date(2020, 0, 1));
+  });
+
+  it('should throw when string is not formatted as ISO 8601 and the format is not passed', () => {
+    expect(function() { parseDate('1.120.2019'); }).to.throw('Invalid date value: 1.120.2019');
   });
 });
 

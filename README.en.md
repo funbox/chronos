@@ -425,6 +425,10 @@ isTimeValid('22:30', 'HH:mm'); // true
 
 Returns Date instance parsed from the passed string by passed format
 
+If `format` is not passed it tries to parse `value` using native
+`Date.parse`. It should support ISO 8601 and RFC 2822. Other formats
+are not recommended to parse without explicit `format` set. 
+
 **Usage**
 
 ```js
