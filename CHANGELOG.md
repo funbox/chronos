@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0 (14.02.2020)
+
+Made `format` param of `parseDate` optional. When it is not passed
+it the function tries to parse the passed string using `Date.parse`. 
+
+
 ## 1.6.2 (10.02.2020)
 
 Fixed `getRelativeDate` several years interval calculation.
