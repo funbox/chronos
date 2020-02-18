@@ -1,3 +1,5 @@
+// TODO: fix tests, it looks like equalDate does not work correctly
+
 const chai = require('chai');
 require('chai').use(require('chai-datetime'));
 
@@ -103,7 +105,7 @@ describe('Subtraction', () => {
   });
 
   it('should subtract 1 minute', () => {
-    expect(subtractHours(1577826000, 1)).to.equalDate(new Date(2019, 11, 31, 23, 59));
+    expect(subtractMinutes(1577826000, 1)).to.equalDate(new Date(2019, 11, 31, 23, 59));
   });
 });
 
@@ -147,7 +149,7 @@ describe('parseDate', () => {
   });
 
   it('should throw when string formatted as \'D.MM.YYYY\' does not contain valid date', () => {
-    expect(function() { parseDate('1.120.2019', 'D.MM.YYYY'); }).to.throw('Invalid value: 1.120.2019');
+    expect(() => parseDate('1.120.2019', 'D.MM.YYYY')).to.throw('Invalid value: 1.120.2019');
   });
 
   it('should return parse the string formatted as ISO 8601 but w/o explicit format set', () => {
@@ -155,7 +157,7 @@ describe('parseDate', () => {
   });
 
   it('should throw when string is not formatted as ISO 8601 and the format is not passed', () => {
-    expect(function() { parseDate('1.120.2019'); }).to.throw('Invalid date value: 1.120.2019');
+    expect(() => parseDate('1.120.2019')).to.throw('Invalid date value: 1.120.2019');
   });
 });
 
@@ -173,7 +175,7 @@ describe('formatTime', () => {
   });
 
   it('should throw a formatting error when get invalid time', () => {
-    expect(function() { formatTime('33:30', 'HH:mm', 'HH:mm:ss'); }).to.throw('Invalid value: 33:30');
+    expect(() => formatTime('33:30', 'HH:mm', 'HH:mm:ss')).to.throw('Invalid value: 33:30');
   });
 });
 
@@ -204,9 +206,9 @@ describe('isTimeValid', () => {
 });
 
 describe('Getting date units', () => {
-   it('should return year of unix timestamp', () => {
-     expect(getYear(1577826000)).to.equal(2020);
-   });
+  it('should return year of unix timestamp', () => {
+    expect(getYear(1577826000)).to.equal(2020);
+  });
 
   it('should return month of unix timestamp', () => {
     expect(getMonth(1577826000)).to.equal(0);
@@ -339,7 +341,7 @@ describe('Getting dates difference', () => {
   });
 
   it('should return diff in minutes of different days', () => {
-    expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 2, 1))).to.equal(-(60*25));
+    expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 2, 1))).to.equal(-(60 * 25));
   });
 });
 
