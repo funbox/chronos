@@ -1,5 +1,3 @@
-// TODO: fix tests, it looks like equalDate does not work correctly
-
 const chai = require('chai');
 require('chai').use(require('chai-datetime'));
 
