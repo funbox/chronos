@@ -79,7 +79,7 @@ describe('Addition', () => {
   });
 
   it('should add 1 minute', () => {
-    expect(addMinutes(1577826000, 1)).to.equalTime(new Date(2020, 0, 1, 1, 1));
+    expect(addMinutes(1577826000, 1)).to.equalTime(new Date(2020, 0, 1, 0, 1));
   });
 });
 
@@ -439,15 +439,15 @@ describe('Getting start of date', () => {
 
 describe('Getting end of date', () => {
   it('should return date of end of the decade', () => {
-    expect(getEndOfDecade(new Date(2025, 1, 1))).to.equalTime(new Date(2029, 11, 31));
+    expect(getEndOfDecade(new Date(2025, 1, 1))).to.equalTime(new Date(2029, 11, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the decade + 1', () => {
-    expect(getEndOfDecade(new Date(2025, 1, 1), 1)).to.equalTime(new Date(2039, 11, 31));
+    expect(getEndOfDecade(new Date(2025, 1, 1), 1)).to.equalTime(new Date(2039, 11, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the decade - 1', () => {
-    expect(getEndOfDecade(new Date(2025, 1, 1), -1)).to.equalTime(new Date(2019, 11, 31));
+    expect(getEndOfDecade(new Date(2025, 1, 1), -1)).to.equalTime(new Date(2019, 11, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the hour', () => {
@@ -475,27 +475,27 @@ describe('Getting end of date', () => {
   });
 
   it('should return date of end of the year', () => {
-    expect(getEndOfYear(new Date(2020, 1, 1))).to.equalTime(new Date(2020, 11, 31));
+    expect(getEndOfYear(new Date(2020, 1, 1))).to.equalTime(new Date(2020, 11, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the year + 1', () => {
-    expect(getEndOfYear(new Date(2020, 1, 1), 1)).to.equalTime(new Date(2021, 11, 31));
+    expect(getEndOfYear(new Date(2020, 1, 1), 1)).to.equalTime(new Date(2021, 11, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the year - 1', () => {
-    expect(getEndOfYear(new Date(2020, 1, 1), -1)).to.equalTime(new Date(2019, 11, 31));
+    expect(getEndOfYear(new Date(2020, 1, 1), -1)).to.equalTime(new Date(2019, 11, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the month', () => {
-    expect(getEndOfMonth(new Date(2020, 1, 1))).to.equalTime(new Date(2020, 1, 29));
+    expect(getEndOfMonth(new Date(2020, 1, 1))).to.equalTime(new Date(2020, 1, 29, 23, 59, 59, 999));
   });
 
   it('should return date of end of the month + 1', () => {
-    expect(getEndOfMonth(new Date(2020, 1, 1), 1)).to.equalTime(new Date(2020, 2, 31));
+    expect(getEndOfMonth(new Date(2020, 1, 1), 1)).to.equalTime(new Date(2020, 2, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the month - 1', () => {
-    expect(getEndOfMonth(new Date(2020, 1, 1), -1)).to.equalTime(new Date(2020, 0, 31));
+    expect(getEndOfMonth(new Date(2020, 1, 1), -1)).to.equalTime(new Date(2020, 0, 31, 23, 59, 59, 999));
   });
 
   it('should return date of end of the day', () => {
