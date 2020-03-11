@@ -55,13 +55,16 @@ const {
   isTimeValid,
 } = require('../lib');
 
+const newYear2020UnixTime = getTime(new Date(2020, 0, 1));
+const localUTCOffset = `0${Math.abs(getUtcOffset(new Date(2020, 0, 1)))}`.slice(-2);
+
 describe('Addition', () => {
   it('should add 1 year', () => {
-    expect(addYears(1577826000, 1)).to.equalTime(new Date(2021, 0, 1));
+    expect(addYears(newYear2020UnixTime, 1)).to.equalTime(new Date(2021, 0, 1));
   });
 
   it('should add 1 month', () => {
-    expect(addMonths(1577826000, 1)).to.equalTime(new Date(2020, 1, 1));
+    expect(addMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 1, 1));
   });
 
   it('should add 1 month to the end of the month', () => {
@@ -69,25 +72,25 @@ describe('Addition', () => {
   });
 
   it('should add 1 day', () => {
-    expect(addDays(1577826000, 1)).to.equalTime(new Date(2020, 0, 2));
+    expect(addDays(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 0, 2));
   });
 
   it('should add 1 hour', () => {
-    expect(addHours(1577826000, 1)).to.equalTime(new Date(2020, 0, 1, 1));
+    expect(addHours(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 0, 1, 1));
   });
 
   it('should add 1 minute', () => {
-    expect(addMinutes(1577826000, 1)).to.equalTime(new Date(2020, 0, 1, 0, 1));
+    expect(addMinutes(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 0, 1, 0, 1));
   });
 });
 
 describe('Subtraction', () => {
   it('should subtract 1 year', () => {
-    expect(subtractYears(1577826000, 1)).to.equalTime(new Date(2019, 0, 1));
+    expect(subtractYears(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 0, 1));
   });
 
   it('should subtract 1 month', () => {
-    expect(subtractMonths(1577826000, 1)).to.equalTime(new Date(2019, 11, 1));
+    expect(subtractMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 1));
   });
 
   it('should subtract 1 month from the end of the month', () => {
@@ -95,29 +98,29 @@ describe('Subtraction', () => {
   });
 
   it('should subtract 1 day', () => {
-    expect(subtractDays(1577826000, 1)).to.equalTime(new Date(2019, 11, 31));
+    expect(subtractDays(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 31));
   });
 
   it('should subtract 1 hour', () => {
-    expect(subtractHours(1577826000, 1)).to.equalTime(new Date(2019, 11, 31, 23));
+    expect(subtractHours(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 31, 23));
   });
 
   it('should subtract 1 minute', () => {
-    expect(subtractMinutes(1577826000, 1)).to.equalTime(new Date(2019, 11, 31, 23, 59));
+    expect(subtractMinutes(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 31, 23, 59));
   });
 });
 
 describe('formatDate', () => {
   it('should format unix timestamp to \'HH:mm:ss\'', () => {
-    expect(formatDate(1577826000, 'HH:mm:ss')).to.equal('00:00:00');
+    expect(formatDate(newYear2020UnixTime, 'HH:mm:ss')).to.equal('00:00:00');
   });
 
   it('should format unix timestamp to \'DD.MM.YYYY\'', () => {
-    expect(formatDate(1577826000, 'DD.MM.YYYY')).to.equal('01.01.2020');
+    expect(formatDate(newYear2020UnixTime, 'DD.MM.YYYY')).to.equal('01.01.2020');
   });
 
   it('should format unix timestamp to \'D MMM YYYY\'', () => {
-    expect(formatDate(1577826000, 'D MMM YYYY')).to.equal('1 янв. 2020');
+    expect(formatDate(newYear2020UnixTime, 'D MMM YYYY')).to.equal('1 янв. 2020');
   });
 
   it('should format Date instance to \'YYYY-MM-DD\'', () => {
@@ -125,7 +128,7 @@ describe('formatDate', () => {
   });
 
   it('should format Date instance to \'YYYY-MM-DDTHH:mm:ssZ\'', () => {
-    expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ')).to.equal('2020-01-01T00:00:00+03:00');
+    expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ')).to.equal(`2020-01-01T00:00:00+${localUTCOffset}:00`);
   });
 });
 
@@ -151,7 +154,7 @@ describe('parseDate', () => {
   });
 
   it('should return parse the string formatted as ISO 8601 but w/o explicit format set', () => {
-    expect(parseDate('2020-01-01T00:00:00+03:00')).to.equalTime(new Date(2020, 0, 1));
+    expect(parseDate(`2020-01-01T00:00:00+${localUTCOffset}:00`)).to.equalTime(new Date(2020, 0, 1));
   });
 
   it('should throw when string is not formatted as ISO 8601 and the format is not passed', () => {
@@ -205,23 +208,23 @@ describe('isTimeValid', () => {
 
 describe('Getting date units', () => {
   it('should return year of unix timestamp', () => {
-    expect(getYear(1577826000)).to.equal(2020);
+    expect(getYear(newYear2020UnixTime)).to.equal(2020);
   });
 
   it('should return month of unix timestamp', () => {
-    expect(getMonth(1577826000)).to.equal(0);
+    expect(getMonth(newYear2020UnixTime)).to.equal(0);
   });
 
   it('should return day of unix timestamp', () => {
-    expect(getDay(1577826000)).to.equal(1);
+    expect(getDay(newYear2020UnixTime)).to.equal(1);
   });
 
   it('should return hour of unix timestamp', () => {
-    expect(getHours(1577826000)).to.equal(0);
+    expect(getHours(newYear2020UnixTime)).to.equal(0);
   });
 
   it('should return minute of unix timestamp', () => {
-    expect(getMinutes(1577826000)).to.equal(0);
+    expect(getMinutes(newYear2020UnixTime)).to.equal(0);
   });
 });
 
@@ -554,19 +557,19 @@ describe('getRelativeDate', () => {
 
 describe('getUtcOffset', () => {
   it('should return UTC offset in hours', () => {
-    expect(getUtcOffset(new Date(2020, 0, 1))).to.equal(3);
+    expect(getUtcOffset(new Date(2020, 0, 1))).to.equal(+localUTCOffset);
   });
 });
 
 describe('getTime', () => {
   it('should return unix timestamp', () => {
-    expect(getTime(new Date(2020, 0, 1))).to.equal(1577826000);
+    expect(getTime(new Date(2020, 0, 1))).to.equal(newYear2020UnixTime);
   });
 });
 
 describe('getTimezoneName', () => {
   it('should return name of the current timezone', () => {
-    expect(getTimezoneName()).to.equal('Europe/Moscow');
+    expect(getTimezoneName()).to.equal(Intl.DateTimeFormat().resolvedOptions().timeZone);
   });
 });
 
