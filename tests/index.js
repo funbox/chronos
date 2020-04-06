@@ -491,6 +491,10 @@ describe('Getting end of date', () => {
     expect(getEndOfMonth(new Date(2020, 1, 1))).to.equalTime(new Date(2020, 1, 29, 23, 59, 59, 999));
   });
 
+  it('should return date of the end of the month when current date overflows its month', () => {
+    expect(getEndOfMonth(new Date(2020, 2, 31))).to.equalDate(new Date(2020, 2, 31, 23, 59, 59, 999));
+  });
+
   it('should return date of end of the month + 1', () => {
     expect(getEndOfMonth(new Date(2020, 1, 1), 1)).to.equalTime(new Date(2020, 2, 31, 23, 59, 59, 999));
   });
