@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.1 (07.04.2020)
+
+Fixed `getEndOfMonth`. Earlier it might return incorrect value when it was fired 
+with `diff` param passed. 
+
+
 ## 1.7.0 (14.02.2020)
 
 Made `format` param of `parseDate` optional. When it is not passed
