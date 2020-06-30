@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.8.0 (30.06.2020)
+
+Added polyfills.
+
+
 ## 1.7.1 (07.04.2020)
 
 Fixed `getEndOfMonth`. Earlier it might return incorrect value when it was fired 
