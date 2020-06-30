@@ -21,6 +21,9 @@
     "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu BABEL_ENV=node mocha --require @babel/register tests",
     "start": "nodemon --exec 'npm test || exit 1'"
   },
+  "peerDependencies": {
+    "core-js": "^3.6.5"
+  },
   "devDependencies": {
     "@babel/cli": "7.6.2",
     "@babel/core": "7.6.2",
