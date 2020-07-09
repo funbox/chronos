@@ -37,7 +37,8 @@
     "husky": "3.0.8",
     "lint-staged": "9.4.1",
     "mocha": "6.2.1",
-    "nodemon": "1.19.4"
+    "nodemon": "1.19.4",
+    "typescript": "3.9.6"
   },
   "husky": {
     "hooks": {
