@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    /* Visit https://www.typescriptlang.org/docs/handbook/compiler-options.html to read more about this file */
+
+    /* Basic Options */
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es6"],
+    "importHelpers": true,
+
+    /* Strict Type-Checking Options */
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["lib/*"],
+  "exclude": ["node_modules", "dist"]
+}
