@@ -1,12 +1,12 @@
 import ensureDate from './helpers/ensureDate';
 
 /**
- * get hours
+ * Get month
  * @param  {Date|number|string} value
- * @return {number} - hour value
+ * @return {number} - Month value
  */
-export default (value) => {
+export default (value:  Date | number | string) => {
   const date = ensureDate(value);
 
-  return date.getHours();
+  return date.getMonth();
 };
