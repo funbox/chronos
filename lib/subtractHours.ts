@@ -1,15 +1,15 @@
 import ensureDate from './helpers/ensureDate';
 
 /**
- * Subtract years from date
+ * Subtract hours from date
  * @param  {Date|number|string} value
  * @param  {number} quantity
  * @return {Date} - Subtraction result
  */
-export default (value, quantity) => {
+export default (value: Date | number | string, quantity: number) => {
   const date = ensureDate(value);
 
-  date.setFullYear(date.getFullYear() - quantity);
+  date.setHours(date.getHours() - quantity);
 
   return date;
 };
