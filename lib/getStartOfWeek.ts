@@ -1,22 +1,23 @@
 import ensureDate from './helpers/ensureDate';
 
 /**
- * Get start of decade
+ * Get start of week
  * @param  {Date|number|string} value
  * @param  {number} diff
  * @return {Date} - Start of date result
  */
-export default (value, diff = 0) => {
+export default (value:  Date | number | string, diff = 0) => {
   const date = ensureDate(value);
+  const weekDay = date.getDay() || 7;
 
-  date.setFullYear(Math.floor(date.getFullYear() / 10) * 10);
-
-  if (diff) {
-    date.setFullYear(date.getFullYear() + diff * 10);
+  if (weekDay !== 1) {
+    date.setDate(date.getDate() - (weekDay - 1));
   }
 
-  date.setMonth(0);
-  date.setDate(1);
+  if (diff) {
+    date.setDate(date.getDate() + diff * 7);
+  }
+
   date.setHours(0, 0, 0, 0);
 
   return date;
