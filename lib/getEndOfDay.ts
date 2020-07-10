@@ -1,20 +1,18 @@
 import ensureDate from './helpers/ensureDate';
 
 /**
- * Get end of year
+ * Get end of day
  * @param  {Date|number|string} value
  * @param  {number} diff
- * @return {Date} - End of year result
+ * @return {Date} - End of date result
  */
-export default (value, diff = 0) => {
+export default (value:  Date | number | string, diff = 0) => {
   const date = ensureDate(value);
 
   if (diff) {
-    date.setFullYear(date.getFullYear() + diff);
+    date.setDate(date.getDate() + diff);
   }
 
-  date.setMonth(12);
-  date.setDate(0);
   date.setHours(23, 59, 59, 999);
 
   return date;

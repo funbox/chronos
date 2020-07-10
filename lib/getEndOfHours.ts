@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {number} diff
  * @return {Date} - End of date result
  */
-export default (value, diff = 0) => {
+export default (value:  Date | number | string, diff = 0) => {
   const date = ensureDate(value);
 
   if (diff) {
