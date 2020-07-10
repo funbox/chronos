@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {Date|number|string} secondValue
  * @return {boolean} - hours units equality result
  */
-export default (firstValue, secondValue) => {
+export default (firstValue: Date | number | string, secondValue: Date | number | string) => {
   const firstDate = ensureDate(firstValue);
   const secondDate = ensureDate(secondValue);
 
