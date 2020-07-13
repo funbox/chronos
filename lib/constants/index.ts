@@ -1,5 +1,8 @@
 export const LOCALE = 'ru';
-export const LOCALE_OPTIONS = {
+
+export type localeOptionsType = 'DIGIT' | 'NUMERIC' | 'LONG' | 'SHORT';
+
+export const LOCALE_OPTIONS: Record<localeOptionsType, string> = {
   DIGIT: '2-digit',
   NUMERIC: 'numeric',
   LONG: 'long',
