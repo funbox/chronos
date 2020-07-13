@@ -7,7 +7,7 @@ import { getYear } from '.';
  * @param  {string=} format
  * @return {Date} - Date object result
  */
-export default (value: string, format: string) => {
+export default (value: string, format: string): Date => {
   if (!value) {
     throw new Error(`Invalid value: ${value}`);
   }
@@ -24,7 +24,7 @@ export default (value: string, format: string) => {
     throw new Error(`Format doesn't match value: ${format}, ${value}`);
   }
 
-  const dateObj = formatArray.reduce((acc:Record<string, number | false>, item: string, i: number) => {
+  const dateObj = formatArray.reduce((acc: Record<string, number | false>, item: string, i: number) => {
     if (item === 'YYYY') {
       acc.year = valueArray[i].length === 4 && +valueArray[i];
     } else if (item === 'YY') {

@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {number} quantity
  * @return {Date} - Addition result
  */
-export default (value: Date | number | string, quantity: number) => {
+export default (value: Date | number | string, quantity: number): Date => {
   const date = ensureDate(value);
 
   date.setMinutes(date.getMinutes() + quantity);

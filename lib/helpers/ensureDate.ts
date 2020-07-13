@@ -3,7 +3,7 @@
  * @param {Date|number|string} value
  * @return {Date} Date object result
  */
-export default (value: Date | number | string) => {
+export default (value: Date | number | string): Date => {
   let dateValue = value;
   // It's possible to pass value as a ISO 8601 or RFC2822 string. Others string formats aren't recommended to pass.
   // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse

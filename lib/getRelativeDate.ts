@@ -7,7 +7,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {Date|number|string} value
  * @return {string} - relative date value
  */
-export default (value: Date | number | string) => {
+export default (value: Date | number | string): string => {
   const date = ensureDate(value);
   const currentDate = new Date();
 
@@ -17,7 +17,7 @@ export default (value: Date | number | string) => {
   const months = getDiffInMonths(currentDate, date);
   const years = getDiffInYears(currentDate, date);
 
-  let result;
+  let result = '';
 
   if (!minutes) {
     result = 'меньше минуты';

@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {number} diff
  * @return {Date} - Start of date result
  */
-export default (value:  Date | number | string, diff = 0) => {
+export default (value: Date | number | string, diff = 0): Date => {
   const date = ensureDate(value);
   const weekDay = date.getDay();
 

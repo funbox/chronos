@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {Date|number|string} secondValue
  * @return {number} - Difference result
  */
-export default (firstValue: Date | number | string, secondValue: Date | number | string) => {
+export default (firstValue: Date | number | string, secondValue: Date | number | string): number => {
   const firstDate = ensureDate(firstValue);
   const secondDate = ensureDate(secondValue);
 

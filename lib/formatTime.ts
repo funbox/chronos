@@ -7,7 +7,7 @@ import parseTime from './helpers/parseTime';
  * @param  {string} format
  * @return {string} - Formatted time result
  */
-export default (value: string, valueFormat: string, format: string) => {
+export default (value: string, valueFormat: string, format: string): string => {
   const time = parseTime(value, valueFormat);
 
   format = format.replace('ss', time.ss || '00');

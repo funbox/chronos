@@ -7,7 +7,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {string} format
  * @return {string} - Formatted date result
  */
-export default (value: Date | number | string, format: string) => {
+export default (value: Date | number | string, format: string): string => {
   const date = ensureDate(value);
 
   /*

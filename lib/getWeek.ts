@@ -5,7 +5,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {Date|number|string} value
  * @return {number} - Week value
  */
-export default (value: Date | number | string ) => {
+export default (value: Date | number | string): number => {
   const date = ensureDate(value);
   const januaryFirst = new Date(date.getFullYear(), 0, 1);
 

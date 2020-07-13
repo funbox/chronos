@@ -7,7 +7,7 @@ import { LOCALE, LOCALE_OPTIONS, localeOptionsType } from './constants';
  * @param  {string="short", "long"} format
  * @return {string} - Month value
  */
-export default (value:  Date | number | string, format = LOCALE_OPTIONS.LONG) => {
+export default (value: Date | number | string, format = LOCALE_OPTIONS.LONG): string => {
   const date = ensureDate(value);
   const monthFormat = format.toUpperCase();
 

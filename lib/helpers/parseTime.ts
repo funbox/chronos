@@ -4,7 +4,7 @@
  * @param  {string} format
  * @return {Object} object result
  */
-export default (value: string, format: string) => {
+export default (value: string, format: string): Record<string, string> => {
   if (!value) {
     throw new Error(`Invalid value: ${value}`);
   }
@@ -24,11 +24,11 @@ export default (value: string, format: string) => {
     let validTime = null;
 
     if (part === 'HH') {
-      validTime = time[i].match(/^(0[0-9]|1[0-9]|2[0-3])$/);
+      validTime = /^(0[0-9]|1[0-9]|2[0-3])$/.exec(time[i]);
     } else if (part === 'H') {
-      validTime = time[i].match(/^([0-9]|1[0-9]|2[0-3])$/);
+      validTime = /^([0-9]|1[0-9]|2[0-3])$/.exec(time[i]);
     } else {
-      validTime = time[i].match(/^[0-5][0-9]$/);
+      validTime = /^[0-5][0-9]$/.exec(time[i]);
     }
 
     if (!validTime) {
