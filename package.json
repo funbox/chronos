@@ -14,7 +14,7 @@
     "README.md"
   ],
   "scripts": {
-    "lint": "eslint --cache -c .eslintrc.js --ext .js lib && eslint --cache -c tests/.eslintrc.js --ext .js tests",
+    "lint": "eslint --cache -c .eslintrc.js --ext .ts lib && eslint --cache -c tests/.eslintrc.js --ext .js tests",
     "build": "npm run build-esm-and-types && npm run build-cjs",
     "build-cjs": "tsc --outDir ./dist/cjs --module CommonJS",
     "build-esm-and-types": "tsc --outDir ./dist/esm --module ES6 --declaration true --declarationDir ./dist/types",
@@ -28,11 +28,9 @@
     "core-js": "^3.6.5"
   },
   "devDependencies": {
-    "@babel/cli": "7.6.2",
-    "@babel/core": "7.6.2",
-    "@babel/preset-env": "7.6.2",
-    "@babel/register": "7.6.2",
     "@funboxteam/eslint-config": "4.14.0",
+    "@typescript-eslint/eslint-plugin": "2.34.0",
+    "@typescript-eslint/parser": "2.34.0",
     "chai": "4.2.0",
     "chai-datetime": "1.5.0",
     "eslint": "5.16.0",
@@ -57,5 +55,6 @@
       "eslint --fix --cache -c tests/.eslintrc.js",
       "git add"
     ]
-  }
+  },
+  "dependencies": {}
 }
