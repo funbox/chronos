@@ -4,7 +4,7 @@
  * @param  {string} format
  * @return {Object} object result
  */
-export default (value, format) => {
+export default (value: string, format: string) => {
   if (!value) {
     throw new Error(`Invalid value: ${value}`);
   }
@@ -20,7 +20,7 @@ export default (value, format) => {
     throw new Error(`Format doesn't match time: ${format}, ${value}`);
   }
 
-  const timeObj = formatParts.reduce((acc, part, i) => {
+  const timeObj = formatParts.reduce((acc: Record<string, string>, part: string, i: number) => {
     let validTime = null;
 
     if (part === 'HH') {
