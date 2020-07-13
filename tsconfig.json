@@ -21,6 +21,6 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["lib/*"],
+  "include": ["lib/**/*"],
   "exclude": ["node_modules", "dist"]
 }
