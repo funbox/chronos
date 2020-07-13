@@ -6,7 +6,7 @@ import parseTime from './helpers/parseTime';
  * @param  {string} format
  * @return {boolean} - Validation result
  */
-export default (value, format) => {
+export default (value: string, format: string) => {
   try {
     return !!parseTime(value, format);
   } catch (e) {

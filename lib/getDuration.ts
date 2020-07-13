@@ -3,7 +3,7 @@
  * @param  {number} seconds
  * @return {Object} - Duration result
  */
-export default (seconds) => {
+export default (seconds: number) => {
   const dayInSeconds = 60 * 60 * 24;
   const days = Math.floor(seconds / dayInSeconds);
   const hours = Math.floor((seconds - days * dayInSeconds) / (60 * 60));

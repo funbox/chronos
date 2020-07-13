@@ -1,5 +1,5 @@
 import ensureDate from './helpers/ensureDate';
-import { LOCALE, LOCALE_OPTIONS } from './constants';
+import { LOCALE, LOCALE_OPTIONS, localeOptionsType } from './constants';
 
 /**
  * Get weekday name
@@ -7,9 +7,9 @@ import { LOCALE, LOCALE_OPTIONS } from './constants';
  * @param  {string="short", "long"} format
  * @return {string} - Weekday value
  */
-export default (value, format = LOCALE_OPTIONS.LONG) => {
+export default (value: Date | number | string, format = LOCALE_OPTIONS.LONG) => {
   const date = ensureDate(value);
   const weekdayFormat = format.toUpperCase();
 
-  return date.toLocaleString(LOCALE, { weekday: LOCALE_OPTIONS[weekdayFormat] });
+  return date.toLocaleString(LOCALE, { weekday: LOCALE_OPTIONS[weekdayFormat as localeOptionsType] });
 };

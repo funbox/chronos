@@ -8,7 +8,7 @@ export const LOCALE_OPTIONS: Record<localeOptionsType, string> = {
   LONG: 'long',
   SHORT: 'short',
 };
-export const TIMEZONE_NAMES = {
+export const TIMEZONE_NAMES: Record<string, number> = {
   'Asia/Kamchatka': 12,
   'Asia/Magadan': 11,
   'Asia/Vladivostok': 10,

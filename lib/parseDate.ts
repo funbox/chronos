@@ -3,11 +3,11 @@ import { getYear } from '.';
 
 /**
  * Parse string to Date object
- * @param  {String} value
+ * @param  {string} value
  * @param  {string=} format
  * @return {Date} - Date object result
  */
-export default (value, format) => {
+export default (value: string, format: string) => {
   if (!value) {
     throw new Error(`Invalid value: ${value}`);
   }
@@ -24,17 +24,17 @@ export default (value, format) => {
     throw new Error(`Format doesn't match value: ${format}, ${value}`);
   }
 
-  const dateObj = formatArray.reduce((acc, item, i) => {
+  const dateObj = formatArray.reduce((acc:Record<string, number | false>, item: string, i: number) => {
     if (item === 'YYYY') {
-      acc.year = valueArray[i].length === 4 && valueArray[i];
+      acc.year = valueArray[i].length === 4 && +valueArray[i];
     } else if (item === 'YY') {
       const century = valueArray[i] > getYear(new Date()).toString().slice(-2) ? 19 : 20;
 
-      acc.year = valueArray[i].length === 2 && `${century}${valueArray[i]}`;
+      acc.year = valueArray[i].length === 2 && +`${century}${valueArray[i]}`;
     } else if (item === 'MM') {
-      acc.month = valueArray[i] <= 12 && valueArray[i] - 1;
+      acc.month = +valueArray[i] <= 12 && +valueArray[i] - 1;
     } else if (item === 'D' || item === 'DD') {
-      acc.date = valueArray[i] <= 31 && valueArray[i];
+      acc.date = +valueArray[i] <= 31 && +valueArray[i];
     }
 
     return acc;
@@ -44,5 +44,5 @@ export default (value, format) => {
     throw new Error(`Invalid value: ${value}`);
   }
 
-  return ensureDate(new Date(dateObj.year, dateObj.month, dateObj.date));
+  return ensureDate(new Date(+dateObj.year, +dateObj.month, +dateObj.date));
 };

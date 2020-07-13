@@ -7,7 +7,7 @@ import ensureDate from './helpers/ensureDate';
  * @param  {string} format
  * @return {string} - Formatted date result
  */
-export default (value, format) => {
+export default (value: Date | number | string, format: string) => {
   const date = ensureDate(value);
 
   /*
@@ -39,11 +39,11 @@ export default (value, format) => {
   format = format.replace('HH', hour === '24' ? '00' : hour);
   format = format.replace('dddd', date.toLocaleString(LOCALE, { weekday: LOCALE_OPTIONS.LONG }));
   format = format.replace('DD', date.toLocaleString(LOCALE, { day: LOCALE_OPTIONS.DIGIT }));
-  format = format.replace('D', date.getDate());
+  format = format.replace('D', `${date.getDate()}`);
   format = format.replace('MMMM', date.toLocaleString(LOCALE, { month: LOCALE_OPTIONS.LONG, day: LOCALE_OPTIONS.NUMERIC }).split(' ')[1]);
   format = format.replace('MMM', date.toLocaleString(LOCALE, { month: LOCALE_OPTIONS.SHORT }));
   format = format.replace('MM', date.toLocaleString(LOCALE, { month: LOCALE_OPTIONS.DIGIT }));
-  format = format.replace('YYYY', date.getFullYear());
+  format = format.replace('YYYY', `${date.getFullYear()}`);
   format = format.replace('YY', date.toLocaleString(LOCALE, { year: LOCALE_OPTIONS.DIGIT }));
   format = format.replace('Z', `${timeZoneOffsetInHours > 0 ? '+' : '-'}${formattedTimeZoneOffset}:${timeZoneOffsetMinutes}`);
 
