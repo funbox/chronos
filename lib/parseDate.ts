@@ -3,9 +3,9 @@ import { getYear } from '.';
 
 /**
  * Parse string to Date object
- * @param  {string} value
- * @param  {string=} format
- * @return {Date} - Date object result
+ * @param value
+ * @param format
+ * @return - Date object result
  */
 export default (value: string, format: string): Date => {
   if (!value) {

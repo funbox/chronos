@@ -2,9 +2,9 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Get start of day
- * @param  {Date|number|string} value
- * @param  {number} diff
- * @return {Date} - Start of date result
+ * @param value
+ * @param diff
+ * @return - Start of date result
  */
 export default (value: Date | number | string, diff = 0): Date => {
   const date = ensureDate(value);

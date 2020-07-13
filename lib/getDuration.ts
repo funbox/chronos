@@ -1,7 +1,7 @@
 /**
  * Get duration object
- * @param  {number} seconds
- * @return {Object} - Duration result
+ * @param seconds
+ * @return - Duration result
  */
 export default (seconds: number): Record<string, number> => {
   const dayInSeconds = 60 * 60 * 24;

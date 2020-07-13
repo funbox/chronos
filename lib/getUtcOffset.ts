@@ -2,8 +2,8 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Get current timezone offset to UTC in hours
- * @param  {Date|number|string} value
- * @return {number} - Offset value in hours result
+ * @param value
+ * @return - Offset value in hours result
  */
 export default (value: Date | number | string): number => {
   const date = ensureDate(value);

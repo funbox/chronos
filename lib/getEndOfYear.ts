@@ -2,9 +2,9 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Get end of year
- * @param  {Date|number|string} value
- * @param  {number} diff
- * @return {Date} - End of year result
+ * @param value
+ * @param diff
+ * @return - End of year result
  */
 export default (value: Date | number | string, diff = 0): Date => {
   const date = ensureDate(value);

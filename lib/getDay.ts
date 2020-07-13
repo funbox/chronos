@@ -1,9 +1,9 @@
 import ensureDate from './helpers/ensureDate';
 
 /**
- * get day
- * @param  {Date|number|string} value
- * @return {number} - Day value
+ * Get day
+ * @param value
+ * @return - Day value
  */
 export default (value: Date | number | string): number => {
   const date = ensureDate(value);

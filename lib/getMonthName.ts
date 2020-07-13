@@ -3,9 +3,9 @@ import { LOCALE, LOCALE_OPTIONS, localeOptionsType } from './constants';
 
 /**
  * Get month name
- * @param  {Date|number|string} value
- * @param  {string="short", "long"} format
- * @return {string} - Month value
+ * @param value
+ * @param format
+ * @return - Month value
  */
 export default (value: Date | number | string, format = LOCALE_OPTIONS.LONG): string => {
   const date = ensureDate(value);

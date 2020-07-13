@@ -2,7 +2,7 @@ import { TIMEZONE_NAMES } from './constants';
 
 /**
  * Get current timezone name
- * @return {string} - Timezone name result
+ * @return - Timezone name result
  */
 export default (): string => {
   let timezoneName = Intl.DateTimeFormat().resolvedOptions().timeZone;

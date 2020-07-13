@@ -3,9 +3,9 @@ import getPlural from './helpers/getPlural';
 import ensureDate from './helpers/ensureDate';
 
 /**
- * get relative date
- * @param  {Date|number|string} value
- * @return {string} - relative date value
+ * Get relative date
+ * @param value
+ * @return - relative date value
  */
 export default (value: Date | number | string): string => {
   const date = ensureDate(value);

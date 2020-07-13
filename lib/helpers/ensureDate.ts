@@ -1,7 +1,7 @@
 /**
  * Transforms param to Date object
- * @param {Date|number|string} value
- * @return {Date} Date object result
+ * @param value
+ * @return Date object result
  */
 export default (value: Date | number | string): Date => {
   let dateValue = value;

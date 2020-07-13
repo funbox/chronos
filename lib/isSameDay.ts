@@ -2,9 +2,9 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Compares if dates are equal
- * @param  {Date|number|string} firstValue
- * @param  {Date|number|string} secondValue
- * @return {boolean} - Date units equality result
+ * @param firstValue
+ * @param secondValue
+ * @return - Date units equality result
  */
 export default (firstValue: Date | number | string, secondValue: Date | number | string): boolean => {
   const firstDate = ensureDate(firstValue);

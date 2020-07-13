@@ -3,9 +3,9 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Format date according to format string
- * @param  {Date|number|string} value
- * @param  {string} format
- * @return {string} - Formatted date result
+ * @param value
+ * @param format
+ * @return - Formatted date result
  */
 export default (value: Date | number | string, format: string): string => {
   const date = ensureDate(value);

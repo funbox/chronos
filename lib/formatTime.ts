@@ -2,10 +2,10 @@ import parseTime from './helpers/parseTime';
 
 /**
  * Format time according to format string
- * @param  {string} value
- * @param  {string} valueFormat
- * @param  {string} format
- * @return {string} - Formatted time result
+ * @param value
+ * @param valueFormat
+ * @param format
+ * @return - Formatted time result
  */
 export default (value: string, valueFormat: string, format: string): string => {
   const time = parseTime(value, valueFormat);

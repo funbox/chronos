@@ -1,8 +1,8 @@
 /**
  * Parse time string to object
- * @param {string} value
- * @param  {string} format
- * @return {Object} object result
+ * @param value
+ * @param format
+ * @return object result
  */
 export default (value: string, format: string): Record<string, string> => {
   if (!value) {

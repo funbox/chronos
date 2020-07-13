@@ -2,8 +2,8 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Get week number from start of the year
- * @param  {Date|number|string} value
- * @return {number} - Week value
+ * @param value
+ * @return - Week value
  */
 export default (value: Date | number | string): number => {
   const date = ensureDate(value);

@@ -2,8 +2,8 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Get year
- * @param  {Date|number|string} value
- * @return {number} - Year value
+ * @param value
+ * @return - Year value
  */
 export default (value: Date | number | string): number => {
   const date = ensureDate(value);

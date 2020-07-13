@@ -2,9 +2,9 @@ import ensureDate from './helpers/ensureDate';
 
 /**
  * Calculate difference of dates in hours
- * @param  {Date|number|string} firstValue
- * @param  {Date|number|string} secondValue
- * @return {number} - Difference result
+ * @param firstValue
+ * @param secondValue
+ * @return - Difference result
  */
 export default (firstValue: Date | number | string, secondValue: Date | number | string): number => {
   const firstDate = ensureDate(firstValue);
