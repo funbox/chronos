@@ -24,7 +24,7 @@ module.exports = {
     },
     'import/resolver': {
       node: {
-        extensions:['.ts'],
+        extensions:['.ts', '.js'],
       }
     }
   },

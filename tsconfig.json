@@ -6,6 +6,7 @@
     "target": "es5",
     "module": "commonjs",
     "lib": ["es6"],
+    "types" : ["node", "mocha", "chai"],
     "importHelpers": true,
 
     /* Strict Type-Checking Options */
@@ -21,6 +22,6 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["lib/**/*"],
+  "include": ["lib/**/*", "tests"],
   "exclude": ["node_modules", "dist"]
 }

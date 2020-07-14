@@ -1,7 +1,8 @@
-const chai = require('chai');
+import { describe, it } from 'mocha';
+
 require('chai').use(require('chai-datetime'));
 
-const expect = chai.expect;
+const expect = require('chai').expect;
 
 const {
   addDays,

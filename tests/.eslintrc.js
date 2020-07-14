@@ -1,3 +1,6 @@
 module.exports = {
-  extends: '@funboxteam/eslint-config/tests',
+  extends: '../.eslintrc.js',
+  rules: {
+    '@typescript-eslint/no-var-requires': 'off',
+  }
 };

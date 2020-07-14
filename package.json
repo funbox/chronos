@@ -14,14 +14,14 @@
     "README.md"
   ],
   "scripts": {
-    "lint": "eslint --cache -c .eslintrc.js --ext .ts lib && eslint --cache -c tests/.eslintrc.js --ext .js tests",
+    "lint": "eslint --cache -c .eslintrc.js --ext .ts lib && eslint --cache -c tests/.eslintrc.js --ext .ts tests",
     "build": "npm run build-esm-and-types && npm run build-cjs",
     "build-cjs": "tsc --outDir ./dist/cjs --module CommonJS",
     "build-esm-and-types": "tsc --outDir ./dist/esm --module ES6 --declaration true --declarationDir ./dist/types",
     "prebuild": "npm run lint",
     "prepublishOnly": "npm run build",
     "//": "TODO: remove full-icu injection after Node.js update: https://github.com/nodejs/node/commit/1a25e901b7c380929f0d08599f49dd77897a627f",
-    "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu BABEL_ENV=node mocha --require @babel/register tests",
+    "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu mocha --require ts-node/register tests/*.ts",
     "start": "nodemon --exec 'npm test || exit 1'"
   },
   "peerDependencies": {
@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "4.14.0",
+    "@types/chai": "4.2.11",
     "@types/mocha": "8.0.0",
     "@typescript-eslint/eslint-plugin": "2.34.0",
     "@typescript-eslint/parser": "2.34.0",
@@ -40,6 +41,7 @@
     "lint-staged": "9.4.1",
     "mocha": "6.2.1",
     "nodemon": "1.19.4",
+    "ts-node": "8.10.2",
     "typescript": "3.9.6"
   },
   "husky": {
