@@ -59,6 +59,5 @@
       "eslint --fix --cache -c tests/.eslintrc.js",
       "git add"
     ]
-  },
-  "dependencies": {}
+  }
 }
