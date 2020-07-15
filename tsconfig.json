@@ -8,6 +8,7 @@
     "lib": ["es6"],
     "types" : ["node", "mocha", "chai"],
     "importHelpers": true,
+    "allowJs": true,
 
     /* Strict Type-Checking Options */
     "noEmitOnError": true,
@@ -22,6 +23,6 @@
     /* Advanced Options */
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["lib/**/*", "tests"],
+  "include": ["lib/**/*"],
   "exclude": ["node_modules", "dist"]
 }
