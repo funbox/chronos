@@ -15,9 +15,10 @@
   ],
   "scripts": {
     "lint": "eslint --cache -c .eslintrc.js --ext .ts lib && eslint --cache -c tests/.eslintrc.js --ext .ts tests",
-    "build": "npm run build-esm-and-types && npm run build-cjs",
+    "build": "npm run clean && npm run build-esm-and-types && npm run build-cjs",
     "build-cjs": "tsc lib/*.ts --outDir ./dist/cjs --module CommonJS",
     "build-esm-and-types": "tsc lib/*.ts --outDir ./dist/esm --module ES6 --moduleResolution Node --declaration true --declarationDir ./dist/types",
+    "clean": "rm -rf dist/",
     "prebuild": "npm run lint",
     "prepublishOnly": "npm run build",
     "//": "TODO: remove full-icu injection after Node.js update: https://github.com/nodejs/node/commit/1a25e901b7c380929f0d08599f49dd77897a627f",
