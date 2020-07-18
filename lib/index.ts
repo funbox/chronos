@@ -41,7 +41,7 @@ export { default as getTime } from './getTime';
 export { default as getTimezoneName } from './getTimezoneName';
 export { default as getUtcOffset } from './getUtcOffset';
 export { default as formatDate } from './formatDate';
-export { default as formatTime } from './formatTime';
+export { default as formatTimeString } from './formatTimeString';
 export { default as isTimeValid } from './isTimeValid';
 export { default as parseDate } from './parseDate'; // eslint-disable-line import/no-cycle
 export { default as subtractDays } from './subtractDays';

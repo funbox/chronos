@@ -16,7 +16,7 @@ const {
   subtractMonths,
   subtractYears,
   formatDate,
-  formatTime,
+  formatTimeString,
   parseDate,
   getDay,
   getHours,
@@ -165,19 +165,19 @@ describe('parseDate', () => {
 
 describe('formatTime', () => {
   it('should return string formatted as \'HH:mm:ss\'', () => {
-    expect(formatTime('1:30', 'H:mm', 'HH:mm:ss')).to.equal('01:30:00');
+    expect(formatTimeString('1:30', 'H:mm', 'HH:mm:ss')).to.equal('01:30:00');
   });
 
   it('should return string formatted as \'H:mm:ss\'', () => {
-    expect(formatTime('1:30', 'H:mm', 'H:mm:ss')).to.equal('1:30:00');
+    expect(formatTimeString('1:30', 'H:mm', 'H:mm:ss')).to.equal('1:30:00');
   });
 
   it('should return string formatted as \'mm:ss\'', () => {
-    expect(formatTime('11:30', 'mm:ss', 'HH:mm:ss')).to.equal('00:11:30');
+    expect(formatTimeString('11:30', 'mm:ss', 'HH:mm:ss')).to.equal('00:11:30');
   });
 
   it('should throw a formatting error when get invalid time', () => {
-    expect(() => formatTime('33:30', 'HH:mm', 'HH:mm:ss')).to.throw('Invalid value: 33:30');
+    expect(() => formatTimeString('33:30', 'HH:mm', 'HH:mm:ss')).to.throw('Invalid value: 33:30');
   });
 });
 
