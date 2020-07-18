@@ -6,8 +6,10 @@ import ensureDate from './helpers/ensureDate';
  * @return - Week value
  */
 export default (value: Date | number | string): number => {
+  const DAY_IN_MS = 24 * 60 * 60 * 1000;
+  
   const date = ensureDate(value);
   const januaryFirst = new Date(date.getFullYear(), 0, 1);
 
-  return Math.ceil((((date.getTime() - januaryFirst.getTime()) / 86400000) + januaryFirst.getDay() + 1) / 7);
+  return Math.ceil((((date.getTime() - januaryFirst.getTime()) / DAY_IN_MS) + januaryFirst.getDay() + 1) / 7);
 };
