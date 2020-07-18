@@ -1,7 +1,6 @@
-import { CONSTANTS } from './constants';
+import { LOCALE, LOCALE_OPTIONS } from './constants';
 import ensureDate from './helpers/ensureDate';
 
-const { LOCALE, LOCALE_OPTIONS } = CONSTANTS;
 /**
  * Format date according to format string
  * @param value

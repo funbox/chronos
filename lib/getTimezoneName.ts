@@ -1,4 +1,4 @@
-import { CONSTANTS } from './constants';
+import { TIMEZONE_NAMES } from './constants';
 
 /**
  * Get current timezone name
@@ -12,7 +12,7 @@ export default (): string => {
     // so we calculate offset in hours and return the timezone name from our object.
     const timeZoneOffsetInHours = Math.floor(new Date().getTimezoneOffset() / -60);
 
-    timezoneName = Object.keys(CONSTANTS.TIMEZONE_NAMES).find(key => CONSTANTS.TIMEZONE_NAMES[key] === timeZoneOffsetInHours) || '';
+    timezoneName = Object.keys(TIMEZONE_NAMES).find(key => TIMEZONE_NAMES[key] === timeZoneOffsetInHours) || '';
   }
 
   return timezoneName;

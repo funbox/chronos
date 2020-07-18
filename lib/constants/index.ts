@@ -1,13 +1,15 @@
-const LOCALE = 'ru';
+export const LOCALE = 'ru';
 
-const LOCALE_OPTIONS = {
+export type localeOptionsType = 'DIGIT' | 'NUMERIC' | 'LONG' | 'SHORT';
+
+export const LOCALE_OPTIONS: Record<localeOptionsType, string> = {
   DIGIT: '2-digit',
   NUMERIC: 'numeric',
   LONG: 'long',
   SHORT: 'short',
 };
 
-const TIMEZONE_NAMES = {
+export const TIMEZONE_NAMES: Record<string, number> = {
   'Asia/Kamchatka': 12,
   'Asia/Magadan': 11,
   'Asia/Vladivostok': 10,
@@ -33,10 +35,4 @@ const TIMEZONE_NAMES = {
   'Pacific/Honolulu': -10,
   'Pacific/Niue': -11,
   'Pacific/Baker_Island': -12,
-};
-
-exports.CONSTANTS = {
-  LOCALE,
-  LOCALE_OPTIONS,
-  TIMEZONE_NAMES,
 };

@@ -7,7 +7,6 @@ import ensureDate from './helpers/ensureDate';
  */
 export default (value: Date | number | string): number => {
   const DAY_IN_MS = 24 * 60 * 60 * 1000;
-  
   const date = ensureDate(value);
   const januaryFirst = new Date(date.getFullYear(), 0, 1);
 

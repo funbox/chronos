@@ -8,7 +8,6 @@
     "lib": ["es6"],
     "types" : ["node", "mocha", "chai"],
     "importHelpers": true,
-    "allowJs": true,
 
     /* Strict Type-Checking Options */
     "noEmitOnError": true,
