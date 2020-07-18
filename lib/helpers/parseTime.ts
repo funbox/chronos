@@ -2,7 +2,7 @@
  * Parse time string to object
  * @param value
  * @param format
- * @return object result
+ * @return - Time parts as object result
  */
 export default (value: string, format: string): Record<string, string> => {
   if (!value) {

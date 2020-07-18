@@ -5,7 +5,7 @@ import ensureDate from './helpers/ensureDate';
 /**
  * Get relative date
  * @param value
- * @return - relative date value
+ * @return - Relative date value
  */
 export default (value: Date | number | string): string => {
   const date = ensureDate(value);

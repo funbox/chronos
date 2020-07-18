@@ -4,7 +4,7 @@ import ensureDate from './helpers/ensureDate';
  * Compares if minutes of the same date are equal
  * @param firstValue
  * @param secondValue
- * @return - minutes units equality result
+ * @return - Minutes units equality result
  */
 export default (firstValue: Date | number | string, secondValue: Date | number | string): boolean => {
   const firstDate = ensureDate(firstValue);
