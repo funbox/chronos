@@ -16,7 +16,7 @@ export default (value: Date | number | string): Date => {
   // new Date('something') instanceof Date returns true,
   // so when date === Invalid Date we check that date isn't NaN
   // isNaN isn't secure, but Number.isNaN isn't supported by IE11
-  if (!(date instanceof Date) || isNaN(Number(date))) { // eslint-disable-line no-restricted-globals
+  if (!(date instanceof Date) || isNaN(+date)) { // eslint-disable-line no-restricted-globals
     throw new Error(`Invalid date value: ${value}`);
   }
 
