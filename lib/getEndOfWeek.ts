@@ -1,4 +1,4 @@
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
  * Get end of week
@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param diff
  * @return - Start of date result
  */
-export default (value: Date | number | string, diff = 0): Date => {
+export default (value: ChronosDate, diff = 0): Date => {
   const date = ensureDate(value);
   const weekDay = date.getDay();
 

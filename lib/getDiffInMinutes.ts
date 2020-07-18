@@ -1,4 +1,4 @@
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
  * Calculate difference of dates in minutes
@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param secondValue
  * @return - Difference result
  */
-export default (firstValue: Date | number | string, secondValue: Date | number | string): number => {
+export default (firstValue: ChronosDate, secondValue: ChronosDate): number => {
   const firstDate = ensureDate(firstValue);
   const secondDate = ensureDate(secondValue);
 

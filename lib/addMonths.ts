@@ -1,4 +1,4 @@
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
  * Add months to date
@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param quantity
  * @return - Addition result
  */
-export default (value: Date | number | string, quantity: number): Date => {
+export default (value: ChronosDate, quantity: number): Date => {
   const date = ensureDate(value);
 
   // When adding months to date in JS one should remember the amount of days

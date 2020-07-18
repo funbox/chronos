@@ -1,13 +1,13 @@
 import { getDiffInDays, getDiffInHours, getDiffInMinutes, getDiffInMonths, getDiffInYears } from './index';
 import getPlural from './helpers/getPlural';
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
  * Get relative date
  * @param value
  * @return - Relative date value
  */
-export default (value: Date | number | string): string => {
+export default (value: ChronosDate): string => {
   const date = ensureDate(value);
   const currentDate = new Date();
 

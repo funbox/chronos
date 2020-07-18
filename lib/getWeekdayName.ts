@@ -1,4 +1,4 @@
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 import { LOCALE, LOCALE_OPTIONS, localeOptionsType } from './constants';
 
 /**
@@ -7,7 +7,7 @@ import { LOCALE, LOCALE_OPTIONS, localeOptionsType } from './constants';
  * @param format
  * @return - Weekday value
  */
-export default (value: Date | number | string, format = LOCALE_OPTIONS.LONG): string => {
+export default (value: ChronosDate, format = LOCALE_OPTIONS.LONG): string => {
   const date = ensureDate(value);
   const weekdayFormat = format.toUpperCase();
 

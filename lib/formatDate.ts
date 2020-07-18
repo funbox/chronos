@@ -1,5 +1,5 @@
 import { LOCALE, LOCALE_OPTIONS } from './constants';
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
  * Format date according to format string
@@ -7,7 +7,7 @@ import ensureDate from './helpers/ensureDate';
  * @param format
  * @return - Formatted date result
  */
-export default (value: Date | number | string, format: string): string => {
+export default (value: ChronosDate, format: string): string => {
   const date = ensureDate(value);
 
   /*

@@ -1,9 +1,11 @@
+export type ChronosDate = Date | number | string;
+
 /**
  * Transforms param to Date object
  * @param value
  * @return - Date object result
  */
-export default (value: Date | number | string): Date => {
+export const ensureDate = (value: ChronosDate): Date => {
   let dateValue = value;
   // It's possible to pass value as a ISO 8601 or RFC2822 string. Others string formats aren't recommended to pass.
   // Source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse

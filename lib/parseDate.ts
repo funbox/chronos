@@ -1,4 +1,4 @@
-import ensureDate from './helpers/ensureDate';
+import { ensureDate } from './helpers/ensureDate';
 import { getYear } from '.';
 
 /**

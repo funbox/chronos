@@ -1,4 +1,4 @@
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
  * Compares if years of dates are equal
@@ -6,7 +6,7 @@ import ensureDate from './helpers/ensureDate';
  * @param secondValue
  * @return - Equality result
  */
-export default (firstValue: Date | number | string, secondValue: Date | number | string): boolean => {
+export default (firstValue: ChronosDate, secondValue: ChronosDate): boolean => {
   const firstDate = ensureDate(firstValue);
   const secondDate = ensureDate(secondValue);
 

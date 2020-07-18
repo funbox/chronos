@@ -1,11 +1,11 @@
-import ensureDate from './helpers/ensureDate';
+import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
  * Get week number from start of the year
  * @param value
  * @return - Week value
  */
-export default (value: Date | number | string): number => {
+export default (value: ChronosDate): number => {
   const DAY_IN_MS = 24 * 60 * 60 * 1000;
   const date = ensureDate(value);
   const januaryFirst = new Date(date.getFullYear(), 0, 1);
