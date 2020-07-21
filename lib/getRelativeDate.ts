@@ -1,5 +1,6 @@
-import { getDiffInDays, getDiffInHours, getDiffInMinutes, getDiffInMonths, getDiffInYears } from './index';
-import getPlural from './helpers/getPlural';
+import { getPlural } from '@funboxteam/diamonds';
+
+import { getDiffInDays, getDiffInHours, getDiffInMinutes, getDiffInMonths, getDiffInYears } from '.';
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
