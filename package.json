@@ -59,5 +59,8 @@
       "eslint --fix --cache -c tests/.eslintrc.js",
       "git add"
     ]
+  },
+  "dependencies": {
+    "@funboxteam/diamonds": "^4.0.0"
   }
 }
