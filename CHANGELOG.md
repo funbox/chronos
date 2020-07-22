@@ -1,5 +1,14 @@
 # Changelog
 
+## 2.0.0 (22.07.2020)
+
+The package has been rewritten to TypeScript.
+
+Also `formatTime` has been renamed to `formatTimeString`. 
+
+Check out the [migration guide](./MIGRATION.md).
+
+
 ## 1.8.0 (30.06.2020)
 
 Added polyfills.
