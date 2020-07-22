@@ -9,7 +9,6 @@
   "license": "MIT",
   "files": [
     "dist/",
-    "dist/types/index.d.ts",
     "CHANGELOG.md",
     "README.md"
   ],
