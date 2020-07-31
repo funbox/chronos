@@ -27,9 +27,6 @@
   "dependencies": {
     "@funboxteam/diamonds": "^4.0.0"
   },
-  "peerDependencies": {
-    "core-js": "^3.6.5"
-  },
   "devDependencies": {
     "@funboxteam/eslint-config": "4.14.0",
     "@types/chai": "4.2.11",
