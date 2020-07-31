@@ -3,7 +3,15 @@
  * @param seconds
  * @return - Duration result
  */
-export default (seconds: number): Record<string, number> => {
+
+type Duration = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+
+export default (seconds: number): Duration => {
   const dayInSeconds = 60 * 60 * 24;
   const days = Math.floor(seconds / dayInSeconds);
   const hours = Math.floor((seconds - days * dayInSeconds) / (60 * 60));
