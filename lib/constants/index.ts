@@ -9,7 +9,7 @@ export const LOCALE_OPTIONS: Record<localeOptionsType, string> = {
   SHORT: 'short',
 };
 
-export const TIMEZONE_NAMES: Record<string, number> = {
+export const TIMEZONE_NAMES = {
   'Asia/Kamchatka': 12,
   'Asia/Magadan': 11,
   'Asia/Vladivostok': 10,
@@ -36,3 +36,7 @@ export const TIMEZONE_NAMES: Record<string, number> = {
   'Pacific/Niue': -11,
   'Pacific/Baker_Island': -12,
 };
+
+export type TimezoneNamesType = keyof typeof TIMEZONE_NAMES;
+
+export type TimeFormatType = 'ss' | 'mm' | 'HH' | 'H';

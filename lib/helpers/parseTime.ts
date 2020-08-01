@@ -1,10 +1,12 @@
+import { TimeFormatType } from '../constants';
+
 /**
  * Parse time string to object
  * @param value
  * @param format
  * @return - Time parts as object result
  */
-export default (value: string, format: string): Record<string, string> => {
+export default (value: string, format: string): Record<TimeFormatType, string> => {
   if (!value) {
     throw new Error(`Invalid value: ${value}`);
   }
