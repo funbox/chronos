@@ -7,7 +7,6 @@
     "module": "commonjs",
     "lib": ["dom", "es6"],
     "types" : ["node", "mocha", "chai"],
-    "importHelpers": true,
 
     /* Strict Type-Checking Options */
     "noEmitOnError": true,
