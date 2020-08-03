@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.1.0 (03.08.2020)
+
+Removed core-js from peer dependencies.
+
+Improved types declaration.
+
+
 ## 2.0.0 (22.07.2020)
 
 The package has been rewritten to TypeScript.
