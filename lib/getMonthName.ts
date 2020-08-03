@@ -1,6 +1,6 @@
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
-import { LOCALE_OPTIONS, LOCALE, localeOptionsType } from './constants';
+import { LOCALE_OPTIONS, LOCALE, LocaleOptionsType } from './constants';
 
 /**
  * Get month name
@@ -12,5 +12,5 @@ export default (value: ChronosDate, format = LOCALE_OPTIONS.LONG): string => {
   const date = ensureDate(value);
   const monthFormat = format.toUpperCase();
 
-  return date.toLocaleString(LOCALE, { month: LOCALE_OPTIONS[monthFormat as localeOptionsType] });
+  return date.toLocaleString(LOCALE, { month: LOCALE_OPTIONS[monthFormat as LocaleOptionsType] });
 };
