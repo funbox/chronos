@@ -25,7 +25,7 @@
     "prepublishOnly": "npm run build",
     "//": "TODO: remove full-icu injection after Node.js update: https://github.com/nodejs/node/commit/1a25e901b7c380929f0d08599f49dd77897a627f",
     "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu nyc mocha -- --require ts-node/register tests/*.ts",
-    "start": "nodemon --exec 'npm test || exit 1'"
+    "start": "nodemon -e ts,js,json --exec 'npm test'"
   },
   "dependencies": {
     "@funboxteam/diamonds": "6.0.0"
