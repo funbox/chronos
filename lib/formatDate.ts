@@ -17,8 +17,8 @@ export default (value: ChronosDate, format: string): string => {
 
     For the same reason we use hour12, to explicitly disable AM / PM.
 
-    But with 'en' the start of the day returns like `24:00:00`, so we replace
-    `24` with `00`.
+    But with 'en' the start of the day returns as `24:00:00` in some browsers and locales,
+    so we replace `24` with `00`.
    */
   const [hour, minute, second] = date.toLocaleTimeString('en', {
     hour12: false,
