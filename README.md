@@ -6,7 +6,7 @@ The library for date manipulation.
 
 [По-русски](./README.ru.md)
 
-### Installation
+## Installation
 
 Add the package into deps:
 
@@ -17,32 +17,55 @@ npm install --save @funboxteam/chronos
 Import functions:
 
 ```js
-import { addDate } from '@funboxteam/chronos';
+import { addYears } from '@funboxteam/chronos';
 ```
 
 
-### Available functions
+## Types
 
-### [addMinutes](./lib/addMinutes.js), [addHours](./lib/addHours.js), [addDays](./lib/addDays.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
+The library exports several types that may be used elsewhere, but the most important that they used inside the lib
+to guarantee type safety.
 
-Adds time unit to the passed date and returns new Date instance.
+### ChronosDate
 
-When adding months to date in JS one should remember the amount of days
-in the current and the result month. E.g. when we add 1 month to 31.01.2020 we get 02.03.2020, not 29.02.2020.
-
-**Usage**
-
-```js
-addDays(date, quantity);
-addMonths(date, quantity);
-addYears(date, quantity);
+```typescript
+declare type ChronosDate = Date | number | string;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String);
-- `quantity` — Number, number of units.
+Every function that accepts date as a first param expects to get instance of `Date`, or Unix timestamp as number or string.
 
-Example:
+Unix timestamp may be present as seconds or milliseconds (e.g. `1596803254000` and `1596803254` is the same value).
+
+### Duration
+
+```typescript
+declare type Duration = {
+  days: number;
+  hours: number;
+  minutes: number;
+  seconds: number;
+};
+```
+
+Type describing return value of functions that work with time intervals. 
+
+## Functions
+
+Every function is immutable and those which accept `Date` instances and return `Date` instance always return 
+new `Date` instance and do not mutate the passed one.
+
+### [addMinutes](./lib/addMinutes.ts), [addHours](./lib/addHours.ts), [addDays](./lib/addDays.ts), [addMonths](./lib/addMonths.ts), [addYears](./lib/addYears.ts)
+
+```typescript
+(value: ChronosDate, quantity: number) => Date;
+```
+
+#### Params
+
+- `value`, date value;
+- `quantity`, number of units to add.
+
+#### Example
 
 ```js
 addDays(new Date('2020-01-01T00:00:00.000Z'), 1); // 2020-01-02T00:00:00.000Z
@@ -54,26 +77,25 @@ addMonths(new Date(2020, 0, 1), 1); // == new Date(2020, 1, 1);
 addMonths(new Date(2020, 0, 31), 1); // == new Date(2020, 2, 2);
 ```
 
+#### Important notes
 
-### [subtractMinutes](./lib/subtractMinutes.js), [subtractHours](./lib/subtractHours.js), [subtractDays](./lib/subtractDays.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
+When adding months to date in JS one should mind the amount of days in the current and the result month. 
 
-Subtracts time unit from the passed date and returns new Date instance.
+E.g. adding 1 month to 31.01.2020 leads to getting 02.03.2020, not 29.02.2020, because there can't be 31.02.2020.
 
-When subtracting months in JS one should remember the amount of days
-in the current and the result month. E.g. when we subtract 1 month
-from 29.02.2020 we get 29.01.2020, not 31.01.2020.
 
-**Usage**
+### [subtractMinutes](./lib/subtractMinutes.ts), [subtractHours](./lib/subtractHours.ts), [subtractDays](./lib/subtractDays.ts), [subtractMonths](./lib/subtractMonths.ts), [subtractYears](./lib/subtractYears.ts)
 
-```js
-subtractDays(date, quantity);
+```typescript
+(value: ChronosDate, quantity: number) => Date;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String);
-- `quantity` — Number, number of units.
+#### Params
 
-Example:
+- `value`, date value;
+- `quantity`, number of units to subtract.
+
+#### Example
 
 ```js
 subtractDays(new Date('2020-01-01T00:00:00.000Z'), 1); // 2019-12-31T00:00:00.000Z
@@ -85,37 +107,42 @@ subtractMonths(new Date(2020, 0, 1), 1); // == new Date(2019, 11, 1);
 subtractMonths(new Date(2020, 1, 29), 1); // == new Date(2020, 0, 29);
 ```
 
+#### Important notes
 
-### [formatDate](./lib/formatDate.js)
+When subtracting months to date in JS one should mind the amount of days in the current and the result month.
 
-Formats the passed date into the string by the passed format.
+E.g. subtracting 1 month to 29.02.2020 leads to getting 29.01.2020, not 31.01.2020.
 
-**Usage**
 
-```js
-formatDate(date, format);
+### [formatDate](./lib/formatDate.ts)
+
+```typescript
+(value: ChronosDate, format: string) => string;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String);
-- `format` — String, format.    
+#### Params
+
+- `value`, date value;
+- `format`, desired format.
+
+#### Available format tokens
       
-| Template  | Description                          |
-|-----------|--------------------------------------|
-| `ss`      | Two-digit seconds value              |
-| `mm`      | Two-digit minutes value              |
-| `HH`      | Two-digit hours value                |
-| `dddd`    | Weekday name                         |
-| `DD`      | Two-digit day value                  |
-| `D`       | Day value from 1 till 31             |
-| `MMMM`    | Month name                           |
-| `MMM`     | Short month name                     |
-| `MM`      | Two-digit month value                |
-| `YYYY`    | Four-digit year value                |
-| `YY`      | Last to digits of the year           |
-| `Z`       | Timezone offset in hours and minutes |
-    
-Example:
+| Type            | Token  | Value                                           |
+|:----------------|:-------|:------------------------------------------------|
+| Second          | `ss`   | 00, 01, 02, ..., 57, 58, 59                     |
+| Minute          | `mm`   | 00, 01, 02, ..., 57, 58, 59                     |
+| Hour            | `HH`   | 00, 01, 02, ..., 21, 22, 23                     |
+| Day of Week     | `dddd` | понедельник, вторник, ..., суббота, воскресенье |
+| Day of Month    | `DD`   | 01, 02, 03, ..., 29, 30, 31                     |
+|                 | `D`    | 1, 2, 3, ..., 29, 30, 31                        |
+| Month           | `MMMM` | январь, февраль, ..., ноябрь, декабрь           |
+|                 | `MMM`  | янв, фев, ..., ноя, дек                         |
+|                 | `MM`   | 01, 02, 03, ..., 10, 11, 12                     |
+| Year            | `YYYY` | Full year, e.g.: 1885, 1955, 1985, 2015         |
+|                 | `YY`   | 00, 01, 02, ..., 97, 98, 99                     |
+| UTC time offset | `Z`    | -12:00, -11:00, ..., +13:00, +14:00             |
+   
+#### Example
 
 ```js
 formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ'); // '2020-01-01T00:00:00+03:00' (for GMT+3)
@@ -124,53 +151,53 @@ formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ'); // '2020-01-01T00:00:0
 formatDate(1577836800, 'HH:mm:ss'); // '03:00:00' (for GMT+3)
 ```
 
+#### Important notes
 
-### [formatTime](./lib/formatTime.js)
+Only Russian locale is supported for the current moment!
 
-Formats the passed time string into the string by the passed format.
+Other locales support is the possible task for the roadmap. But we have to be sure that there're users who want to get them. 
+If you need one, please [fill the issue](https://github.com/funbox/chronos/issues/new?title=Add%20[YOUR_LOCALE_HERE]%20locale%20support).
 
-**Usage**
 
-```js
-formatTime(value, valueFormat, format);
+### [formatTimeString](./lib/formatTimeString.ts)
 
+```typescript
+(value: string, valueFormat: string, format: string) => string;
 ```
 
-Params:
-- `value` — String, time string;
-- `valueFormat` – String, format of the passed time string;
-- `format` – String, desired format.
+#### Params
 
-| Template  | Description                |
-|-----------|----------------------------|
-| `ss`      | Two-digit seconds value    |
-| `mm`      | Two-digit minutes value    |
-| `HH`      | Two-digit hours value      |
-| `H`       |  Hour value from 0 till 23 |
+- `value`, time string;
+- `valueFormat`, template describing `value` format;
+- `format`, desired format.
 
-Example:
+#### Available format tokens
+
+| Type            | Token  | Value                                           |
+|:----------------|:-------|:------------------------------------------------|
+| Second          | `ss`   | 00, 01, 02, ..., 57, 58, 59                     |
+| Minute          | `mm`   | 00, 01, 02, ..., 57, 58, 59                     |
+| Hour            | `HH`   | 00, 01, 02, ..., 21, 22, 23                     |
+|                 | `H`    | 0, 1, 2, ..., 21, 22, 23                        |
+
+#### Example
 
 ```js
-formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
+formatTimeString('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
 
-### [getMinutes](./lib/getMinutes.js), [getHours](./lib/getHours.js), [getDay](./lib/getDay.js), [getWeek](./lib/getWeek.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js)
+### [getMinutes](./lib/getMinutes.ts), [getHours](./lib/getHours.ts), [getDay](./lib/getDay.ts), [getWeek](./lib/getWeek.ts), [getMonth](./lib/getMonth.ts), [getYear](./lib/getYear.ts)
 
-Returns unit from the passed date.
-
-_`getWeek` returns number of the week starting from the beginning of the year._
-
-**Usage**
-
-```js
-getDay(date);
+```typescript
+(value: ChronosDate) => number;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String).
+#### Params
 
-Example:
+- `value`, date value.
+
+#### Example
 
 ```js
 getDay(new Date(2020, 0, 1)); // 1;
@@ -179,22 +206,23 @@ getDay(new Date(2020, 0, 1)); // 1;
 getYear(1577836800); // 2020
 ```
 
+#### Important notes
 
-### [getWeekdayName](./lib/getWeekdayName.js), [getMonthName](./lib/getMonthName.js)
+`getWeek` returns number of the week starting from the beginning of the year.
 
-Returns name of the unit.
 
-**Usage**
+### [getWeekdayName](./lib/getWeekdayName.ts), [getMonthName](./lib/getMonthName.ts)
 
-```js
-getWeekdayName(date, format);
+```typescript
+(value: ChronosDate, format?: string) => string;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String);
-- `format` – String, format of the returned string. 'long' by default, 'short' is available too. 
+#### Params
 
-Example:
+- `value`, date value;
+- `format`, format of the returned string. `'long'` (by default) or `'short'`. 
+
+#### Example
 
 ```js
 getWeekdayName(new Date(2020, 11, 30)); // 'среда' (11th month in JS is December)
@@ -204,41 +232,35 @@ getMonthName(new Date(2020, 0, 1), 'short'); // 'янв'
 ```
 
 
-### [getDuration](./lib/getDuration.js)
+### [getDuration](./lib/getDuration.ts)
 
-Returns an object containing interval value in days, hours, minutes and seconds.
-
-**Usage**
-
-```js
-getDuration(seconds);
+```typescript
+(seconds: number) => Duration;
 ```
 
-Params:
-- `seconds` — Number, interval value in seconds.
+### Params
 
-Example:
+- `seconds`, interval value in seconds.
+
+#### Example
 
 ```js
 getDuration(1000000); // { days: 11, hours: 13, minutes: 46, seconds: 40 }
 ```
 
 
-### [isSameMinute](./lib/isSameMinute.js), [isSameHour](./lib/isSameHour.js), [isSameDay](./lib/isSameDay.js), [isSameMonth](./lib/isSameMonth.js), [isSameYear](./lib/isSameYear.js)
+### [isSameMinute](./lib/isSameMinute.ts), [isSameHour](./lib/isSameHour.ts), [isSameDay](./lib/isSameDay.ts), [isSameMonth](./lib/isSameMonth.ts), [isSameYear](./lib/isSameYear.ts)
 
-Checks the dates equality.
-
-**Usage**
-
-```js
-isSameYear(firstDate, secondDate);
+```typescript
+(firstValue: ChronosDate, secondValue: ChronosDate) => boolean;
 ```
 
-Params:
-- `firstDate` — Date instance or Unix timestamp (Number, String);
-- `secondDate` — Date instance or Unix timestamp (Number, String).
+#### Params
 
-Example:
+- `firstValue`, date value;
+- `secondValue`, date value.
+
+#### Example
 
 ```js
 // 1577750400 is 2019-12-31T00:00:00.000Z
@@ -247,21 +269,18 @@ isSameYear(1577750400, 1577836800); // false
 ```
 
 
-### [getDiffInMinutes](./lib/getDiffInMinutes.js), [getDiffInHours](./lib/getDiffInHours.js), [getDiffInDays](./lib/getDiffInDays.js), [getDiffInMonths](./lib/getDiffInMonths.js), [getDiffInYears](./lib/getDiffInYears.js)
+### [getDiffInMinutes](./lib/getDiffInMinutes.ts), [getDiffInHours](./lib/getDiffInHours.ts), [getDiffInDays](./lib/getDiffInDays.ts), [getDiffInMonths](./lib/getDiffInMonths.ts), [getDiffInYears](./lib/getDiffInYears.ts)
 
-Returns the difference between two dates in units.
-
-**Usage**
-
-```js
-getDiffInDays(firstDate, secondDate);
+```typescript
+(firstValue: ChronosDate, secondValue: ChronosDate) => number;
 ```
 
-Params:
-- `firstDate` — Date instance or Unix timestamp (Number, String);
-- `secondDate` — Date instance or Unix timestamp (Number, String).
+#### Params
 
-Example:
+- `firstValue`, date value;
+- `secondValue`, date value.
+
+#### Example
 
 ```js
 // 1577750400 is 2019-12-31T00:00:00.000Z
@@ -270,22 +289,17 @@ getDiffInDays(1577750400, 1577836800); // -1
 ```
 
 
-### [getStartOfMinutes](./lib/getStartOfMinutes.js), [getStartOfHours](./lib/getStartOfHours.js), [getStartOfDay](./lib/getStartOfDay.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js), [getStartOfDecade](./lib/getStartOfDecade.js)
+### [getStartOfMinutes](./lib/getStartOfMinutes.ts), [getStartOfHours](./lib/getStartOfHours.ts), [getStartOfDay](./lib/getStartOfDay.ts), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfMonth](./lib/getStartOfMonth.ts), [getStartOfYear](./lib/getStartOfYear.ts), [getStartOfDecade](./lib/getStartOfDecade.ts)
 
-Returns the start of unit of the passed date.
-
-**Usage**
-
-```js
-getStartOfDay(date);
+```typescript
+(value: ChronosDate, diff?: number) => Date;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String);
-- `diff` – Number, number of units to add to the result date.
-  `0` by default.
+#### Params
+- `value`, date value;
+- `diff`, number of units to add to the result date. `0` by default.
 
-Example:
+#### Example
 
 ```js
 // 1577836800 is 2020-01-01T00:00:00.000Z
@@ -295,44 +309,37 @@ getStartOfDay(1577836800, -1); // 2019-12-30T21:00:00.000Z (for GMT+3)
 ```
 
 
-### [getEndOfMinutes](./lib/getEndOfMinutes.js), [getEndOfHours](./lib/getEndOfHours.js), [getEndOfDay](./lib/getEndOfDay.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js), [getEndOfDecade](./lib/getEndOfDecade.js)
+### [getEndOfMinutes](./lib/getEndOfMinutes.ts), [getEndOfHours](./lib/getEndOfHours.ts), [getEndOfDay](./lib/getEndOfDay.ts), [getEndOfWeek](./lib/getEndOfWeek.ts), [getEndOfMonth](./lib/getEndOfMonth.ts), [getEndOfYear](./lib/getEndOfYear.ts), [getEndOfDecade](./lib/getEndOfDecade.ts)
 
-Returns the end of unit of the passed date.
-
-**Usage**
-
-```js
-getEndOfDay(date);
+```typescript
+(value: ChronosDate, diff?: number) => Date;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String);
-- `diff` – Number, number of units to add to the result date.
-  `0` by default.
+#### Params
+- `value`, date value;
+- `diff`, number of units to add to the result date. `0` by default.
 
-Example:
+#### Example
 
 ```js
-getEndOfDay(1577912400);
-getEndOfDay(1577912400, 1);
-getEndOfDay(1577912400, -1);
+// 1577836800 is 2020-01-01T00:00:00.000Z
+getEndOfDay(1577836800); // 2020-01-01T20:59:59.999Z (for GMT+3)
+getEndOfDay(1577836800, 1); // 2020-01-02T20:59:59.999Z (for GMT+3)
+getEndOfDay(1577836800, -1); // 2019-12-31T20:59:59.999Z (for GMT+3)
 ```
 
 
-### [getRelativeDate](./lib/getRelativeDate.js)
+### [getRelativeDate](./lib/getRelativeDate.ts)
 
-Returns string with time interval between the passed date and the current time.
-
-**Usage**
-
-```js
-getRelativeDate(date);
+```typescript
+(value: ChronosDate) => string;
 ```
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String).
+#### Params
 
-Example:
+- `value`, date value.
+
+#### Example
 
 ```js
 getRelativeDate(1577081613); // '2 месяца' (for 07.02.2020)
@@ -340,121 +347,110 @@ getRelativeDate(new Date()); // 'меньше минуты'
 ```
 
 
-### [getUtcOffset](./lib/getUtcOffset.js)
+### [getUtcOffset](./lib/getUtcOffset.ts)
 
-Returns UTF offset in hours, floored to integer.
-
-**Usage**
-
-```js
-getUtcOffset(date);
+```typescript
+(value: ChronosDate) => number;
 ```
+#### Params
 
-Params:
-- `date` — Date instance or Unix timestamp (Number, String).
+- `value`, date value.
 
-Example:
+#### Example
 
 ```js
 getUtcOffset(new Date(2020, 0, 1)); // 3 (for GMT+3)
 ```
 
 
-### [getTime](./lib/getTime.js)
+### [getTime](./lib/getTime.ts)
 
-Returns Unix timestamp of the passed date.
-
-**Usage**
-
-```js
-getTime(date);
+```typescript
+(date?: Date) => number;
 ```
 
-Params:
-- `date` — Date instance;
+#### Params
 
-Example:
+- `date`, Date instance. `new Date()` by default.
+
+#### Example
 
 ```js
 // now is 2020-02-07T08:26:59.422Z
-getTime(); // 1581064019 (unix time of new Date())
+getTime(); // 1581064019 (unix timestamp for new Date())
 
 getTime(new Date(2020, 0, 1)); // 1577826000 (for GMT+3)
 ```
 
 
-### [getTimezoneName](./lib/getTimezoneName)
+### [getTimezoneName](./lib/getTimezoneName.ts)
 
-Returns the name of the current timezone.
+```typescript
+() => string;
+```
 
-In case of lack of Intl API support returns nearest timezone to the user 
+#### Example
+
+```js
+getTimezoneName(); // 'Europe/Moscow' (for any GMT+3 timezone in IE11 and for MSK in modern browsers)
+```
+
+#### Important notes
+
+In case of lack of Intl API support returns nearest to the user timezone 
 which has integer offset.
 
-**Usage**
 
-```js
-getTimezoneName();
+### [isTimeValid](./lib/isTimeValid.ts)
+
+```typescript
+(value: string, format: string) => boolean;
 ```
 
-Example:
+#### Params
 
-```js
-getTimezoneName(); // 'Europe/Moscow' (for GMT+3 in ИЕ11 and for MSK in modern browsers)
-```
+- `value`, time string;
+- `format`, format string that should be used for validation.
 
-
-### [isTimeValid](./lib/isTimeValid.js)
-
-Checks time string validity by passed format string.
-
-**Usage**
-
-```js
-isTimeValid(value, format);
-```
-
-Params:
-- `value` – String, time string;
-- `format` – String, validation format.
-
-Example:
+#### Example
 
 ```js
 isTimeValid('22:30', 'HH:mm'); // true
 ```
 
 
-### [parseDate](./lib/parseDate.js)
+### [parseDate](./lib/parseDate.ts)
 
-Returns Date instance parsed from the passed string by passed format
-
-If `format` is not passed it tries to parse `value` using native
-`Date.parse`. It should support ISO 8601 and RFC 2822. Other formats
-are not recommended to parse without explicit `format` set. 
-
-**Usage**
-
-```js
-parseDate(value, format);
-
+```typescript
+(value: string, format: string) => Date;
 ```
 
-Params:
-- `value` – String, date string;
-- `format` – String, format of date string.
+#### Params
 
-| Value  | Description                |
-|--------|----------------------------|
-| `DD`   | Two-digit day value        |
-| `D`    | Day value from 1 till 31   |
-| `MM`   | Two-digit month value      |
-| `YYYY` | Four-digit year value      |
-| `YY`   | Last to digits of the year |
+- `value`, date string;
+- `format`, format string that should be used for parsing.
 
-Example:
+#### Available format tokens    
+      
+| Type            | Token  | Recognized values                       |
+|:----------------|:-------|:----------------------------------------|
+| Day of Month    | `DD`   | 01, 02, 03, ..., 29, 30, 31             |
+|                 | `D`    | 1, 2, 3, ..., 29, 30, 31                |
+| Month           | `MM`   | 01, 02, 03, ..., 10, 11, 12             |
+| Year            | `YYYY` | Full year, e.g.: 1885, 1955, 1985, 2015 |
+|                 | `YY`   | 00, 01, 02, ..., 97, 98, 99             |
+
+#### Example
 
 ```js
 parseDate('2000-01-21', 'YYYY-MM-DD'); // == new Date(2000, 0, 21)
 ```
+
+#### Important notes
+
+If `format` is not passed it tries to parse `value` using native
+`Date.parse`. It should support ISO 8601 and RFC 2822. Other formats
+are not recommended to parse without explicit `format` set.
+
 
 [![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)

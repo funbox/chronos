@@ -22,7 +22,7 @@ import { addDate } from '@funboxteam/chronos';
 
 ## Список доступных функций
 
-### [addMinutes](./lib/addMinutes.js), [addHours](./lib/addHours.js), [addDays](./lib/addDays.js), [addMonths](./lib/addMonths.js), [addYears](./lib/addYears.js)
+### [addMinutes](./lib/addMinutes.ts), [addHours](./lib/addHours.ts), [addDays](./lib/addDays.ts), [addMonths](./lib/addMonths.ts), [addYears](./lib/addYears.ts)
 
 Добавляют единицу времени и возвращают новый объект Date.
 
@@ -54,7 +54,7 @@ addMonths(new Date(2020, 0, 31), 1); // == new Date(2020, 2, 2);
 ```
 
 
-### [subtractMinutes](./lib/subtractMinutes.js), [subtractHours](./lib/subtractHours.js), [subtractDays](./lib/subtractDays.js), [subtractMonths](./lib/subtractMonths.js), [subtractYears](./lib/subtractYears.js)
+### [subtractMinutes](./lib/subtractMinutes.ts), [subtractHours](./lib/subtractHours.ts), [subtractDays](./lib/subtractDays.ts), [subtractMonths](./lib/subtractMonths.ts), [subtractYears](./lib/subtractYears.ts)
 
 Вычитают единицу времени и возвращают новый объект Date.
 
@@ -84,7 +84,7 @@ subtractMonths(new Date(2020, 1, 29), 1); // == new Date(2020, 0, 29);
 ```
 
 
-### [formatDate](./lib/formatDate.js)
+### [formatDate](./lib/formatDate.ts)
 
 Форматирует дату в строку по указанному шаблону. 
 
@@ -123,7 +123,7 @@ formatDate(1577836800, 'HH:mm:ss'); // '03:00:00' (для GMT+3)
 ```
 
 
-### [formatTime](./lib/formatTime.js)
+### [formatTime](./lib/formatTime.ts)
 
 Форматирует строку времени по указанному шаблону.
 
@@ -152,7 +152,7 @@ formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
 
-### [getMinutes](./lib/getMinutes.js), [getHours](./lib/getHours.js), [getDay](./lib/getDay.js), [getWeek](./lib/getWeek.js), [getMonth](./lib/getMonth.js), [getYear](./lib/getYear.js)
+### [getMinutes](./lib/getMinutes.ts), [getHours](./lib/getHours.ts), [getDay](./lib/getDay.ts), [getWeek](./lib/getWeek.ts), [getMonth](./lib/getMonth.ts), [getYear](./lib/getYear.ts)
 
 Возвращает единицу времени.
 
@@ -177,7 +177,7 @@ getYear(1577836800); // 2020
 ```
 
 
-### [getWeekdayName](./lib/getWeekdayName.js), [getMonthName](./lib/getMonthName.js)
+### [getWeekdayName](./lib/getWeekdayName.ts), [getMonthName](./lib/getMonthName.ts)
 
 Возвращает название единицы времени.
 
@@ -202,7 +202,7 @@ getMonthName(new Date(2020, 0, 1), 'short'); // 'янв'
 ```
 
 
-### [getDuration](./lib/getDuration.js)
+### [getDuration](./lib/getDuration.ts)
 
 Возвращает объект, который содержит значение интервала времени в днях, часах, 
 минутах и секундах.
@@ -223,7 +223,7 @@ getDuration(1000000); // { days: 11, hours: 13, minutes: 46, seconds: 40 }
 ```
 
 
-### [isSameMinute](./lib/isSameMinute.js), [isSameHour](./lib/isSameHour.js), [isSameDay](./lib/isSameDay.js), [isSameMonth](./lib/isSameMonth.js), [isSameYear](./lib/isSameYear.js)
+### [isSameMinute](./lib/isSameMinute.ts), [isSameHour](./lib/isSameHour.ts), [isSameDay](./lib/isSameDay.ts), [isSameMonth](./lib/isSameMonth.ts), [isSameYear](./lib/isSameYear.ts)
 
 Проверяет равенство единицы времени двух дат.
 
@@ -246,7 +246,7 @@ isSameYear(1577750400, 1577836800); // false
 ```
 
 
-### [getDiffInMinutes](./lib/getDiffInMinutes.js), [getDiffInHours](./lib/getDiffInHours.js), [getDiffInDays](./lib/getDiffInDays.js), [getDiffInMonths](./lib/getDiffInMonths.js), [getDiffInYears](./lib/getDiffInYears.js)  
+### [getDiffInMinutes](./lib/getDiffInMinutes.ts), [getDiffInHours](./lib/getDiffInHours.ts), [getDiffInDays](./lib/getDiffInDays.ts), [getDiffInMonths](./lib/getDiffInMonths.ts), [getDiffInYears](./lib/getDiffInYears.ts)  
 
 Возвращает значение разницы в единицах времени двух дат.
 
@@ -269,7 +269,7 @@ getDiffInDays(1577750400, 1577836800); // -1
 ```
 
 
-### [getStartOfMinutes](./lib/getStartOfMinutes.js), [getStartOfHours](./lib/getStartOfHours.js), [getStartOfDay](./lib/getStartOfDay.js), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfMonth](./lib/getStartOfMonth.js), [getStartOfYear](./lib/getStartOfYear.js), [getStartOfDecade](./lib/getStartOfDecade.js)
+### [getStartOfMinutes](./lib/getStartOfMinutes.ts), [getStartOfHours](./lib/getStartOfHours.ts), [getStartOfDay](./lib/getStartOfDay.ts), [getStartOfWeek](./lib/getStartOfWeek), [getStartOfMonth](./lib/getStartOfMonth.ts), [getStartOfYear](./lib/getStartOfYear.ts), [getStartOfDecade](./lib/getStartOfDecade.ts)
 
 Возвращает объект даты начала единицы времени.
 
@@ -294,7 +294,7 @@ getStartOfDay(1577836800, -1); // 2019-12-30T21:00:00.000Z (для GMT+3)
 ```
 
 
-### [getEndOfMinutes](./lib/getEndOfMinutes.js), [getEndOfHours](./lib/getEndOfHours.js), [getEndOfDay](./lib/getEndOfDay.js), [getEndOfWeek](./lib/getEndOfWeek.js), [getEndOfMonth](./lib/getEndOfMonth.js), [getEndOfYear](./lib/getEndOfYear.js), [getEndOfDecade](./lib/getEndOfDecade.js)
+### [getEndOfMinutes](./lib/getEndOfMinutes.ts), [getEndOfHours](./lib/getEndOfHours.ts), [getEndOfDay](./lib/getEndOfDay.ts), [getEndOfWeek](./lib/getEndOfWeek.ts), [getEndOfMonth](./lib/getEndOfMonth.ts), [getEndOfYear](./lib/getEndOfYear.ts), [getEndOfDecade](./lib/getEndOfDecade.ts)
 
 Возвращает объект даты окончания единицы времени.
 
@@ -319,7 +319,7 @@ getEndOfDay(1577836800, -1); // 2019-12-31T20:59:59.999Z (для GMT+3)
 ```
 
 
-### [getRelativeDate](./lib/getRelativeDate.js)
+### [getRelativeDate](./lib/getRelativeDate.ts)
 
 Возвращает строку — временной интервал между датой и текущим временем.
 
@@ -340,7 +340,7 @@ getRelativeDate(new Date()); // 'меньше минуты'
 ```
 
 
-### [getUtcOffset](./lib/getUtcOffset.js)
+### [getUtcOffset](./lib/getUtcOffset.ts)
 
 Возвращает значение смещения временной зоны относительно UTC, выраженного целым 
 числом часов.
@@ -361,7 +361,7 @@ getUtcOffset(new Date(2020, 0, 1)); // 3 (для GMT+3)
 ```
 
 
-### [getTime](./lib/getTime.js)
+### [getTime](./lib/getTime.ts)
 
 Возвращает значение временной метки в секундах.
 
@@ -404,7 +404,7 @@ getTimezoneName(); // 'Europe/Moscow' (для GMT+3 в ИЕ11 и для MSK в �
 ```
 
 
-### [isTimeValid](./lib/isTimeValid.js)
+### [isTimeValid](./lib/isTimeValid.ts)
 
 Проверяет валидность строки времени по шаблону.
 
@@ -425,7 +425,7 @@ isTimeValid('22:30', 'HH:mm'); // true
 ```
 
 
-### [parseDate](./lib/parseDate.js)
+### [parseDate](./lib/parseDate.ts)
 
 Возвращает объект даты указанной строки времени. 
 
