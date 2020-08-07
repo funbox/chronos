@@ -1,5 +1,7 @@
 # @funboxteam/chronos
 
+[![npm](https://img.shields.io/npm/v/@funboxteam/chronos.svg)](https://www.npmjs.com/package/@funboxteam/chronos)
+
 Библиотека для работы с датой.
 
 
@@ -455,3 +457,5 @@ parseDate(value, format);
 parseDate('2000-01-21', 'YYYY-MM-DD'); // == new Date(2000, 0, 21)
 parseDate('2020-01-01T00:00:00+03:00'); // == new Date(2020, 0, 1) (для GMT+3)
 ```
+
+[![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)

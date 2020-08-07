@@ -1,5 +1,7 @@
 # @funboxteam/chronos
 
+[![npm](https://img.shields.io/npm/v/@funboxteam/chronos.svg)](https://www.npmjs.com/package/@funboxteam/chronos)
+
 The library for date manipulation.
 
 [По-русски](./README.ru.md)
@@ -454,3 +456,5 @@ Example:
 ```js
 parseDate('2000-01-21', 'YYYY-MM-DD'); // == new Date(2000, 0, 21)
 ```
+
+[![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)
