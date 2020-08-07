@@ -57,6 +57,7 @@ jsconfig.json
 /test-reports
 /screenshots
 /test-logs
+/.nyc_output
 
 
 # -- Sass --

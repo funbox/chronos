@@ -24,7 +24,7 @@
     "prebuild": "npm run lint",
     "prepublishOnly": "npm run build",
     "//": "TODO: remove full-icu injection after Node.js update: https://github.com/nodejs/node/commit/1a25e901b7c380929f0d08599f49dd77897a627f",
-    "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu mocha --require ts-node/register tests/*.ts",
+    "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu nyc mocha -- --require ts-node/register tests/*.ts",
     "start": "nodemon --exec 'npm test || exit 1'"
   },
   "dependencies": {
@@ -44,6 +44,7 @@
     "lint-staged": "9.4.1",
     "mocha": "6.2.1",
     "nodemon": "1.19.4",
+    "nyc": "15.1.0",
     "ts-node": "8.10.2",
     "typescript": "3.9.6"
   },

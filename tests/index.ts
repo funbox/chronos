@@ -235,7 +235,7 @@ describe('getDuration', () => {
   });
 
   it('should return duration as hours and minutes', () => {
-    expect(getDuration(10000)).to.deep.equal({ days: 0, hours: 2, minutes: 46,  seconds: 40 });
+    expect(getDuration(10000)).to.deep.equal({ days: 0, hours: 2, minutes: 46, seconds: 40 });
   });
 
   it('should return duration as minutes', () => {
