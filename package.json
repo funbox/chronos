@@ -13,8 +13,7 @@
   },
   "files": [
     "dist/",
-    "CHANGELOG.md",
-    "README.md"
+    "MIGRATION.md"
   ],
   "scripts": {
     "lint": "eslint --cache -c .eslintrc.js --ext .ts lib && eslint --cache -c tests/.eslintrc.js --ext .ts tests",
