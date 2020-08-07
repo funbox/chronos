@@ -1,5 +1,8 @@
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
+const SUNDAY = 7;
+const DAYS_IN_WEEK = 7;
+
 /**
  * Get end of week
  * @param value
@@ -8,14 +11,12 @@ import { ChronosDate, ensureDate } from './helpers/ensureDate';
  */
 export default (value: ChronosDate, diff = 0): Date => {
   const date = ensureDate(value);
-  const weekDay = date.getDay();
+  const weekDay = date.getDay() || SUNDAY;
 
-  if (weekDay !== 0) {
-    date.setDate(date.getDate() + (7 - weekDay));
-  }
+  date.setDate(date.getDate() + (DAYS_IN_WEEK - weekDay));
 
   if (diff) {
-    date.setDate(date.getDate() + diff * 7);
+    date.setDate(date.getDate() + diff * DAYS_IN_WEEK);
   }
 
   date.setHours(23, 59, 59, 999);
