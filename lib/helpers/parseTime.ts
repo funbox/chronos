@@ -8,11 +8,11 @@ import { TimeFormatType } from '../constants';
  */
 export default (value: string, format: string): Record<TimeFormatType, string> => {
   if (!value) {
-    throw new Error(`Invalid value: ${value}`);
+    throw new Error('Empty value');
   }
 
   if (!format) {
-    throw new Error(`Invalid format: ${format}`);
+    throw new Error('Empty format');
   }
 
   const time = value.split(':');
