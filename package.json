@@ -7,6 +7,10 @@
   "sideEffects": false,
   "author": "Natalia Andreychenko <natandreychenko@gmail.com> (https://github.com/natrey)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/funbox/chronos"
+  },
   "files": [
     "dist/",
     "CHANGELOG.md",
