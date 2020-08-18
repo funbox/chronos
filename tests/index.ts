@@ -738,6 +738,14 @@ describe('isTimeValid', () => {
 });
 
 describe('parseDate', () => {
+  it('throws when empty value is passed', () => {
+    expect(() => parseDate('', '')).to.throw('Empty value');
+  });
+
+  it('throws when format has more parts than value', () => {
+    expect(() => parseDate('2000-01', 'YYYY-MM-DD')).to.throw('Format doesn\'t match value: YYYY-MM-DD, 2000-01');
+  });
+
   it('parses the string formatted as \'YYYY-MM-DD\'', () => {
     expect(parseDate('2000-01-01', 'YYYY-MM-DD')).to.equalTime(new Date(2000, 0, 1));
   });
@@ -754,8 +762,20 @@ describe('parseDate', () => {
     expect(parseDate('01.01.01', 'DD.MM.YY')).to.equalTime(new Date(2001, 0, 1));
   });
 
+  it('parses the string formatted as \'DD.MM.YY\' where YY is from 20th century', () => {
+    expect(parseDate('01.01.99', 'DD.MM.YY')).to.equalTime(new Date(1999, 0, 1));
+  });
+
   it('throws when string formatted as \'D.MM.YYYY\' does not contain valid date', () => {
     expect(() => parseDate('1.120.2019', 'D.MM.YYYY')).to.throw('Invalid value: 1.120.2019');
+  });
+
+  it('throws when string formatted as \'DD.MM.YYYY\' does not contain valid date', () => {
+    expect(() => parseDate('99.99.2019', 'D.MM.YYYY')).to.throw('Invalid value: 99.99.2019');
+  });
+
+  it('throws when unknown format item is passed', () => {
+    expect(() => parseDate('01.01.2019', 'AA.MM.YYYY')).to.throw('Unknown format item: AA');
   });
 
   it('returns parse the string formatted as ISO 8601 but w/o explicit format set', () => {

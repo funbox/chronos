@@ -9,7 +9,7 @@ import { getYear } from '.';
  */
 export default (value: string, format: string): Date => {
   if (!value) {
-    throw new Error(`Invalid value: ${value}`);
+    throw new Error('Empty value');
   }
 
   if (!format) {
@@ -28,13 +28,14 @@ export default (value: string, format: string): Date => {
     if (item === 'YYYY') {
       acc.year = valueArray[i].length === 4 && +valueArray[i];
     } else if (item === 'YY') {
-      const century = valueArray[i] > getYear(new Date()).toString().slice(-2) ? 19 : 20;
-
-      acc.year = valueArray[i].length === 2 && +`${century}${valueArray[i]}`;
+      const hundreds = valueArray[i] > getYear(new Date()).toString().slice(-2) ? 19 : 20;
+      acc.year = valueArray[i].length === 2 && +`${hundreds}${valueArray[i]}`;
     } else if (item === 'MM') {
       acc.month = +valueArray[i] <= 12 && +valueArray[i] - 1;
     } else if (item === 'D' || item === 'DD') {
       acc.date = +valueArray[i] <= 31 && +valueArray[i];
+    } else {
+      throw new Error(`Unknown format item: ${item}`);
     }
 
     return acc;
