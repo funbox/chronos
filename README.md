@@ -2,9 +2,17 @@
 
 [![npm](https://img.shields.io/npm/v/@funboxteam/chronos.svg)](https://www.npmjs.com/package/@funboxteam/chronos)
 
-The library for date manipulation.
+**Chronos** is a tiny, immutable, typed library which does not bloat your JS bundle, but does all the magic with dates.
 
 [По-русски](./README.ru.md)
+
+## Features
+
+- **Immutable & pure function per file.** Every function does not have side effects, nor mutates the params.
+  If you use a function, only this function is added to your bundle, not the whole lib.
+- **ESM & CommonJS.** Works in Node.js and browser. Setup the target browsers for transpiling ES6 by your own in your bundler.  
+- **TypeScript.** Every function is typed and the typings are bundled with the package.
+- **Native API.** Uses `Date` and `Intl` under the hood.
 
 ## Table of Contents
 
