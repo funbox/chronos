@@ -32,9 +32,9 @@ to guarantee type safety.
 declare type ChronosDate = Date | number | string;
 ```
 
-Every function that accepts date as a first param expects to get instance of `Date`, or Unix timestamp as number or string.
+Every function that accepts date as a first param expects to get an instance of `Date`, or a timestamp as number or string.
 
-Unix timestamp may be present as seconds or milliseconds (e.g. `1596803254000` and `1596803254` is the same value).
+The timestamp may be present as seconds or milliseconds (e.g. `1596803254000` and `1596803254` is the same value).
 
 ### Duration
 
@@ -173,12 +173,12 @@ If you need one, please [fill the issue](https://github.com/funbox/chronos/issue
 
 #### Available format tokens
 
-| Type            | Token  | Value                                           |
-|:----------------|:-------|:------------------------------------------------|
-| Second          | `ss`   | 00, 01, 02, ..., 57, 58, 59                     |
-| Minute          | `mm`   | 00, 01, 02, ..., 57, 58, 59                     |
-| Hour            | `HH`   | 00, 01, 02, ..., 21, 22, 23                     |
-|                 | `H`    | 0, 1, 2, ..., 21, 22, 23                        |
+| Type   | Token | Value                       |
+|:-------|:------|:----------------------------|
+| Second | `ss`  | 00, 01, 02, ..., 57, 58, 59 |
+| Minute | `mm`  | 00, 01, 02, ..., 57, 58, 59 |
+| Hour   | `HH`  | 00, 01, 02, ..., 21, 22, 23 |
+|        | `H`   | 0, 1, 2, ..., 21, 22, 23    |
 
 #### Example
 
@@ -352,6 +352,7 @@ getRelativeDate(new Date()); // 'меньше минуты'
 ```typescript
 (value: ChronosDate) => number;
 ```
+
 #### Params
 
 - `value`, date value.
@@ -398,7 +399,7 @@ getTimezoneName(); // 'Europe/Moscow' (for any GMT+3 timezone in IE11 and for MS
 #### Important notes
 
 In case of lack of Intl API support returns nearest to the user timezone 
-which has integer offset.
+which has _integer hours offset_.
 
 
 ### [isTimeValid](./lib/isTimeValid.ts)
@@ -432,18 +433,19 @@ isTimeValid('22:30', 'HH:mm'); // true
 
 #### Available format tokens    
       
-| Type            | Token  | Recognized values                       |
-|:----------------|:-------|:----------------------------------------|
-| Day of Month    | `DD`   | 01, 02, 03, ..., 29, 30, 31             |
-|                 | `D`    | 1, 2, 3, ..., 29, 30, 31                |
-| Month           | `MM`   | 01, 02, 03, ..., 10, 11, 12             |
-| Year            | `YYYY` | Full year, e.g.: 1885, 1955, 1985, 2015 |
-|                 | `YY`   | 00, 01, 02, ..., 97, 98, 99             |
+| Type         | Token  | Recognized values                       |
+|:-------------|:-------|:----------------------------------------|
+| Day of Month | `DD`   | 01, 02, 03, ..., 29, 30, 31             |
+|              | `D`    | 1, 2, 3, ..., 29, 30, 31                |
+| Month        | `MM`   | 01, 02, 03, ..., 10, 11, 12             |
+| Year         | `YYYY` | Full year, e.g.: 1885, 1955, 1985, 2015 |
+|              | `YY`   | 00, 01, 02, ..., 97, 98, 99             |
 
 #### Example
 
 ```js
 parseDate('2000-01-21', 'YYYY-MM-DD'); // == new Date(2000, 0, 21)
+parseDate('2020-01-01T00:00:00+03:00'); // == new Date(2020, 0, 1) (for GMT+3)
 ```
 
 #### Important notes
