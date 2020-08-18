@@ -23,15 +23,15 @@ export default (value: ChronosDate): string => {
   if (!minutes) {
     result = 'меньше минуты';
   } else if (minutes < 60) {
-    result = `${minutes === 1 ? '' : minutes} ${getPlural(minutes, 'минуту', 'минуты', 'минут')}`;
+    result = `${minutes === 1 ? '' : `${minutes} `}${getPlural(minutes, 'минуту', 'минуты', 'минут')}`;
   } else if (hours < 24) {
-    result = `${hours === 1 ? '' : hours} ${getPlural(hours, 'час', 'часа', 'часов')}`;
+    result = `${hours === 1 ? '' : `${hours} `}${getPlural(hours, 'час', 'часа', 'часов')}`;
   } else if (days < 30) {
-    result = `${days === 1 ? '' : days} ${getPlural(days, 'день', 'дня', 'дней')}`;
+    result = `${days === 1 ? '' : `${days} `}${getPlural(days, 'день', 'дня', 'дней')}`;
   } else if (months < 12) {
-    result = `${months === 1 ? '' : months} ${getPlural(months, 'месяц', 'месяца', 'месяцев')}`;
-  } else if (years) {
-    result = `${years === 1 ? '' : years} ${getPlural(years, 'год', 'года', 'лет')}`;
+    result = `${months === 1 ? '' : `${months} `}${getPlural(months, 'месяц', 'месяца', 'месяцев')}`;
+  } else {
+    result = `${years === 1 ? '' : `${years} `}${getPlural(years, 'год', 'года', 'лет')}`;
   }
 
   return result;

@@ -583,23 +583,109 @@ describe('getRelativeDate', () => {
     expect(getRelativeDate(new Date())).to.equal('меньше минуты');
   });
 
+  it('returns interval string for 1 minute', () => {
+    const date = new Date();
+    date.setMinutes(date.getMinutes() - 1);
+
+    expect(getRelativeDate(date)).to.equal('минуту');
+  });
+
+  it('returns interval string for 2 minutes', () => {
+    const date = new Date();
+    date.setMinutes(date.getMinutes() - 2);
+
+    expect(getRelativeDate(date)).to.equal('2 минуты');
+  });
+
+  it('returns interval string for 5 minutes', () => {
+    const date = new Date();
+    date.setMinutes(date.getMinutes() - 5);
+
+    expect(getRelativeDate(date)).to.equal('5 минут');
+  });
+
+  it('returns interval string for 1 hour', () => {
+    const date = new Date();
+    date.setHours(date.getHours() - 1);
+
+    expect(getRelativeDate(date)).to.equal('час');
+  });
+
+  it('returns interval string for 2 hours', () => {
+    const date = new Date();
+    date.setHours(date.getHours() - 2);
+
+    expect(getRelativeDate(date)).to.equal('2 часа');
+  });
+
   it('returns interval string for 5 hours', () => {
-    const now = new Date();
-    now.setHours(now.getHours() - 5);
+    const date = new Date();
+    date.setHours(date.getHours() - 5);
 
-    expect(getRelativeDate(now)).to.equal('5 часов');
+    expect(getRelativeDate(date)).to.equal('5 часов');
   });
 
-  it.skip('returns interval string for 1 day', () => {
-    expect(getRelativeDate(subtractDays(new Date(), 1))).to.equal(' день');
+  it('returns interval string for 1 day', () => {
+    const date = new Date();
+    date.setDate(date.getDate() - 1);
+
+    expect(getRelativeDate(date)).to.equal('день');
   });
 
-  it('returns interval string for 2 month', () => {
-    expect(getRelativeDate(subtractMonths(new Date(), 2))).to.equal('2 месяца');
+  it('returns interval string for 2 days', () => {
+    const date = new Date();
+    date.setDate(date.getDate() - 2);
+
+    expect(getRelativeDate(date)).to.equal('2 дня');
   });
 
-  it('returns interval string for 3 years', () => {
-    expect(getRelativeDate(subtractYears(new Date(), 3))).to.equal('3 года');
+  it('returns interval string for 5 days', () => {
+    const date = new Date();
+    date.setDate(date.getDate() - 5);
+
+    expect(getRelativeDate(date)).to.equal('5 дней');
+  });
+
+  it('returns interval string for 1 month', () => {
+    const date = new Date();
+    date.setMonth(date.getMonth() - 1);
+
+    expect(getRelativeDate(date)).to.equal('месяц');
+  });
+
+  it('returns interval string for 2 months', () => {
+    const date = new Date();
+    date.setMonth(date.getMonth() - 2);
+
+    expect(getRelativeDate(date)).to.equal('2 месяца');
+  });
+
+  it('returns interval string for 5 months', () => {
+    const date = new Date();
+    date.setMonth(date.getMonth() - 5);
+
+    expect(getRelativeDate(date)).to.equal('5 месяцев');
+  });
+
+  it('returns interval string for 1 year', () => {
+    const date = new Date();
+    date.setFullYear(date.getFullYear() - 1);
+
+    expect(getRelativeDate(date)).to.equal('год');
+  });
+
+  it('returns interval string for 2 years', () => {
+    const date = new Date();
+    date.setFullYear(date.getFullYear() - 2);
+
+    expect(getRelativeDate(date)).to.equal('2 года');
+  });
+
+  it('returns interval string for 5 years', () => {
+    const date = new Date();
+    date.setFullYear(date.getFullYear() - 5);
+
+    expect(getRelativeDate(date)).to.equal('5 лет');
   });
 });
 
