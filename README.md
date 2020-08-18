@@ -14,9 +14,21 @@
 - **TypeScript.** Every function is typed and the typings are bundled with the package.
 - **Native API.** Uses `Date` and `Intl` under the hood.
 
+## Rationale
+
+When we started to develop our projects, we picked the most popular date library that existed back then. 
+We had used only two methods it provided, but got all the bundled ones, with all the possible locales.
+
+OK, we set up our bundler configs to remove those locales, but still that library was the biggest that we used, but the profit wasn't so huge.
+We decided to look around for the date library that we need, but all of them had a lot of features that we didn't want to use.
+
+So we replaced it with small and lightweight functions that just worked. 
+Step by step those functions have evolved into Chronos—simple yet useful date manipulation library that works in every our project.
+
+
 ## Table of Contents
 
-- [Installation](#installation)
+- [Getting Started](#getting-started)
 - [Types](#types)
   - [ChronosDate](#chronosdate)
   - [Duration](#duration)
@@ -73,7 +85,7 @@
   - [isTimeValid](#istimevalid)
   - [parseDate](#parsedate)
 
-## Installation
+## Getting Started
 
 Add the package into deps:
 

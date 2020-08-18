@@ -6,11 +6,11 @@
 
 ## Содержание
 
-- [Установка](#installation)
-- [Типы](#types)
+- [Установка и использование](#установка-и-использование)
+- [Типы](#типы)
   - [ChronosDate](#chronosdate)
   - [Duration](#duration)
-- [Функции](#functions)
+- [Функции](#функции)
   - [addMinutes](#addminutes-addhours-adddays-addmonths-addyears)
   - [addHours](#addminutes-addhours-adddays-addmonths-addyears)
   - [addDays](#addminutes-addhours-adddays-addmonths-addyears)
@@ -63,7 +63,7 @@
   - [isTimeValid](#istimevalid)
   - [parseDate](#parsedate)
 
-## Установка
+## Установка и использование
 
 Добавить пакет в зависимости проекта:
 
