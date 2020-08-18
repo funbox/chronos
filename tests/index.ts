@@ -231,7 +231,31 @@ describe('getMinutes, getHours, getDay, getWeek, getMonth, getYear', () => {
   });
 });
 
-describe.skip('getWeekdayName, getMonthName', () => {}); // eslint-disable-line
+describe('getWeekdayName, getMonthName', () => {
+  it('returns weekday name in short format', () => {
+    expect(getWeekdayName(newYear2020UnixTime, 'short')).to.eql('ср');
+  });
+
+  it('returns weekday name in long format', () => {
+    expect(getWeekdayName(newYear2020UnixTime, 'long')).to.eql('среда');
+  });
+
+  it('returns weekday name in long format by default', () => {
+    expect(getWeekdayName(newYear2020UnixTime)).to.eql('среда');
+  });
+
+  it('returns month name in short format', () => {
+    expect(getMonthName(newYear2020UnixTime, 'short')).to.eql('янв.');
+  });
+
+  it('returns month name in long format', () => {
+    expect(getMonthName(newYear2020UnixTime, 'long')).to.eql('январь');
+  });
+
+  it('returns month name in long format by default', () => {
+    expect(getMonthName(newYear2020UnixTime)).to.eql('январь');
+  });
+});
 
 describe('getDuration', () => {
   it('returns duration as days, hours and minutes', () => {
