@@ -37,8 +37,8 @@ export { default as getWeekdayName } from './getWeekdayName';
 export { default as getYear } from './getYear';
 export { default as getDuration } from './getDuration';
 export { default as getRelativeDate } from './getRelativeDate'; // eslint-disable-line import/no-cycle
-export { default as getTime } from './getTime';
 export { default as getTimezoneName } from './getTimezoneName';
+export { default as getUnixTimestamp } from './getUnixTimestamp';
 export { default as getUtcOffset } from './getUtcOffset';
 export { default as formatDate } from './formatDate';
 export { default as formatTimeString } from './formatTimeString';

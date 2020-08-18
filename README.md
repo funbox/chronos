@@ -364,7 +364,7 @@ getUtcOffset(new Date(2020, 0, 1)); // 3 (for GMT+3)
 ```
 
 
-### [getTime](./lib/getTime.ts)
+### [getUnixTimestamp](./lib/getUnixTimestamp.ts)
 
 ```typescript
 (date?: Date) => number;
@@ -378,9 +378,9 @@ getUtcOffset(new Date(2020, 0, 1)); // 3 (for GMT+3)
 
 ```js
 // now is 2020-02-07T08:26:59.422Z
-getTime(); // 1581064019 (unix timestamp for new Date())
+getUnixTimestamp(); // 1581064019 (unix timestamp for new Date())
 
-getTime(new Date(2020, 0, 1)); // 1577826000 (for GMT+3)
+getUnixTimestamp(new Date(2020, 0, 1)); // 1577826000 (for GMT+3)
 ```
 
 

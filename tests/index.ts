@@ -52,13 +52,13 @@ const {
   getEndOfDecade,
   getRelativeDate,
   getUtcOffset,
-  getTime,
+  getUnixTimestamp,
   getTimezoneName,
   isTimeValid,
   parseDate,
 } = require('../lib');
 
-const newYear2020UnixTime = getTime(new Date(2020, 0, 1));
+const newYear2020UnixTime = new Date(2020, 0, 1).getTime() / 1e3;
 const localUTCOffset = `0${Math.abs(getUtcOffset(new Date(2020, 0, 1)))}`.slice(-2);
 
 describe('addMinutes, addHours, addDays, addMonths, addYears', () => {
@@ -695,13 +695,21 @@ describe('getUtcOffset', () => {
   });
 });
 
-describe('getTime', () => {
-  it('returns unix timestamp', () => {
-    expect(getTime(new Date(2020, 0, 1))).to.equal(newYear2020UnixTime);
+describe('getUnixTimestamp', () => {
+  it('returns unix timestamp from Date instance', () => {
+    expect(getUnixTimestamp(new Date(2020, 0, 1))).to.equal(newYear2020UnixTime);
+  });
+
+  it('returns unix timestamp from timestamp in ms', () => {
+    expect(getUnixTimestamp(newYear2020UnixTime * 1e3)).to.equal(newYear2020UnixTime);
+  });
+
+  it('returns unix timestamp from timestamp in s', () => {
+    expect(getUnixTimestamp(newYear2020UnixTime)).to.equal(newYear2020UnixTime);
   });
 
   it('returns current unix timestamp if nothing passed', () => {
-    expect(getTime()).to.equal(Math.floor(new Date().getTime() / 1000));
+    expect(getUnixTimestamp()).to.equal(Math.floor(new Date().getTime() / 1000));
   });
 });
 
