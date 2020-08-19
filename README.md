@@ -1,18 +1,38 @@
-# @funboxteam/chronos
+<div align="center">
+  <img src="images/avatar.png" width="80" alt="Chronos avatar: white-on-black gloomy antique half-human half-clock face" />
+</div>
 
-[![npm](https://img.shields.io/npm/v/@funboxteam/chronos.svg)](https://www.npmjs.com/package/@funboxteam/chronos)
+<br />
 
-**Chronos** is a tiny, immutable, typed library which does not bloat your JS bundle, but does all the magic with dates.
+<div align="center">
+  <a href="https://www.npmjs.com/package/@funboxteam/chronos">
+    <img alt="npm" src="https://img.shields.io/static/v1?label=npm&message=v5.0.0&color=000&labelColor=888" />
+  </a>
+  
+  <a href="https://www.npmjs.com/package/@funboxteam/chronos">
+    <img alt="CI status" src="https://img.shields.io/static/v1?label=build&message=passing&color=000&labelColor=888" />
+  </a>
+  
+  <a href="https://www.npmjs.com/package/@funboxteam/chronos">
+    <img alt="Code coverage" src="https://img.shields.io/static/v1?label=coverage&message=99%25&color=000&labelColor=888" />
+  </a>
+</div>
 
-[По-русски](./README.ru.md)
+<div align="center">
+  <b>Chronos</b> is a tiny, immutable, typed date manipulation library which does not bloat your JS bundle,<br/>
+  but does everything you need.
+</div>
 
 ## Features
+
+<img src="images/picture.png" align="right" width="250" alt="Chronos picture: gloomy antique half-human half-clock carved in stone face" />
 
 - **Immutable & pure function per file.** Every function does not have side effects, nor mutates the params.
   If you use a function, only this function is added to your bundle, not the whole lib.
 - **ESM & CommonJS.** Works in Node.js and browser. Setup the target browsers for transpiling ES6 by your own in your bundler.  
 - **TypeScript.** Every function is typed and the typings are bundled with the package.
 - **Native API.** Uses `Date` and `Intl` under the hood.
+- **Russian locale only.** And it has docs [in Russian](./README.ru.md).
 
 ## Rationale
 
@@ -534,4 +554,4 @@ If `format` is not passed it tries to parse `value` using native
 are not recommended to parse without explicit `format` set.
 
 
-[![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_centered.svg)](https://funbox.ru)
+[![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_grayscale.svg)](https://funbox.ru)
