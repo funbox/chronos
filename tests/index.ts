@@ -139,7 +139,8 @@ describe('formatDate', () => {
   });
 
   it('formats Date instance to \'YYYY-MM-DDTHH:mm:ssZ\'', () => {
-    expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ')).to.equal(`2020-01-01T00:00:00+${localUTCOffset}:00`);
+    const formattedDateRegexp = new RegExp(`^2020-01-01T00:00:00[+-]${localUTCOffset}:00$`);
+    expect(formatDate(new Date(2020, 0, 1), 'YYYY-MM-DDTHH:mm:ssZ')).to.match(formattedDateRegexp);
   });
 
   it('formats Date instance to \'dddd, DD.MM.YYYY в HH:mm:ss\'', () => {
