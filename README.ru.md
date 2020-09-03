@@ -9,12 +9,12 @@
     <img alt="npm" src="https://img.shields.io/npm/v/@funboxteam/chronos.svg?color=000&labelColor=888" />
   </a>
   
-  <a href="https://www.npmjs.com/package/@funboxteam/chronos">
+  <a href="https://travis-ci.com/github/funbox/chronos/">
     <img alt="CI status" src="https://img.shields.io/travis/funbox/chronos.svg?color=000&labelColor=888" />
   </a>
   
-  <a href="https://www.npmjs.com/package/@funboxteam/chronos">
-    <img alt="Code coverage" src="https://img.shields.io/static/v1?label=coverage&message=99%25&color=000&labelColor=888" />
+  <a href="https://coveralls.io/github/funbox/chronos">
+    <img alt="Code coverage" src="https://img.shields.io/coveralls/github/funbox/chronos?color=000&labelColor=888">
   </a>
 </div>
 
