@@ -104,6 +104,7 @@ Step by step those functions have evolved into Chronos—simple yet useful date 
   - [getTimezoneName](#gettimezonename)
   - [isTimeValid](#istimevalid)
   - [parseDate](#parsedate)
+- [Credits](#credits)
 
 ## Getting Started
 
@@ -549,6 +550,11 @@ parseDate('2020-01-01T00:00:00+03:00'); // == new Date(2020, 0, 1) (for GMT+3)
 If `format` is not passed it tries to parse `value` using native
 `Date.parse`. It should support ISO 8601 and RFC 2822. Other formats
 are not recommended to parse without explicit `format` set.
+
+
+## Credits
+
+Project's pictures were made by [Igor Garybaldi](https://pandabanda.com/).
 
 
 [![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_grayscale.svg)](https://funbox.ru)

@@ -105,6 +105,7 @@
   - [getTimezoneName](#gettimezonename)
   - [isTimeValid](#istimevalid)
   - [parseDate](#parsedate)
+- [Благодарности](#благодарности)
 
 ## Установка и использование
 
@@ -551,6 +552,11 @@ parseDate('2020-01-01T00:00:00+03:00'); // == new Date(2020, 0, 1) (для GMT+3
 
 Если `format` не передан, то функция пытается распарсить `value` используя встроенный `Date.parse`.
 Теоретически он поддерживает ISO 8691 и RFC 2822. Другие форматы не рекомендуется парсить без явного указания `format`.
+
+
+## Благодарности
+
+Картинки для репозитория нарисовал [Игорь Гарибальди](https://pandabanda.com/).
 
 
 [![Sponsored by FunBox](https://funbox.ru/badges/sponsored_by_funbox_grayscale.svg)](https://funbox.ru)
