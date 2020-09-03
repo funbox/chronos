@@ -252,10 +252,7 @@ formatDate(1577836800, 'HH:mm:ss'); // '03:00:00' (for GMT+3)
 
 #### Important notes
 
-Only Russian locale is supported for the current moment!
-
-Other locales support is the possible task for the roadmap. But we have to be sure that there're users who want to get them. 
-If you need one, please [fill the issue](https://github.com/funbox/chronos/issues/new?title=Add%20[YOUR_LOCALE_HERE]%20locale%20support).
+Only Russian locale is supported for now!
 
 
 ### [formatTimeString](./lib/formatTimeString.ts)
