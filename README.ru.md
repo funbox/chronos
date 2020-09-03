@@ -6,7 +6,7 @@
 
 <div align="center">
   <a href="https://www.npmjs.com/package/@funboxteam/chronos">
-    <img alt="npm" src="https://img.shields.io/static/v1?label=npm&message=v5.0.0&color=000&labelColor=888" />
+    <img alt="npm" src="https://img.shields.io/npm/v/@funboxteam/chronos.svg?color=black&labelColor=888" />
   </a>
   
   <a href="https://www.npmjs.com/package/@funboxteam/chronos">
