@@ -10,7 +10,7 @@
   </a>
   
   <a href="https://travis-ci.com/github/funbox/chronos/">
-    <img alt="CI status" src="https://img.shields.io/travis/funbox/chronos.svg?color=000&labelColor=888" />
+    <img alt="CI status" src="https://img.shields.io/travis/com/funbox/chronos.svg?color=000&labelColor=888" />
   </a>
   
   <a href="https://coveralls.io/github/funbox/chronos">
