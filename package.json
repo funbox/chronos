@@ -15,6 +15,7 @@
     "dist/",
     "MIGRATION.md"
   ],
+  "types": "dist/types/",
   "scripts": {
     "build": "npm run clean && npm run build-esm-and-types && npm run build-cjs",
     "build-cjs": "tsc --outDir ./dist/cjs --module CommonJS",
