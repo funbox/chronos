@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.0.1 (21.09.2020)
+
+Added `types` field into package.json to fix `tsc` errors and improve IDE's 
+autocomplete.
+
+
 ## 3.0.0 (03.09.2020)
 
 **Breaking change:** `getTime` has been renamed to `getUnixTimestamp`. The function's param type definition has been updated too.
