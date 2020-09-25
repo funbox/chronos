@@ -1,4 +1,5 @@
-import { ChronosDate, ensureDate } from './helpers/ensureDate';
+import { ChronosDate } from './helpers/ensureDate';
+import addDays from './addDays';
 
 /**
  * Subtract days from date
@@ -6,10 +7,4 @@ import { ChronosDate, ensureDate } from './helpers/ensureDate';
  * @param quantity
  * @return - Subtraction result
  */
-export default (value: ChronosDate, quantity: number): Date => {
-  const date = ensureDate(value);
-
-  date.setDate(date.getDate() - quantity);
-
-  return date;
-};
+export default (value: ChronosDate, quantity: number): Date => addDays(value, -quantity);

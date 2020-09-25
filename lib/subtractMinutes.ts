@@ -1,4 +1,5 @@
-import { ChronosDate, ensureDate } from './helpers/ensureDate';
+import { ChronosDate } from './helpers/ensureDate';
+import addMinutes from './addMinutes';
 
 /**
  * Subtract minutes from date
@@ -6,10 +7,4 @@ import { ChronosDate, ensureDate } from './helpers/ensureDate';
  * @param quantity
  * @return - Subtraction result
  */
-export default (value: ChronosDate, quantity: number): Date => {
-  const date = ensureDate(value);
-
-  date.setMinutes(date.getMinutes() - quantity);
-
-  return date;
-};
+export default (value: ChronosDate, quantity: number): Date => addMinutes(value, -quantity);
