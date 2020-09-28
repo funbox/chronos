@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.1.0 (28.09.2020)
+
+Rewrote `subtract*` functions using `add*` functions. It has led to decreasing 
+the total size of the lib.
+
+
 ## 3.0.1 (21.09.2020)
 
 Added `types` field into package.json to fix `tsc` errors and improve IDE's 
