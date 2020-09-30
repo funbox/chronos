@@ -27,11 +27,7 @@
     "//": "TODO: remove full-icu injection after Node.js update: https://github.com/nodejs/node/commit/1a25e901b7c380929f0d08599f49dd77897a627f",
     "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu nyc mocha -- --require ts-node/register tests/*.ts",
     "start": "nodemon -e ts,js,json --exec 'npm test'",
-
     "coveralls": "nyc report --reporter=text-lcov | coveralls"
-  },
-  "dependencies": {
-    "@funboxteam/diamonds": "6.0.0"
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "5.0.0",
