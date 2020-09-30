@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0 (30.09.2020)
+
+Removed @funboxteam/diamonds from the deps. Instead we inlined 
+the only one fn used — `getPlural` in `getRelativeDate`.
+
+
 ## 3.1.0 (28.09.2020)
 
 Rewrote `subtract*` functions using `add*` functions. It has led to decreasing 
