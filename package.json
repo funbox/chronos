@@ -55,7 +55,7 @@
     }
   },
   "lint-staged": {
-    "lib/**/*.js": [
+    "lib/**/*.{js,ts}": [
       "eslint --fix --cache -c .eslintrc.js"
     ],
     "tests/**/*.js": [

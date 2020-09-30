@@ -45,4 +45,4 @@ function getPlural(n: number, one: string, few: string, many: string): string {
   }
 
   return many;
-};
+}
