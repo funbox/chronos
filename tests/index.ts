@@ -598,6 +598,13 @@ describe('getRelativeDate', () => {
     expect(getRelativeDate(date)).to.equal('2 минуты');
   });
 
+  it('returns interval string for 22 minutes', () => {
+    const date = new Date();
+    date.setMinutes(date.getMinutes() - 22);
+
+    expect(getRelativeDate(date)).to.equal('22 минуты');
+  });
+
   it('returns interval string for 5 minutes', () => {
     const date = new Date();
     date.setMinutes(date.getMinutes() - 5);
