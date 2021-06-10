@@ -1,5 +1,22 @@
 # Changelog
 
+## 3.2.1 (10.06.2021)
+
+Fixed several security vulnerabilities:
+
+- [Prototype Pollution](https://github.com/advisories/GHSA-qqgx-2p2h-9c37) in [ini](https://github.com/npm/ini). Updated from 1.3.5 to 1.3.8.
+
+- [Prototype Pollution](https://github.com/advisories/GHSA-c4w7-xm78-47vh) in [y18n](https://github.com/yargs/y18n). Updated from 4.0.0 to 4.0.1.
+
+- [Use of a Broken or Risky Cryptographic Algorithm](https://github.com/advisories/GHSA-r9p9-mrjm-926w) in [elliptic](https://github.com/indutny/elliptic). Updated from 6.5.3 to 6.5.4.
+
+- [Regular Expression Denial of Service](https://github.com/advisories/GHSA-43f8-2h32-f4cj) in [hosted-git-info](https://github.com/npm/hosted-git-info). Updated from 2.8.8 to 2.8.9.
+
+- [Command Injection](https://github.com/advisories/GHSA-35jh-r3h4-6jhm) in [lodash](https://github.com/lodash/lodash). Updated from 4.17.20 to 4.17.21.
+
+- [Regular Expression Denial of Service](https://www.npmjs.com/advisories/1751) in [glob-parent](https://www.npmjs.com/package/glob-parent). Updated from 5.1.1 to 5.1.2. Also led to nodemon update from 1.19.4 to 2.0.7.
+
+
 ## 3.2.0 (30.09.2020)
 
 Removed @funboxteam/diamonds from the deps. Instead we inlined 
