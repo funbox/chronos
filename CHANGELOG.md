@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.2.2 (10.06.2021)
+
+Improved `formatDate` for older browsers.
+
+
 ## 3.2.1 (10.06.2021)
 
 Fixed several security vulnerabilities:
