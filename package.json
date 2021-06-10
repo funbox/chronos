@@ -1,6 +1,6 @@
 {
   "name": "@funboxteam/chronos",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "One library to rule the time",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -27,7 +27,8 @@
     "//": "TODO: remove full-icu injection after Node.js update: https://github.com/nodejs/node/commit/1a25e901b7c380929f0d08599f49dd77897a627f",
     "test": "npm run lint && NODE_ICU_DATA=$PWD/node_modules/full-icu nyc mocha -- --require ts-node/register tests/*.ts",
     "start": "nodemon -e ts,js,json --exec 'npm test'",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls"
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "prepack": "npm run build"
   },
   "devDependencies": {
     "@funboxteam/eslint-config": "5.0.0",
