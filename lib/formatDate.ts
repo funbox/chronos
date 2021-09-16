@@ -32,6 +32,7 @@ export default (value: ChronosDate, format: string): string => {
   format = format.replace('MM', `0${date.getMonth() + 1}`.slice(-2));
   format = format.replace('YYYY', `${date.getFullYear()}`);
   format = format.replace('YY', `${date.getFullYear()}`.substring(2));
+  format = format.replace('ZZ', `${timeZoneOffsetInHours > 0 ? '+' : '-'}${formattedTimeZoneOffset}${timeZoneOffsetMinutes}`);
   format = format.replace('Z', `${timeZoneOffsetInHours > 0 ? '+' : '-'}${formattedTimeZoneOffset}:${timeZoneOffsetMinutes}`);
 
   /*
