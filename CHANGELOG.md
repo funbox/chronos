@@ -1,5 +1,10 @@
 # Changelog
 
+## 3.3.0 (16.09.2021)
+
+Added token `ZZ` to `formatDate`.
+
+
 ## 3.2.2 (10.06.2021)
 
 Improved `formatDate` for older browsers.
