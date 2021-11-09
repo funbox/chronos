@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.0.0 (09.11.2021)
+
+Dropped Node.js 12 support.
+
+
 ## 3.3.0 (16.09.2021)
 
 Added token `ZZ` to `formatDate`.
