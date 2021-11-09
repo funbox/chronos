@@ -23,7 +23,7 @@
     "clean": "rm -rf dist/",
     "lint": "eslint --cache -c .eslintrc.js --ext .ts lib && eslint --cache -c tests/.eslintrc.js --ext .ts tests",
     "prebuild": "npm run lint",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "lawyer && npm run build",
     "test": "npm run lint && nyc mocha -- --require ts-node/register tests/*.ts",
     "start": "nodemon -e ts,js,json --exec 'npm test'",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
