@@ -8,7 +8,7 @@ import { LOCALE_MONTH_OPTIONS, LOCALE } from './constants';
  * @param format
  * @return - Month value
  */
-export default (value: ChronosDate, format: keyof typeof LOCALE_MONTH_OPTIONS = 'long'): string => {
+export default (value: ChronosDate, format: 'long' | 'short' = 'long'): string => {
   const date = ensureDate(value);
 
   return date.toLocaleString(LOCALE, { month: LOCALE_MONTH_OPTIONS[format] });
