@@ -1,12 +1,22 @@
 export const LOCALE = 'ru';
 
-export type LocaleOptionsType = 'DIGIT' | 'NUMERIC' | 'LONG' | 'SHORT';
+export const LOCALE_DAY_OPTIONS = {
+  numeric: 'numeric',
+  '2-digit': '2-digit',
+};
 
-export const LOCALE_OPTIONS: Record<LocaleOptionsType, string> = {
-  DIGIT: '2-digit',
-  NUMERIC: 'numeric',
-  LONG: 'long',
-  SHORT: 'short',
+export const LOCALE_WEEKDAY_OPTIONS = {
+  narrow: 'narrow',
+  long: 'long',
+  short: 'short',
+};
+
+export const LOCALE_MONTH_OPTIONS = {
+  numeric: 'numeric',
+  '2-digit': '2-digit',
+  long: 'long',
+  short: 'short',
+  narrow: 'narrow',
 };
 
 export const TIMEZONE_NAMES = {

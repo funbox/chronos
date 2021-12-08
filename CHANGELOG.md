@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.1.0 (08.12.2021)
+
+Improved typings for `getWeekdayName` and `getMonthName`.
+
+
 ## 4.0.0 (09.11.2021)
 
 Dropped Node.js 12 support.
