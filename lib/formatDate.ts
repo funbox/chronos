@@ -1,4 +1,4 @@
-import { LOCALE, LOCALE_OPTIONS } from './constants';
+import { LOCALE, LOCALE_WEEKDAY_OPTIONS, LOCALE_MONTH_OPTIONS, LOCALE_DAY_OPTIONS } from './constants';
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
@@ -24,11 +24,11 @@ export default (value: ChronosDate, format: string): string => {
   format = format.replace('ss', second);
   format = format.replace('mm', minute);
   format = format.replace('HH', hour);
-  format = format.replace('dddd', date.toLocaleString(LOCALE, { weekday: LOCALE_OPTIONS.LONG }));
+  format = format.replace('dddd', date.toLocaleString(LOCALE, { weekday: LOCALE_WEEKDAY_OPTIONS.long }));
   format = format.replace('DD', `0${date.getDate()}`.slice(-2));
   format = format.replace('D', `${date.getDate()}`); // String.replace wants a string as a second parameter
-  format = format.replace('MMMM', date.toLocaleString(LOCALE, { month: LOCALE_OPTIONS.LONG, day: LOCALE_OPTIONS.NUMERIC }).split(' ')[1]);
-  format = format.replace('MMM', date.toLocaleString(LOCALE, { month: LOCALE_OPTIONS.SHORT }));
+  format = format.replace('MMMM', date.toLocaleString(LOCALE, { month: LOCALE_MONTH_OPTIONS.long, day: LOCALE_DAY_OPTIONS.numeric }).split(' ')[1]);
+  format = format.replace('MMM', date.toLocaleString(LOCALE, { month: LOCALE_MONTH_OPTIONS.short }));
   format = format.replace('MM', `0${date.getMonth() + 1}`.slice(-2));
   format = format.replace('YYYY', `${date.getFullYear()}`);
   format = format.replace('YY', `${date.getFullYear()}`.substring(2));
