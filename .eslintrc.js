@@ -16,6 +16,16 @@ module.exports = {
     '@typescript-eslint/no-useless-constructor': 'error',
     '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/prefer-includes': 'off',
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
+    ]
   },
   settings: {
     'import/extensions': ['.ts'],
