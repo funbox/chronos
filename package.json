@@ -26,7 +26,7 @@
     "prepublishOnly": "lawyer && npm run build",
     "test": "npm run lint && nyc mocha -- --require ts-node/register tests/*.ts",
     "start": "nodemon -e ts,js,json --exec 'npm test'",
-    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "mkdir -p ./coverage/ && nyc report --reporter=text-lcov > ./coverage/lcov.info",
     "prepack": "npm run build"
   },
   "devDependencies": {
@@ -38,7 +38,6 @@
     "@typescript-eslint/parser": "2.34.0",
     "chai": "4.2.0",
     "chai-datetime": "1.5.0",
-    "coveralls": "3.1.0",
     "eslint": "7.32.0",
     "husky": "3.0.8",
     "lint-staged": "10.2.11",

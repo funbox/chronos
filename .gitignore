@@ -75,3 +75,4 @@ target.tar.gz
 
 # -- Dist --
 /dist
+/coverage
