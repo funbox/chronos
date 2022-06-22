@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.1 (22.06.2022)
+
+Fixed `getRelativeDate` return value for dates related to February.
+
+Also fixed several security vulnerabilities.
+
+
 ## 4.1.0 (08.12.2021)
 
 Improved typings for `getWeekdayName` and `getMonthName`.

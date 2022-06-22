@@ -1,4 +1,4 @@
-import { getDiffInDays, getDiffInHours, getDiffInMinutes, getDiffInMonths, getDiffInYears } from '.';
+import { getDay, getDiffInDays, getDiffInHours, getDiffInMinutes, getDiffInMonths, getDiffInYears, getEndOfMonth } from '.';
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
@@ -24,7 +24,7 @@ export default (value: ChronosDate): string => {
     result = `${minutes === 1 ? '' : `${minutes} `}${getPlural(minutes, 'минуту', 'минуты', 'минут')}`;
   } else if (hours < 24) {
     result = `${hours === 1 ? '' : `${hours} `}${getPlural(hours, 'час', 'часа', 'часов')}`;
-  } else if (days < 30) {
+  } else if (days < getDay(getEndOfMonth(date))) {
     result = `${days === 1 ? '' : `${days} `}${getPlural(days, 'день', 'дня', 'дней')}`;
   } else if (months < 12) {
     result = `${months === 1 ? '' : `${months} `}${getPlural(months, 'месяц', 'месяца', 'месяцев')}`;
