@@ -25,6 +25,7 @@
 
 ## Features
 
+
 <img src="images/picture.png" align="right" width="250" alt="Chronos picture: gloomy antique half-human half-clock carved in stone face" />
 
 - **Immutable & pure function per file.** Every function does not have side effects, nor mutates the params.
