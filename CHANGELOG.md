@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.1.2 (13.12.2022)
+
+Fixed rounding issues for negative values in `getDiffInDays`, `getDiffInHours` & `getDiffInMinutes`.
+
+
 ## 4.1.1 (22.06.2022)
 
 Fixed `getRelativeDate` return value for dates related to February.

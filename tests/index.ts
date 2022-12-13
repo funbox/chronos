@@ -348,6 +348,14 @@ describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInMonths, getD
     expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 2, 1))).to.equal(-(60 * 25));
   });
 
+  it('returns 0 when diff in minutes in [0; 1)', () => {
+    expect(getDiffInMinutes(new Date(2020, 0, 1, 0, 0, 59), new Date(2020, 0, 1, 0, 0, 0))).to.equal(0);
+  });
+
+  it('returns 0 when diff in minutes in (-1; 0]', () => {
+    expect(getDiffInMinutes(new Date(2020, 0, 1, 0, 0, 0), new Date(2020, 0, 1, 0, 0, 59))).to.equal(0);
+  });
+
   it('returns diff in hours', () => {
     expect(getDiffInHours(new Date(2020, 0, 1, 5), new Date(2020, 0, 1))).to.equal(5);
   });
@@ -356,12 +364,28 @@ describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInMonths, getD
     expect(getDiffInHours(new Date(2020, 0, 2, 5), new Date(2020, 0, 1))).to.equal(29);
   });
 
+  it('returns 0 when diff in hours in [0; 1)', () => {
+    expect(getDiffInHours(new Date(2020, 0, 1, 0, 59), new Date(2020, 0, 1, 0, 0))).to.equal(0);
+  });
+
+  it('returns 0 when diff in hours in (-1; 0]', () => {
+    expect(getDiffInHours(new Date(2020, 0, 1, 0, 0), new Date(2020, 0, 1, 0, 59))).to.equal(0);
+  });
+
   it('returns diff in days of two unix timestamps', () => {
     expect(getDiffInDays(1572348594627, 1572248594627)).to.equal(1);
   });
 
   it('returns diff in days of different years', () => {
     expect(getDiffInDays(new Date(2019, 0, 1), new Date(2020, 0, 5))).to.equal(-369);
+  });
+
+  it('returns 0 when diff in days in [0; 1)', () => {
+    expect(getDiffInDays(new Date(2020, 0, 1, 23), new Date(2020, 0, 1, 0))).to.equal(0);
+  });
+
+  it('returns 0 when diff in days in (-1; 0]', () => {
+    expect(getDiffInDays(new Date(2020, 0, 1, 0), new Date(2020, 0, 1, 23))).to.equal(0);
   });
 
   it('returns diff in months', () => {
