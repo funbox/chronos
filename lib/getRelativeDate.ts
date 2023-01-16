@@ -1,4 +1,4 @@
-import { getDay, getDiffInDays, getDiffInHours, getDiffInMinutes, getDiffInMonths, getDiffInYears, getEndOfMonth } from '.';
+import { getDay, getDiffInDays, getDiffInHours, getDiffInMinutes, getDiffInCalendarMonths, getDiffInYears, getEndOfMonth } from '.';
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
@@ -13,7 +13,7 @@ export default (value: ChronosDate): string => {
   const minutes = getDiffInMinutes(currentDate, date);
   const hours = getDiffInHours(currentDate, date);
   const days = getDiffInDays(currentDate, date);
-  const months = getDiffInMonths(currentDate, date);
+  const months = getDiffInCalendarMonths(currentDate, date);
   const years = getDiffInYears(currentDate, date);
 
   let result = '';

@@ -11,7 +11,7 @@ export { default as isSameYear } from './isSameYear';
 export { default as getDiffInDays } from './getDiffInDays';
 export { default as getDiffInHours } from './getDiffInHours';
 export { default as getDiffInMinutes } from './getDiffInMinutes';
-export { default as getDiffInMonths } from './getDiffInMonths';
+export { default as getDiffInCalendarMonths } from './getDiffInCalendarMonths';
 export { default as getDiffInYears } from './getDiffInYears';
 export { default as getStartOfDay } from './getStartOfDay';
 export { default as getStartOfDecade } from './getStartOfDecade';
