@@ -35,7 +35,6 @@ export { default as getHours } from './getHours';
 export { default as getMinutes } from './getMinutes';
 export { default as getMonth } from './getMonth';
 export { default as getMonthName } from './getMonthName';
-export { default as getWeek } from './getWeek';
 export { default as getWeekdayName } from './getWeekdayName';
 export { default as getYear } from './getYear';
 export { default as getDuration } from './getDuration';

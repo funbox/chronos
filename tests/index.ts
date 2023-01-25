@@ -22,7 +22,6 @@ const {
   getHours,
   getMinutes,
   getDay,
-  getWeek,
   getMonth,
   getYear,
   getWeekdayName,
@@ -228,7 +227,7 @@ describe('formatTimeString', () => {
   });
 });
 
-describe('getMinutes, getHours, getDay, getWeek, getMonth, getYear', () => {
+describe('getMinutes, getHours, getDay, getMonth, getYear', () => {
   it('returns minute of unix timestamp', () => {
     expect(getMinutes(newYear2020UnixTime)).to.equal(0);
   });
@@ -239,18 +238,6 @@ describe('getMinutes, getHours, getDay, getWeek, getMonth, getYear', () => {
 
   it('returns day of unix timestamp', () => {
     expect(getDay(newYear2020UnixTime)).to.equal(1);
-  });
-
-  it('returns week for 31.12.2019', () => {
-    expect(getWeek(new Date(2019, 11, 31))).to.equal(53);
-  });
-
-  it('returns week for 01.01.2020', () => {
-    expect(getWeek(new Date(2020, 0, 1))).to.equal(1);
-  });
-
-  it('returns week for 05.02.2020', () => {
-    expect(getWeek(new Date(2020, 1, 5))).to.equal(6);
   });
 
   it('returns month of unix timestamp', () => {
