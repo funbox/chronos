@@ -9,11 +9,13 @@ const {
   addHours,
   addDays,
   addMonths,
+  addCalendarMonths,
   addYears,
   subtractMinutes,
   subtractHours,
   subtractDays,
   subtractMonths,
+  subtractCalendarMonths,
   subtractYears,
   formatDate,
   formatTimeString,
@@ -63,7 +65,7 @@ const {
 const newYear2020UnixTime = new Date(2020, 0, 1).getTime() / 1e3;
 const localUTCOffset = `0${Math.abs(getUtcOffset(new Date(2020, 0, 1)))}`.slice(-2);
 
-describe('addMinutes, addHours, addDays, addMonths, addYears', () => {
+describe('addMinutes, addHours, addDays, addMonths, addCalendarMonths, addYears', () => {
   it('adds 1 minute', () => {
     expect(addMinutes(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 0, 1, 0, 1));
   });
@@ -76,16 +78,26 @@ describe('addMinutes, addHours, addDays, addMonths, addYears', () => {
     expect(addDays(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 0, 2));
   });
 
-  it('adds 1 month', () => {
+  it('adds 1 full month', () => {
     expect(addMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 1, 1));
   });
 
-  it('adds 1 month to the end of the month w/ overflowing', () => {
+  it('adds 1 full month to the end of the month w/ overflowing', () => {
     expect(addMonths(new Date(2020, 0, 31), 1)).to.equalTime(new Date(2020, 2, 2));
   });
 
-  it('adds 1 month to the end of the month w/o overflowing', () => {
+  it('adds 1 full month to the end of the month w/o overflowing', () => {
     expect(addMonths(new Date(2020, 1, 28), 1)).to.equalTime(new Date(2020, 2, 28));
+  });
+
+  it('adds 1 calendar month', () => {
+    expect(addCalendarMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 1, 1));
+  });
+
+  it('adds 1 calendar month to the end of the month', () => {
+    expect(addCalendarMonths(new Date(2023, 0, 31), 1)).to.equalTime(new Date(2023, 1, 28));
+    expect(addCalendarMonths(new Date(2023, 1, 28), 1)).to.equalTime(new Date(2023, 2, 28));
+    expect(addCalendarMonths(new Date(2023, 4, 31, 15), 1)).to.equalTime(new Date(2023, 5, 30, 15));
   });
 
   it('adds 1 year', () => {
@@ -93,7 +105,7 @@ describe('addMinutes, addHours, addDays, addMonths, addYears', () => {
   });
 });
 
-describe('subtractMinutes, subtractHours, subtractDays, subtractMonths, subtractYears', () => {
+describe('subtractMinutes, subtractHours, subtractDays, subtractMonths, subtractCalendarMonths, subtractYears', () => {
   it('subtracts 1 minute', () => {
     expect(subtractMinutes(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 31, 23, 59));
   });
@@ -106,16 +118,27 @@ describe('subtractMinutes, subtractHours, subtractDays, subtractMonths, subtract
     expect(subtractDays(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 31));
   });
 
-  it('subtracts 1 month', () => {
+  it('subtracts 1 full month', () => {
     expect(subtractMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 1));
   });
 
-  it('subtracts 1 month from the end of the month w/ overflowing', () => {
+  it('subtracts 1 full month from the end of the month w/ overflowing', () => {
     expect(subtractMonths(new Date(2020, 2, 31), 1)).to.equalTime(new Date(2020, 2, 2));
   });
 
-  it('subtracts 1 month from the end of the month w/o overflowing', () => {
+  it('subtracts 1 full month from the end of the month w/o overflowing', () => {
     expect(subtractMonths(new Date(2020, 1, 29), 1)).to.equalTime(new Date(2020, 0, 29));
+  });
+
+  it('subtracts 1 calendar month', () => {
+    expect(subtractCalendarMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 1));
+  });
+
+  it('subtracts 1 calendar month from the end of the month', () => {
+    expect(subtractCalendarMonths(new Date(2023, 1, 28), 1)).to.equalTime(new Date(2023, 0, 28));
+    expect(subtractCalendarMonths(new Date(2023, 2, 31), 1)).to.equalTime(new Date(2023, 1, 28));
+    expect(subtractCalendarMonths(new Date(2023, 5, 30, 15), 1)).to.equalTime(new Date(2023, 4, 30, 15));
+    expect(subtractCalendarMonths(new Date(2023, 4, 31, 18), 1)).to.equalTime(new Date(2023, 3, 30, 18));
   });
 
   it('subtracts 1 year', () => {
