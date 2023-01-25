@@ -9,6 +9,7 @@ export { default as isSameMinute } from './isSameMinute';
 export { default as isSameMonth } from './isSameMonth';
 export { default as isSameYear } from './isSameYear';
 export { default as getDiffInDays } from './getDiffInDays';
+export { default as getDiffInCalendarDays } from './getDiffInCalendarDays';
 export { default as getDiffInHours } from './getDiffInHours';
 export { default as getDiffInMinutes } from './getDiffInMinutes';
 export { default as getDiffInMonths } from './getDiffInMonths'; // eslint-disable-line import/no-cycle

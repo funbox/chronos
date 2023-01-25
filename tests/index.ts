@@ -34,6 +34,7 @@ const {
   getDiffInMinutes,
   getDiffInHours,
   getDiffInDays,
+  getDiffInCalendarDays,
   getDiffInMonths,
   getDiffInCalendarMonths,
   getDiffInYears,
@@ -336,7 +337,7 @@ describe('isSameMinute, isSameHour, isSameDay, isSameMonth, isSameYear', () => {
   });
 });
 
-describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInMonths, getDiffInCalendarMonths, getDiffInYears', () => {
+describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInCalendarDays, getDiffInMonths, getDiffInCalendarMonths, getDiffInYears', () => {
   it('returns diff in minutes', () => {
     expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 1, 1))).to.equal(-60);
   });
@@ -387,6 +388,14 @@ describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInMonths, getD
 
   it('returns 0 when diff in days in (-1; 0]', () => {
     expect(getDiffInDays(new Date(2020, 0, 1, 0), new Date(2020, 0, 1, 23))).to.equal(0);
+  });
+
+  it('returns diff in calendar days', () => {
+    expect(getDiffInCalendarDays(new Date(2023, 0, 2, 0, 1), new Date(2023, 0, 1, 23, 59))).to.equal(1);
+  });
+
+  it('returns diff in calendar days of different years', () => {
+    expect(getDiffInCalendarDays(new Date(2019, 3, 1, 23), new Date(2020, 3, 1))).to.equal(-366);
   });
 
   it('returns diff in full months', () => {
