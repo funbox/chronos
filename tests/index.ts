@@ -411,12 +411,20 @@ describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInCalendarDays
 
   it('returns diff in full months', () => {
     expect(getDiffInMonths(new Date(2023, 0, 31), new Date(2023, 1, 28))).to.equal(0);
-    expect(getDiffInMonths(new Date(2023, 1, 28), new Date(2023, 2, 31))).to.equal(0);
+    expect(getDiffInMonths(new Date(2023, 1, 28), new Date(2023, 0, 31))).to.equal(0);
+
+    expect(getDiffInMonths(new Date(2023, 1, 28), new Date(2023, 2, 28))).to.equal(-1);
+    expect(getDiffInMonths(new Date(2023, 2, 28), new Date(2023, 1, 28))).to.equal(1);
+
+    expect(getDiffInMonths(new Date(2023, 1, 28), new Date(2023, 2, 31))).to.equal(-1);
+    expect(getDiffInMonths(new Date(2023, 2, 31), new Date(2023, 1, 28))).to.equal(1);
+
     expect(getDiffInMonths(new Date(2023, 0, 30), new Date(2023, 3, 15))).to.equal(-2);
   });
 
   it('returns diff in full months of different years', () => {
     expect(getDiffInMonths(new Date(2022, 0, 5), new Date(2023, 4, 1))).to.equal(-15);
+    expect(getDiffInMonths(new Date(2023, 4, 1), new Date(2022, 0, 5))).to.equal(15);
   });
 
   it('returns diff in calendar months', () => {

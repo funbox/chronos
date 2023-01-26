@@ -15,12 +15,6 @@ export default (firstValue: ChronosDate, secondValue: ChronosDate): number => {
   let diff = Math.abs(diffInCalendarMonths);
 
   if (diff) {
-    const isEndOfFebruary = firstDate.getMonth() === 1 && firstDate.getDate() >= 28;
-
-    if (isEndOfFebruary) {
-      firstDate.setDate(30);
-    }
-
     firstDate.setMonth(firstDate.getMonth() - diffInCalendarMonths);
 
     const datesDiff = firstDate.getTime() - secondDate.getTime();
