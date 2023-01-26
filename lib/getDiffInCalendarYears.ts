@@ -1,7 +1,7 @@
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
 
 /**
- * Calculate difference of dates in years
+ * Calculate difference of dates in calendar years
  * @param firstValue
  * @param secondValue
  * @return - Difference result
