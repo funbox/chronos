@@ -9,18 +9,19 @@ const {
   addHours,
   addDays,
   addMonths,
+  addCalendarMonths,
   addYears,
   subtractMinutes,
   subtractHours,
   subtractDays,
   subtractMonths,
+  subtractCalendarMonths,
   subtractYears,
   formatDate,
   formatTimeString,
   getHours,
   getMinutes,
   getDay,
-  getWeek,
   getMonth,
   getYear,
   getWeekdayName,
@@ -34,8 +35,11 @@ const {
   getDiffInMinutes,
   getDiffInHours,
   getDiffInDays,
+  getDiffInCalendarDays,
   getDiffInMonths,
+  getDiffInCalendarMonths,
   getDiffInYears,
+  getDiffInCalendarYears,
   getStartOfMinutes,
   getStartOfHours,
   getStartOfDay,
@@ -61,7 +65,7 @@ const {
 const newYear2020UnixTime = new Date(2020, 0, 1).getTime() / 1e3;
 const localUTCOffset = `0${Math.abs(getUtcOffset(new Date(2020, 0, 1)))}`.slice(-2);
 
-describe('addMinutes, addHours, addDays, addMonths, addYears', () => {
+describe('addMinutes, addHours, addDays, addMonths, addCalendarMonths, addYears', () => {
   it('adds 1 minute', () => {
     expect(addMinutes(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 0, 1, 0, 1));
   });
@@ -74,16 +78,26 @@ describe('addMinutes, addHours, addDays, addMonths, addYears', () => {
     expect(addDays(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 0, 2));
   });
 
-  it('adds 1 month', () => {
+  it('adds 1 full month', () => {
     expect(addMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 1, 1));
   });
 
-  it('adds 1 month to the end of the month w/ overflowing', () => {
+  it('adds 1 full month to the end of the month w/ overflowing', () => {
     expect(addMonths(new Date(2020, 0, 31), 1)).to.equalTime(new Date(2020, 2, 2));
   });
 
-  it('adds 1 month to the end of the month w/o overflowing', () => {
+  it('adds 1 full month to the end of the month w/o overflowing', () => {
     expect(addMonths(new Date(2020, 1, 28), 1)).to.equalTime(new Date(2020, 2, 28));
+  });
+
+  it('adds 1 calendar month', () => {
+    expect(addCalendarMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2020, 1, 1));
+  });
+
+  it('adds 1 calendar month to the end of the month', () => {
+    expect(addCalendarMonths(new Date(2023, 0, 31), 1)).to.equalTime(new Date(2023, 1, 28));
+    expect(addCalendarMonths(new Date(2023, 1, 28), 1)).to.equalTime(new Date(2023, 2, 28));
+    expect(addCalendarMonths(new Date(2023, 4, 31, 15), 1)).to.equalTime(new Date(2023, 5, 30, 15));
   });
 
   it('adds 1 year', () => {
@@ -91,7 +105,7 @@ describe('addMinutes, addHours, addDays, addMonths, addYears', () => {
   });
 });
 
-describe('subtractMinutes, subtractHours, subtractDays, subtractMonths, subtractYears', () => {
+describe('subtractMinutes, subtractHours, subtractDays, subtractMonths, subtractCalendarMonths, subtractYears', () => {
   it('subtracts 1 minute', () => {
     expect(subtractMinutes(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 31, 23, 59));
   });
@@ -104,16 +118,27 @@ describe('subtractMinutes, subtractHours, subtractDays, subtractMonths, subtract
     expect(subtractDays(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 31));
   });
 
-  it('subtracts 1 month', () => {
+  it('subtracts 1 full month', () => {
     expect(subtractMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 1));
   });
 
-  it('subtracts 1 month from the end of the month w/ overflowing', () => {
+  it('subtracts 1 full month from the end of the month w/ overflowing', () => {
     expect(subtractMonths(new Date(2020, 2, 31), 1)).to.equalTime(new Date(2020, 2, 2));
   });
 
-  it('subtracts 1 month from the end of the month w/o overflowing', () => {
+  it('subtracts 1 full month from the end of the month w/o overflowing', () => {
     expect(subtractMonths(new Date(2020, 1, 29), 1)).to.equalTime(new Date(2020, 0, 29));
+  });
+
+  it('subtracts 1 calendar month', () => {
+    expect(subtractCalendarMonths(newYear2020UnixTime, 1)).to.equalTime(new Date(2019, 11, 1));
+  });
+
+  it('subtracts 1 calendar month from the end of the month', () => {
+    expect(subtractCalendarMonths(new Date(2023, 1, 28), 1)).to.equalTime(new Date(2023, 0, 28));
+    expect(subtractCalendarMonths(new Date(2023, 2, 31), 1)).to.equalTime(new Date(2023, 1, 28));
+    expect(subtractCalendarMonths(new Date(2023, 5, 30, 15), 1)).to.equalTime(new Date(2023, 4, 30, 15));
+    expect(subtractCalendarMonths(new Date(2023, 4, 31, 18), 1)).to.equalTime(new Date(2023, 3, 30, 18));
   });
 
   it('subtracts 1 year', () => {
@@ -203,7 +228,7 @@ describe('formatTimeString', () => {
   });
 });
 
-describe('getMinutes, getHours, getDay, getWeek, getMonth, getYear', () => {
+describe('getMinutes, getHours, getDay, getMonth, getYear', () => {
   it('returns minute of unix timestamp', () => {
     expect(getMinutes(newYear2020UnixTime)).to.equal(0);
   });
@@ -214,18 +239,6 @@ describe('getMinutes, getHours, getDay, getWeek, getMonth, getYear', () => {
 
   it('returns day of unix timestamp', () => {
     expect(getDay(newYear2020UnixTime)).to.equal(1);
-  });
-
-  it('returns week for 31.12.2019', () => {
-    expect(getWeek(new Date(2019, 11, 31))).to.equal(53);
-  });
-
-  it('returns week for 01.01.2020', () => {
-    expect(getWeek(new Date(2020, 0, 1))).to.equal(1);
-  });
-
-  it('returns week for 05.02.2020', () => {
-    expect(getWeek(new Date(2020, 1, 5))).to.equal(6);
   });
 
   it('returns month of unix timestamp', () => {
@@ -335,7 +348,7 @@ describe('isSameMinute, isSameHour, isSameDay, isSameMonth, isSameYear', () => {
   });
 });
 
-describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInMonths, getDiffInYears', () => {
+describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInCalendarDays, getDiffInMonths, getDiffInCalendarMonths, getDiffInYears, getDiffInCalendarYears', () => {
   it('returns diff in minutes', () => {
     expect(getDiffInMinutes(new Date(2020, 0, 1), new Date(2020, 0, 1, 1))).to.equal(-60);
   });
@@ -388,16 +401,48 @@ describe('getDiffInMinutes, getDiffInHours, getDiffInDays, getDiffInMonths, getD
     expect(getDiffInDays(new Date(2020, 0, 1, 0), new Date(2020, 0, 1, 23))).to.equal(0);
   });
 
-  it('returns diff in months', () => {
-    expect(getDiffInMonths(new Date(2020, 0, 1), new Date(2020, 4, 1))).to.equal(-4);
+  it('returns diff in calendar days', () => {
+    expect(getDiffInCalendarDays(new Date(2023, 0, 2, 0, 1), new Date(2023, 0, 1, 23, 59))).to.equal(1);
   });
 
-  it('returns diff in months of different years', () => {
-    expect(getDiffInMonths(new Date(2019, 0, 1), new Date(2020, 4, 1))).to.equal(-16);
+  it('returns diff in calendar days of different years', () => {
+    expect(getDiffInCalendarDays(new Date(2019, 3, 1, 23), new Date(2020, 3, 1))).to.equal(-366);
   });
 
-  it('returns diff in years', () => {
+  it('returns diff in full months', () => {
+    expect(getDiffInMonths(new Date(2023, 0, 31), new Date(2023, 1, 28))).to.equal(0);
+    expect(getDiffInMonths(new Date(2023, 1, 28), new Date(2023, 0, 31))).to.equal(0);
+
+    expect(getDiffInMonths(new Date(2023, 1, 28), new Date(2023, 2, 28))).to.equal(-1);
+    expect(getDiffInMonths(new Date(2023, 2, 28), new Date(2023, 1, 28))).to.equal(1);
+
+    expect(getDiffInMonths(new Date(2023, 1, 28), new Date(2023, 2, 31))).to.equal(-1);
+    expect(getDiffInMonths(new Date(2023, 2, 31), new Date(2023, 1, 28))).to.equal(1);
+
+    expect(getDiffInMonths(new Date(2023, 0, 30), new Date(2023, 3, 15))).to.equal(-2);
+  });
+
+  it('returns diff in full months of different years', () => {
+    expect(getDiffInMonths(new Date(2022, 0, 5), new Date(2023, 4, 1))).to.equal(-15);
+    expect(getDiffInMonths(new Date(2023, 4, 1), new Date(2022, 0, 5))).to.equal(15);
+  });
+
+  it('returns diff in calendar months', () => {
+    expect(getDiffInCalendarMonths(new Date(2020, 0, 1), new Date(2020, 4, 1))).to.equal(-4);
+  });
+
+  it('returns diff in calendar months of different years', () => {
+    expect(getDiffInCalendarMonths(new Date(2019, 0, 1), new Date(2020, 4, 1))).to.equal(-16);
+  });
+
+  it('returns diff in full years', () => {
     expect(getDiffInYears(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(1);
+    expect(getDiffInYears(new Date(2023, 0, 1), new Date(2021, 5, 1))).to.equal(1);
+  });
+
+  it('returns diff in calendar years', () => {
+    expect(getDiffInCalendarYears(new Date(2020, 0, 1), new Date(2019, 0, 1))).to.equal(1);
+    expect(getDiffInCalendarYears(new Date(2023, 0, 1), new Date(2021, 5, 1))).to.equal(2);
   });
 
   it('returns diff in years in days', () => {

@@ -1,7 +1,8 @@
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
+import getDiffInCalendarMonths from './getDiffInCalendarMonths';
 
 /**
- * Calculate difference of dates in months
+ * Calculate difference of dates in full months
  * @param firstValue
  * @param secondValue
  * @return - Difference result
@@ -9,10 +10,20 @@ import { ChronosDate, ensureDate } from './helpers/ensureDate';
 export default (firstValue: ChronosDate, secondValue: ChronosDate): number => {
   const firstDate = ensureDate(firstValue);
   const secondDate = ensureDate(secondValue);
-  let diff = 0;
+  const diffInCalendarMonths = getDiffInCalendarMonths(firstDate, secondDate);
 
-  diff += (firstDate.getFullYear() - secondDate.getFullYear()) * 12;
-  diff += firstDate.getMonth() - secondDate.getMonth();
+  let diff = Math.abs(diffInCalendarMonths);
 
-  return diff;
+  if (diff) {
+    firstDate.setMonth(firstDate.getMonth() - diffInCalendarMonths);
+
+    const datesDiff = firstDate.getTime() - secondDate.getTime();
+    const isNotFullMonth = diffInCalendarMonths < 0 ? datesDiff > 0 : datesDiff < 0;
+
+    if (isNotFullMonth) {
+      diff -= 1;
+    }
+  }
+
+  return diffInCalendarMonths < 0 && diff !== 0 ? -diff : diff;
 };

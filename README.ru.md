@@ -54,24 +54,25 @@
   - [ChronosDate](#chronosdate)
   - [Duration](#duration)
 - [Функции](#функции)
-  - [addMinutes](#addminutes-addhours-adddays-addmonths-addyears)
-  - [addHours](#addminutes-addhours-adddays-addmonths-addyears)
-  - [addDays](#addminutes-addhours-adddays-addmonths-addyears)
-  - [addMonths](#addminutes-addhours-adddays-addmonths-addyears)
-  - [addYears](#addminutes-addhours-adddays-addmonths-addyears)
-  - [subtractMinutes](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractyears)
-  - [subtractHours](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractyears)
-  - [subtractDays](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractyears)
-  - [subtractMonths](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractyears)
-  - [subtractYears](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractyears)
+  - [addMinutes](#addminutes-addhours-adddays-addmonths-addcalendarmonths-addyears)
+  - [addHours](#addminutes-addhours-adddays-addmonths-addcalendarmonths-addyears)
+  - [addDays](#addminutes-addhours-adddays-addmonths-addcalendarmonths-addyears)
+  - [addMonths](#addminutes-addhours-adddays-addmonths-addcalendarmonths-addyears)
+  - [addCalendarMonths](#addminutes-addhours-adddays-addmonths-addcalendarmonths-addyears)
+  - [addYears](#addminutes-addhours-adddays-addmonths-addcalendarmonths-addyears)
+  - [subtractMinutes](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractcalendarmonths-subtractyears)
+  - [subtractHours](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractcalendarmonths-subtractyears)
+  - [subtractDays](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractcalendarmonths-subtractyears)
+  - [subtractMonths](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractcalendarmonths-subtractyears)
+  - [subtractCalendarMonths](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractcalendarmonths-subtractyears)
+  - [subtractYears](#subtractminutes-subtracthours-subtractdays-subtractmonths-subtractcalendarmonths-subtractyears)
   - [formatDate](#formatdate)
   - [formatTimeString](#formattimestring)
-  - [getMinutes](#getminutes-gethours-getday-getweek-getmonth-getyear)
-  - [getHours](#getminutes-gethours-getday-getweek-getmonth-getyear)
-  - [getDay](#getminutes-gethours-getday-getweek-getmonth-getyear)
-  - [getWeek](#getminutes-gethours-getday-getweek-getmonth-getyear)
-  - [getMonth](#getminutes-gethours-getday-getweek-getmonth-getyear)
-  - [getYear](#getminutes-gethours-getday-getweek-getmonth-getyear)
+  - [getMinutes](#getminutes-gethours-getday-getmonth-getyear)
+  - [getHours](#getminutes-gethours-getday-getmonth-getyear)
+  - [getDay](#getminutes-gethours-getday-getmonth-getyear)
+  - [getMonth](#getminutes-gethours-getday-getmonth-getyear)
+  - [getYear](#getminutes-gethours-getday-getmonth-getyear)
   - [getWeekdayName](#getweekdayname-getmonthname)
   - [getMonthName](#getweekdayname-getmonthname)
   - [getDuration](#getduration)
@@ -80,11 +81,14 @@
   - [isSameDay](#issameminute-issamehour-issameday-issamemonth-issameyear)
   - [isSameMonth](#issameminute-issamehour-issameday-issamemonth-issameyear)
   - [isSameYear](#issameminute-issamehour-issameday-issamemonth-issameyear)
-  - [getDiffInMinutes](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffinmonths-getdiffinyears)
-  - [getDiffInHours](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffinmonths-getdiffinyears)
-  - [getDiffInDays](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffinmonths-getdiffinyears)
-  - [getDiffInMonths](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffinmonths-getdiffinyears)
-  - [getDiffInYears](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffinmonths-getdiffinyears)
+  - [getDiffInMinutes](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
+  - [getDiffInHours](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
+  - [getDiffInDays](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
+  - [getDiffInCalendarDays](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
+  - [getDiffInMonths](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
+  - [getDiffInCalendarMonths](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
+  - [getDiffInYears](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
+  - [getDiffInCalendarYears](#getdiffinminutes-getdiffinhours-getdiffindays-getdiffincalendardays-getdiffinmonths-getdiffincalendarmonths-getdiffinyears-getdiffincalendaryears)
   - [getStartOfMinutes](#getstartofminutes-getstartofhours-getstartofday-getstartofweek-getstartofmonth-getstartofyear-getstartofdecade)
   - [getStartOfHours](#getstartofminutes-getstartofhours-getstartofday-getstartofweek-getstartofmonth-getstartofyear-getstartofdecade)
   - [getStartOfDay](#getstartofminutes-getstartofhours-getstartofday-getstartofweek-getstartofmonth-getstartofyear-getstartofdecade)
@@ -155,7 +159,7 @@ declare type Duration = {
 Каждая функция иммутабельна, а потому если передать в них инстанс `Date`, они всегда вернут новый инстанс `Date`, 
 и не будут изменять переданный.
 
-### [addMinutes](./lib/addMinutes.ts), [addHours](./lib/addHours.ts), [addDays](./lib/addDays.ts), [addMonths](./lib/addMonths.ts), [addYears](./lib/addYears.ts)
+### [addMinutes](./lib/addMinutes.ts), [addHours](./lib/addHours.ts), [addDays](./lib/addDays.ts), [addMonths](./lib/addMonths.ts), [addCalendarMonths](./lib/addCalendarMonths.ts), [addYears](./lib/addYears.ts)
 
 ```typescript
 (value: ChronosDate, quantity: number) => Date;
@@ -176,16 +180,12 @@ addYears(1577836800, 1); // 2021-01-01T00:00:00.000Z
 
 addMonths(new Date(2020, 0, 1), 1); // == new Date(2020, 1, 1);
 addMonths(new Date(2020, 0, 31), 1); // == new Date(2020, 2, 2);
+
+addCalendarMonths(new Date(2020, 0, 1), 1); // == new Date(2020, 1, 1);
+addCalendarMonths(new Date(2020, 0, 31), 1); // == new Date(2020, 1, 29);
 ```
 
-#### Важное замечание
-
-При добавление месяцев к дате в JS нужно всегда учитывать количество дней в текущем и в получаемом месяце.
-
-Так, если добавить 1 месяц с 31.01.2020 получится 02.03.2020, а не 29.02.2020, потому что не может быть 31.02.2020.
-
-
-### [subtractMinutes](./lib/subtractMinutes.ts), [subtractHours](./lib/subtractHours.ts), [subtractDays](./lib/subtractDays.ts), [subtractMonths](./lib/subtractMonths.ts), [subtractYears](./lib/subtractYears.ts)
+### [subtractMinutes](./lib/subtractMinutes.ts), [subtractHours](./lib/subtractHours.ts), [subtractDays](./lib/subtractDays.ts), [subtractMonths](./lib/subtractMonths.ts), [subtractCalendarMonths](./lib/subtractCalendarMonths.ts), [subtractYears](./lib/subtractYears.ts)
 
 ```typescript
 (value: ChronosDate, quantity: number) => Date;
@@ -205,15 +205,11 @@ subtractDays(new Date('2020-01-01T00:00:00.000Z'), 1); // 2019-12-31T00:00:00.00
 subtractYears(1577836800, 1); // 2019-01-01T00:00:00.000Z
 
 subtractMonths(new Date(2020, 0, 1), 1); // == new Date(2019, 11, 1);
-subtractMonths(new Date(2020, 1, 29), 1); // == new Date(2020, 0, 29);
+subtractMonths(new Date(2020, 2, 31), 1); // == new Date(2020, 2, 2);
+
+subtractCalendarMonths(new Date(2020, 0, 1), 1); // == new Date(2019, 11, 1);
+subtractCalendarMonths(new Date(2020, 2, 31), 1); // == new Date(2020, 1, 29);
 ```
-
-#### Важное замечание
-
-При вычитание месяцев из даты в JS нужно всегда учитывать количество дней в текущем и в получаемом месяце.
-
-Так, если вычесть 1 месяц из 29.02.2020 получится 29.01.2020, а не 31.01.2020.
-
 
 ### [formatDate](./lib/formatDate.ts)
 
@@ -286,7 +282,7 @@ formatTime('22:00', 'HH:mm', 'HH:mm:ss'); // '22:00:00'
 ```
 
 
-### [getMinutes](./lib/getMinutes.ts), [getHours](./lib/getHours.ts), [getDay](./lib/getDay.ts), [getWeek](./lib/getWeek.ts), [getMonth](./lib/getMonth.ts), [getYear](./lib/getYear.ts)
+### [getMinutes](./lib/getMinutes.ts), [getHours](./lib/getHours.ts), [getDay](./lib/getDay.ts), [getMonth](./lib/getMonth.ts), [getYear](./lib/getYear.ts)
 
 ```typescript
 (value: ChronosDate) => number;
@@ -304,10 +300,6 @@ getDay(new Date(2020, 0, 1)); // 1;
 // 1577836800 — это 2020-01-01T00:00:00.000Z
 getYear(1577836800); // 2020
 ```
-
-#### Важное замечание
-
-`getWeek` возвращает номер недели, по порядку, с начала текущего года.
 
 
 ### [getWeekdayName](./lib/getWeekdayName.ts), [getMonthName](./lib/getMonthName.ts)
@@ -368,7 +360,7 @@ isSameYear(1577750400, 1577836800); // false
 ```
 
 
-### [getDiffInMinutes](./lib/getDiffInMinutes.ts), [getDiffInHours](./lib/getDiffInHours.ts), [getDiffInDays](./lib/getDiffInDays.ts), [getDiffInMonths](./lib/getDiffInMonths.ts), [getDiffInYears](./lib/getDiffInYears.ts)  
+### [getDiffInMinutes](./lib/getDiffInMinutes.ts), [getDiffInHours](./lib/getDiffInHours.ts), [getDiffInDays](./lib/getDiffInDays.ts), [getDiffInCalendarDays](./lib/getDiffInCalendarDays.ts), [getDiffInMonths](./lib/getDiffInMonths.ts), [getDiffInCalendarMonths](./lib/getDiffInCalendarMonths.ts), [getDiffInYears](./lib/getDiffInYears.ts), [getDiffInCalendarYears](./lib/getDiffInCalendarYears.ts)
 
 ```typescript
 (firstValue: ChronosDate, secondValue: ChronosDate) => number;
