@@ -1,5 +1,16 @@
 # Migration
 
+## 4.1.2 → 5.0.0
+
+If you used `getWeek`, then make sure you've replaced this function with your own implementation.
+
+If you used [`getDiffInMonths`](lib/getDiffInMonths.ts) or [`getDiffInYears`](lib/getDiffInYears.ts), 
+then check their sources. Ensure that they work exactly as you expect. It's possible that instead you'd like to use 
+[`getDiffInCalendarMonths`](lib/getDiffInCalendarMonths.ts) and [`getDiffInCalendarYears`](lib/getDiffInCalendarYears.ts).
+
+Everything else should work as before.
+
+
 ## 3.3.0 → 4.0.0
 
 Nothing changed. 

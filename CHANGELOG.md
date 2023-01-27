@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.0.0 (27.01.2023)
+
+Added alternative functions to deal with both full and calendar days, months, years.
+
+Removed `getWeek` function.
+
+Colsult the [migration guide](./MIGRATION.md) for more.
+
+
 ## 4.1.2 (13.12.2022)
 
 Fixed rounding issues for negative values in `getDiffInDays`, `getDiffInHours` & `getDiffInMinutes`.
