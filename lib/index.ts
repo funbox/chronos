@@ -13,7 +13,7 @@ export { default as getDiffInDays } from './getDiffInDays';
 export { default as getDiffInCalendarDays } from './getDiffInCalendarDays';
 export { default as getDiffInHours } from './getDiffInHours';
 export { default as getDiffInMinutes } from './getDiffInMinutes';
-export { default as getDiffInMonths } from './getDiffInMonths'; // eslint-disable-line import/no-cycle
+export { default as getDiffInMonths } from './getDiffInMonths';
 export { default as getDiffInCalendarMonths } from './getDiffInCalendarMonths';
 export { default as getDiffInYears } from './getDiffInYears';
 export { default as getDiffInCalendarYears } from './getDiffInCalendarYears';

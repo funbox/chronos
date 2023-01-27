@@ -1,5 +1,5 @@
 import { ChronosDate, ensureDate } from './helpers/ensureDate';
-import { getDiffInCalendarMonths } from '.';
+import getDiffInCalendarMonths from './getDiffInCalendarMonths';
 
 /**
  * Calculate difference of dates in full months
