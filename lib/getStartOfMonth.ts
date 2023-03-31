@@ -9,11 +9,12 @@ import { ChronosDate, ensureDate } from './helpers/ensureDate';
 export default (value: ChronosDate, diff = 0): Date => {
   const date = ensureDate(value);
 
+  date.setDate(1);
+
   if (diff) {
     date.setMonth(date.getMonth() + diff);
   }
 
-  date.setDate(1);
   date.setHours(0, 0, 0, 0);
 
   return date;
