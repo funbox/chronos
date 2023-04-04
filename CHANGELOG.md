@@ -1,5 +1,11 @@
 # Changelog
 
+## 5.0.1 (04.04.2023)
+
+Fixed `getStartOfMonth` which returned wrong value when the second argument is passed 
+and the difference between the current and the desired month is not equal to 0.
+
+
 ## 5.0.0 (27.01.2023)
 
 Added alternative functions to deal with both full and calendar days, months, years.

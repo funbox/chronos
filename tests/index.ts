@@ -527,6 +527,10 @@ describe('getStartOfMinutes, getStartOfHours, getStartOfDay, getStartOfWeek, get
     expect(getStartOfMonth(new Date(2020, 2, 2, 23, 59), -1)).to.equalTime(new Date(2020, 1, 1, 0, 0));
   });
 
+  it('returns date of start of month - 1', () => {
+    expect(getStartOfMonth(new Date(2023, 2, 31, 23, 59), -1)).to.equalTime(new Date(2023, 1, 1, 0, 0));
+  });
+
   it('returns date of start of year', () => {
     expect(getStartOfYear(new Date(2020, 1, 1, 23, 59))).to.equalTime(new Date(2020, 0, 1, 0, 0));
   });
