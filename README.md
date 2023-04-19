@@ -9,8 +9,8 @@
     <img alt="npm" src="https://img.shields.io/npm/v/@funboxteam/chronos.svg?color=000&labelColor=888" />
   </a>
   
-  <a href="https://travis-ci.com/github/funbox/chronos/">
-    <img alt="CI status" src="https://img.shields.io/travis/com/funbox/chronos.svg?color=000&labelColor=888" />
+  <a href="https://github.com/funbox/chronos/actions/workflows/node.js.yml">
+    <img alt="CI status" src="https://img.shields.io/github/actions/workflow/status/funbox/chronos/node.js.yml?color=000&labelColor=888" />
   </a>
   
   <a href="https://coveralls.io/github/funbox/chronos">
