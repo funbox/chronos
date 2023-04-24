@@ -40,7 +40,7 @@
     "chai-datetime": "1.5.0",
     "eslint": "7.32.0",
     "husky": "3.0.8",
-    "lint-staged": "10.2.11",
+    "lint-staged": "13.2.1",
     "mocha": "9.2.2",
     "nodemon": "2.0.20",
     "nyc": "15.1.0",
