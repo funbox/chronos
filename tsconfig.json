@@ -21,6 +21,6 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true
   },
-  "include": ["lib/**/*", "tests"],
+  "include": ["lib/**/*"],
   "exclude": ["node_modules", "dist"]
 }
