@@ -1,6 +1,6 @@
 {
   "name": "@funboxteam/chronos",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "One library to rule the time",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
