@@ -1,5 +1,12 @@
 # Changelog
 
+## 5.0.3 (23.05.2023)
+
+Fixed the content of the package. 
+
+Previous release introduced an additional layer of subdirectories, which ruined all the imports on users' projects.
+
+
 ## 5.0.2 (29.05.2023)
 
 Ensured Chronos supports Node.js 18.
