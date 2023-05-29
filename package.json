@@ -13,7 +13,8 @@
   },
   "files": [
     "dist/",
-    "MIGRATION.md"
+    "MIGRATION.md",
+    "CHANGELOG.md"
   ],
   "types": "dist/types/",
   "scripts": {
