@@ -14,13 +14,13 @@
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
-
     /* Module Resolution Options */
     "moduleResolution": "node",
 
     /* Advanced Options */
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true
   },
-  "include": ["lib/**/*"],
+  "include": ["lib/**/*", "tests"],
   "exclude": ["node_modules", "dist"]
 }

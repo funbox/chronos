@@ -4,10 +4,10 @@ import { getYear } from '.';
 /**
  * Parse string to Date object
  * @param value
- * @param format
+ * @param [format]
  * @return - Date object result
  */
-export default (value: string, format: string): Date => {
+export default (value: string, format?: string): Date => {
   if (!value) {
     throw new Error('Empty value');
   }

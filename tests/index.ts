@@ -1,10 +1,8 @@
 import { describe, it } from 'mocha';
+import { use as chaiUse, expect } from 'chai';
+import chaiDatetime from 'chai-datetime';
 
-require('chai').use(require('chai-datetime'));
-
-const expect = require('chai').expect;
-
-const {
+import {
   addMinutes,
   addHours,
   addDays,
@@ -60,7 +58,9 @@ const {
   getTimezoneName,
   isTimeValid,
   parseDate,
-} = require('../lib');
+} from '../lib';
+
+chaiUse(chaiDatetime);
 
 const newYear2020UnixTime = new Date(2020, 0, 1).getTime() / 1e3;
 const localUTCOffset = `0${Math.abs(getUtcOffset(new Date(2020, 0, 1)))}`.slice(-2);

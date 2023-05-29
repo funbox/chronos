@@ -1,5 +1,14 @@
 # Changelog
 
+## 5.0.2 (29.05.2023)
+
+Ensured Chronos supports Node.js 18.
+
+Improved types of `parseDate`: `format` always has been an optional param, but has not been marked as such.
+
+Improved type coercions in the internal functions.
+
+
 ## 5.0.1 (04.04.2023)
 
 Fixed `getStartOfMonth` which returned wrong value when the second argument is passed 
